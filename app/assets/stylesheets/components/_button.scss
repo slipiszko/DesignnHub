@@ -51,7 +51,7 @@
 
 .btn-home {
   padding: 8px 24px;
-  border: 3px solid orange;
+  border: 3px solid $orange;
   background: transparent;
   transition: background 0.3s ease;
   color: white;
@@ -59,7 +59,7 @@
     color: white;
   }
   &:hover {
-    background: orange;
+    background: $orange;
       a {
       color: white;
     }
