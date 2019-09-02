@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  padding: 2px 12px;
+  padding: 10px 12px;
   position: absolute;
 
 .logo-name {
@@ -16,7 +16,7 @@ a {
     font-weight: 300;
 
   &:hover {
-    transform: translateY(10%);
+    transform: translateX(-5%);
     transition-timing-function: ease-out;
     transition: 0.2s;
   }
@@ -26,12 +26,18 @@ a {
   .navbar-collapse {
     flex-grow: 0;
   }
-.navbar-brand {
-  margin: 0;
-  padding: 0;
-}
+
+  .navbar-brand {
+    margin: 0;
+    padding: 0;
+  }
+
   .navbar-brand img {
     width: 40px;
+  }
+
+  .navbar-nav {
+    align-items: center;
   }
 
   .nav-link {
