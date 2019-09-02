@@ -5,16 +5,16 @@ class ProfilesController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(profile_params)
+    if @user.update(profile_params)
       redirect_to profile_path(current_user)
     else
-      render 'pages#home'
+      render :edit
     end
   end
 
   private
 
   def profile_params
-    params.require(:profiles).permit(:first_name, :last_name, :job, :bio, :city, :photo)
+    params.require(:user).permit(:first_name, :last_name, :job, :bio, :city, :photo)
   end
 end
