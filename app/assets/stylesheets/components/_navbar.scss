@@ -1,12 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  padding: 10px 12px;
+  position: absolute;
 
-  .logo-name {
+.logo-name {
   display: inline;
-  }
+}
 
-  a {
+a {
     color: white;
     text-decoration: none;
     background-color: transparent;
@@ -14,17 +16,28 @@
     font-weight: 300;
 
   &:hover {
-    transform: translateY(10%);
+    transform: translateX(-5%);
     transition-timing-function: ease-out;
     transition: 0.2s;
   }
+
+}
 
   .navbar-collapse {
     flex-grow: 0;
   }
 
+  .navbar-brand {
+    margin: 0;
+    padding: 0;
+  }
+
   .navbar-brand img {
     width: 40px;
+  }
+
+  .navbar-nav {
+    align-items: center;
   }
 
   .nav-link {
@@ -44,6 +57,8 @@
     }
   }
 }
+
+.dropdown-menu {
+  background: black;
+  border-radius: 2px;
 }
-
-
