@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'design/index'
+  get 'design/show'
+  get 'design/new'
+  get 'design/edit'
   devise_for :users
   root to: 'pages#home'
 
