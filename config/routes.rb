@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :designs, only: [:index, :show, :new, :edit]
   root to: 'pages#home'
   resources :profiles, only: [:edit, :update]
 
@@ -12,4 +13,3 @@ Rails.application.routes.draw do
     # patch  '/users',           to: 'devise/registrations#update'
     # put    '/users',           to: 'devise/registrations#update'
   end
-end
