@@ -1,0 +1,56 @@
+.banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  height: calc(100vh);
+  min-height: 700px;
+  position: relative;
+  padding: 230px 0px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  font-family: "Roboto";
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  font-size: 48px;
+  font-weight: lighter;
+  transition-delay: .1s;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
