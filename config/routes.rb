@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :designs, only: [:index, :show, :new, :edit]
   root to: 'pages#home'
+  resources :designs, only: [:index, :show, :new, :edit]
   resources :profiles, only: [:edit, :update]
 
   devise_for :users, skip: :registrations
