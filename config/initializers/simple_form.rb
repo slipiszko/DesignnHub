@@ -64,6 +64,8 @@ SimpleForm.setup do |config|
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
+  config.form_class = 'simple_form form-horizontal'
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 
