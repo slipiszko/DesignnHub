@@ -1,4 +1,4 @@
-class DesignController < ApplicationController
+class DesignsController < ApplicationController
   def index
     @designs = Design.all
   end
