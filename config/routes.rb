@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  get 'design/index'
-  get 'design/show'
-  get 'design/new'
-  get 'design/edit'
-  devise_for :users
   root to: 'pages#home'
+  resources :designs, only: [:index, :show, :new, :edit]
+  resources :profiles, only: [:edit, :update, :show]
 
-  resources :designs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, skip: :registrations
+  as :user do
+    get    '/users/cancel',    to: 'devise/registrations#cancel', as: 'cancel_user_registration'
+    post   '/users',           to: 'devise/registrations#create', as: 'user_registration'
+    delete '/users',           to: 'devise/registrations#destroy'
+    get    '/users/sign_up',   to: 'devise/registrations#new', as: 'new_user_registration'
+    # get    '/users/edit'      to: 'devise/registrations#edit', as: 'edit_user_registration'
+    # patch  '/users',           to: 'devise/registrations#update'
+    # put    '/users',           to: 'devise/registrations#update'
+  end
 end
