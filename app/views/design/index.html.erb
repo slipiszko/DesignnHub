@@ -1,2 +1,58 @@
 <h1>Design#index</h1>
 <p>Find me in app/views/design/index.html.erb</p>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Category
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a class="dropdown-item" href="#">ALL</a>
+    <a class="dropdown-item" href="#">Photography</a>
+    <a class="dropdown-item" href="#">Architecture</a>
+    <a class="dropdown-item" href="#">Design</a>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a class="dropdown-item" href="#">ALL</a>
+    <a class="dropdown-item" href="#">Photography</a>
+    <a class="dropdown-item" href="#">Architecture</a>
+    <a class="dropdown-item" href="#">Design</a>
+  </div>
+</div>
+
+
+<%= form_tag designs_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search]%>
+   <%= submit_tag "Search", :name => nil  %>
+ <% end %>
+
+ <hr />
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ <tr>
+  <td><hr></td>
+  <td><hr></td>
+</tr>
+<% @designs.each do |design| %>
+
+    <tr>
+      <td><%= design.title %></td>
+      <td><%= design.description %></td>
+      <td><%= link_to 'Show', :action => :show, :id => design.id %></td>
+    </tr>
+    <tr>
+      <td><hr></td>
+      <td><hr></td>
+    </tr>
+  <% end %>
+</table>
+
