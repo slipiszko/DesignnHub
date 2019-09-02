@@ -1,12 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  padding: 2px 12px;
+  position: absolute;
 
-  .logo-name {
+.logo-name {
   display: inline;
-  }
+}
 
-  a {
+a {
     color: white;
     text-decoration: none;
     background-color: transparent;
@@ -19,10 +21,15 @@
     transition: 0.2s;
   }
 
+}
+
   .navbar-collapse {
     flex-grow: 0;
   }
-
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
   .navbar-brand img {
     width: 40px;
   }
@@ -44,6 +51,8 @@
     }
   }
 }
+
+.dropdown-menu {
+  background: black;
+  border-radius: 2px;
 }
-
-
