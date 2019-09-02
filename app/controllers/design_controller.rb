@@ -5,6 +5,7 @@ class DesignController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
+    @design = Design.search(params[:search], params[:id])
   end
 
   def edit

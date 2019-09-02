@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'carrierwave'
+gem 'country_select'
+
 
 gem 'cloudinary', '~> 1.9.1'
 
