@@ -1,11 +1,15 @@
 require 'faker'
+puts" destroying..."
+Comment.destroy_all
 User.destroy_all
 Design.destroy_all
 
 puts "Creating 3 Users..."
 count = 1
-3.times do |n|
-  user = User.new(
+
+users = []
+3.times { users <<
+  user = User.create!(
     first_name: "First",
     last_name: "Last Name",
     email: "user#{count}@user.com",
@@ -15,26 +19,37 @@ count = 1
     city: "Berlin",
     photo: open('app/assets/images/profile-picture.jpg')
     )
-  user.save!
   count += 1
-end
+  }
+puts "finish!"
 
-puts 'finish!'
+puts "Creating designs"
 
-users = User.all
-puts "Creating 2 Designs..."
-
-13.times do |f|
-  design = Design.new(
+designs = []
+13.times { designs <<
+   design = Design.create!(
     photo: open('app/assets/images/design.jpeg'),
     title: "Design title",
     description: "Design description",
     category: "photography",
     user: users.sample
     )
-  design.save!
-end
-puts "finish!"
+  }
+
+  puts "finish"
+
+  puts "create comments"
+
+  designs.uniq.each do |des|
+    comment = Comment.create!(
+      content: "this is my comment",
+      design: des,
+      user: users.sample
+      )
+  end
+
+  puts "finish"
+
 
 
 
