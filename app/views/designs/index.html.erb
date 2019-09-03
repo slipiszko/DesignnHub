@@ -1,6 +1,5 @@
-<h1>Design#index</h1>
-
-<div class="dropdown">
+<div class="container-bar">
+  <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Category
   </button>
@@ -11,9 +10,9 @@
     <a class="dropdown-item" href="#">Architecture</a>
     <a class="dropdown-item" href="#">Design</a>
   </div>
-</div>
+  </div>
 
-<div class="dropdown">
+  <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -23,19 +22,26 @@
     <a class="dropdown-item" href="#">Architecture</a>
     <a class="dropdown-item" href="#">Design</a>
   </div>
+  </div>
+
+  <div class="search-bar ml-auto">
+    <%= form_tag designs_path, :method => 'get', class: "search-form" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
+      <%= button_tag(type: 'submit', class: "search-btn") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+   <% end %>
+  </div>
 </div>
 
 
-<%= form_tag designs_path, :method => 'get'  do %>
-   <%= text_field_tag :search, params[:search]%>
-   <%= submit_tag "Search", :name => nil  %>
- <% end %>
+<hr>
 
- <hr>
+ <div class="design-card">
   <% @designs.each do |design| %>
     <%=cl_image_tag design.photo%>
     <%= design.title %>
     <%= cl_image_tag design.user.photo %>
     <%= design.user.first_name %> <%= design.user.last_name %>
   <% end %>
-
+  </div>

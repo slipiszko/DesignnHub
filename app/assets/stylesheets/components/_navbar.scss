@@ -14,7 +14,7 @@ a {
     font-weight: 300;
 
   &:hover {
-    transform: translateX(-5%);
+    transform: translateX(-1%);
     transition-timing-function: ease-out;
     transition: 0.2s;
     color: $orange;
@@ -58,5 +58,6 @@ a {
 }
 
 .dropdown-menu {
-  border-radius: 2px;
+  border: 0.5px solid;
+  padding: 2px 4px;
 }
