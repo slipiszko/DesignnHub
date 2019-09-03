@@ -6,14 +6,13 @@ puts "Creating 3 Users..."
 count = 1
 3.times do |n|
   user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    birthday: Faker::Date.birthday,
+    first_name: "First",
+    last_name: "Last Name",
     email: "user#{count}@user.com",
     password: "123456",
-    job: Faker::Job.title,
+    job: "Photography Freelancer",
     bio: "Design lover",
-    city: Faker::Address.city,
+    city: "Berlin",
     photo: open('app/assets/images/profile-picture.jpg')
     )
   user.save!
@@ -25,11 +24,11 @@ puts 'finish!'
 users = User.all
 puts "Creating 2 Designs..."
 
-2.times do |f|
+13.times do |f|
   design = Design.new(
-    photo: open('app/assets/images/profile-picture.jpg'),
-    title: "look at me beautiful design",
-    description: "Designs made with love",
+    photo: open('app/assets/images/design.jpeg'),
+    title: "Design title",
+    description: "Design description",
     category: "photography",
     user: users.sample
     )
