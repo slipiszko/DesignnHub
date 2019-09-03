@@ -19,6 +19,10 @@
 <% if @comments.nil? || @comments.empty? %>
 
   <div>
+    No comments
+  </div>
+
+  <div>
     <%= simple_form_for [@design, @comment] , method: :post do |form| %>
       <%= form.input :content, label: false, placeholder: "Be the first to leave a comment..." %>
       <%= form.submit "COMMENT" %>
@@ -35,6 +39,7 @@
       </div>
       <div>
         <%= comment.content %>
+        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment) %>
       </div>
     <% end %>
   </div>
