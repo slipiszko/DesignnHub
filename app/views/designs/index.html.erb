@@ -33,9 +33,10 @@
 
  <hr>
   <% @designs.each do |design| %>
-    <%=cl_image_tag design.photo%>
+    <%= cl_image_tag design.photo%>
     <%= design.title %>
     <%= cl_image_tag design.user.photo %>
     <%= design.user.first_name %> <%= design.user.last_name %>
+    <%= link_to "show", design_path(design.id) %>
   <% end %>
 
