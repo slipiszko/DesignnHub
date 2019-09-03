@@ -11,7 +11,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = @user
     @comment.design = @design
-    @comment.save
+    if @comment.save
+      redirect_to design_path(@design)
+    else
+      render 'designs/show'
+    end
   end
 
   def edit
