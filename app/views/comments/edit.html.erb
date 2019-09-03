@@ -1,0 +1,4 @@
+<%= simple_form_for [@design, @comment], method: :patch do |form| %>
+  <%= form.input :content, label: false %>
+  <%= form.submit "UPDATE" %>
+<% end %>
