@@ -1,6 +1,55 @@
+<div>
+  <%= cl_image_tag @design.photo %>
+</div>
 
-<h1>helloooo</h1>
+<div>
+  <div>
+    <%= cl_image_tag @user.photo %>
+    <br>
+    <%= @user.first_name %> <%= @user.last_name %>
+  </div>
 
-<%= @design.title %>
-<%= cl_image_tag @design.photo %>
+  <div>
+    <%= @design.title %>
+    <br>
+    <%= @design.description %>
+  </div>
+</div>
 
+<% if @comments.nil? || @comments.empty? %>
+
+  <div>
+    No comments
+  </div>
+
+  <div>
+    <%= simple_form_for [@design, @comment] , method: :post do |form| %>
+      <%= form.input :content, label: false, placeholder: "Be the first to leave a comment..." %>
+      <%= form.submit "COMMENT" %>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div>
+    <% @comments.each do |comment| %>
+      <div>
+        <%= cl_image_tag comment.user.photo %>
+        <%= comment.user.first_name %> <%= comment.user.last_name %>
+      </div>
+      <div>
+        <%= comment.content %>
+        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment) %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= simple_form_for [@design, @comment] , method: :post do |form| %>
+      <%= form.input :content, label: false, placeholder: "Comment..." %>
+      <%= form.submit "COMMENT" %>
+    <% end %>
+  </div>
+
+<% end %>

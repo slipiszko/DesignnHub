@@ -5,6 +5,9 @@ class DesignsController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
+    @user = @design.user
+    @comments = @design.comments
+    @comment = Comment.new
   end
 
   def edit
