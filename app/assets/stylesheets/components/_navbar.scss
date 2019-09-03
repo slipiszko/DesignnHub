@@ -2,15 +2,12 @@
   justify-content: space-between;
   background: white;
   padding: 10px 12px;
-  position: absolute;
-  width: 100%;
 
 .logo-name {
   display: inline;
 }
 
 a {
-    color: white;
     text-decoration: none;
     background-color: transparent;
     font-size: 1.15rem;
@@ -20,6 +17,7 @@ a {
     transform: translateX(-5%);
     transition-timing-function: ease-out;
     transition: 0.2s;
+    color: $orange;
   }
 
 }
