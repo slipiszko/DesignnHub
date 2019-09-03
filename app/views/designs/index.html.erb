@@ -1,29 +1,11 @@
 <div class="container-bar">
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Category
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a class="dropdown-item" href="#">ALL</a>
-    <a class="dropdown-item" href="#">Photography</a>
-    <a class="dropdown-item" href="#">Architecture</a>
-    <a class="dropdown-item" href="#">Design</a>
+  <div class="category-link">
+    <%= link_to "All", designs_path %>
+    <%= link_to "Photography", designs_path %>
+    <%= link_to "Architecture", designs_path %>
+    <%= link_to "Product Design", designs_path %>
+    <%= link_to "Illustration", designs_path %>
   </div>
-  </div>
-
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a class="dropdown-item" href="#">ALL</a>
-    <a class="dropdown-item" href="#">Photography</a>
-    <a class="dropdown-item" href="#">Architecture</a>
-    <a class="dropdown-item" href="#">Design</a>
-  </div>
-  </div>
-
   <div class="search-bar ml-auto">
     <%= form_tag designs_path, :method => 'get', class: "search-form" do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
@@ -33,9 +15,6 @@
    <% end %>
   </div>
 </div>
-
-
-<hr>
 
  <div class="design-card">
   <% @designs.each do |design| %>
