@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+  get 'comments/edit'
   root to: 'pages#home'
-  resources :designs, only: [:index, :show, :new, :edit]
+  resources :designs, only: [:index, :show, :new, :edit] do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
   resources :profiles, only: [:show]
 
   devise_for :users, controllers: { registrations: 'registrations' }
