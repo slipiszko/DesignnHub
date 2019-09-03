@@ -33,14 +33,16 @@
 
   <div>
     <% @comments.each do |comment| %>
+    <div id="comment-<%= comment.id %>">
       <div>
         <%= cl_image_tag comment.user.photo %>
         <%= comment.user.first_name %> <%= comment.user.last_name %>
       </div>
       <div>
         <%= comment.content %>
-        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment) %>
+        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
       </div>
+    </div>
     <% end %>
   </div>
 

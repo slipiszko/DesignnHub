@@ -22,7 +22,16 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment.update(comment_params)
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to design_path(@design) }
+        format.json { head :no_content }
+        format.js {}
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
