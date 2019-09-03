@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = @user
+    @comment.design = @design
   end
 
   def edit
