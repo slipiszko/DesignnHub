@@ -54,7 +54,8 @@
   border: 3px solid $orange;
   background: transparent;
   transition: background 0.3s ease;
-  color: white;
+  color: $orange;
+  text-transform: uppercase;
     a {
     color: white;
   }
