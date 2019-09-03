@@ -9,18 +9,22 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user = @user
+    @comment.design = @design
+    @comment.save
   end
 
   def edit
   end
 
   def update
+    @comment.update(comment_params)
   end
 
   private
 
   def comment_params
-    params.permit(:comment).permit(:content)
+    params.require(:comment).permit(:content)
   end
 
   def set_current_comment
