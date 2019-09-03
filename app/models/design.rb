@@ -9,11 +9,11 @@ class Design < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true
 
-  def self.search(search, id)
-    if search
-      where(['name LIKE ?', "%#{search}%"])
-    else
-     scoped
-    end
-  end
+  # def self.search(search, id)
+  #   if search
+  #     where(['name LIKE ?', "%#{search}%"])
+  #   else
+  #    scoped
+  #   end
+  # end
 end
