@@ -40,12 +40,20 @@ designs = []
 
   puts "create comments"
 
+  content = [
+    "this is my comment",
+    "i left my comment here",
+    "a comment was posted here",
+    "my favourite comment is above"
+  ]
+
   designs.uniq.each do |des|
-    comment = Comment.create!(
-      content: "this is my comment",
+    5.times { comment = Comment.create!(
+      content: content.sample,
       design: des,
       user: users.sample
       )
+    }
   end
 
   puts "finish"
