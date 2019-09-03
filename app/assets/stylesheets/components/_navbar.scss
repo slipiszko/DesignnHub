@@ -2,23 +2,22 @@
   justify-content: space-between;
   background: white;
   padding: 10px 12px;
-  position: absolute;
 
 .logo-name {
   display: inline;
 }
 
 a {
-    color: white;
     text-decoration: none;
     background-color: transparent;
     font-size: 1.15rem;
     font-weight: 300;
 
   &:hover {
-    transform: translateX(-5%);
+    transform: translateX(-1%);
     transition-timing-function: ease-out;
     transition: 0.2s;
+    color: $orange;
   }
 
 }
@@ -59,6 +58,6 @@ a {
 }
 
 .dropdown-menu {
-  background: black;
-  border-radius: 2px;
+  border: 0.5px solid;
+  padding: 2px 4px;
 }
