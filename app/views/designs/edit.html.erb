@@ -1,31 +1,44 @@
-    <h1> add your comment </h1>
+   <h1> add your comment </h1>
 <html>
   <head>
-
   </head>
-
   <body>
-    <p>asdf sadf asdfasdf </p>
-    <p>asdfasdfasdf</p>
-    <div class="js-design-photo-pinner design-photo-pinner">
-      <%= cl_image_tag @design.photo %>
-      <div class ="js-design-photo-pin design-photo-pin">
+    <div class="container">
+        <div class="js-design-photo-pinner design-photo-pinner">
+          <%= cl_image_tag @design.photo %>
+          <div class ="js-design-photo-pin design-photo-pin"></div>
+          <p id="demo"></p>
 
-      </div>
+          <script>
+            function showCoords(event) {
+              var x = event.clientX;
+              var y = event.clientY;
+              var coords = [x,y];
+              document.getElementById("demo").innerHTML = coords;
+            }
+          </script>
+
+      <form action="#" id="js-comment-form">
+          <h1>Comments</h1>
+              <div class="form-group">
+                <label for="your-message">Your comment</label>
+                <textarea type="text" name="content" id="js-your-message" class="form-control" placeholder="Here is my message.."></textarea>
+              </div>
+              <input type="text" class="js-comment-x">
+              <input type="text" class="js-comment-y">
+          <input type="submit" value="Send" class="btn btn-primary">
+      </form>
+        <div id="messages">
+          <ul class="list-unstyled">
+            <li>A sample message (posted <span class="date">10 minutes ago</span>) by John</li>
+          </ul>
+          <button class="btn btn-danger" id="refresh">Refresh Chat</button>
+        </div>
+        </div>
     </div>
-      <p id="demo"></p>
-
-      <script>
-      function showCoords(event) {
-        var x = event.clientX;
-        var y = event.clientY;
-        var coords = [x,y];
-        document.getElementById("demo").innerHTML = coords;
-      }
-      </script>
+      <script src="main.js"></script>
   </body>
 </html>
-
 
 
 
