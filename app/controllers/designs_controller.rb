@@ -16,13 +16,14 @@ class DesignsController < ApplicationController
 
   def new
     @design = Design.new
+    @user = current_user
   end
 
   def create
     @design = Design.new(design_params)
     @design.user = current_user
     if @design.save
-      redirect_to designs_path
+      redirect_to profile_path(current_user)
     else
       render :new
     end

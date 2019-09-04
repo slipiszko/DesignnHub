@@ -1,4 +1,4 @@
-<div class="container-bar">
+<div class="container-bar d-flex">
   <div class="category-link">
     <%= link_to "All", designs_path %>
     <%= link_to "Photography", designs_path %>
@@ -16,12 +16,10 @@
   </div>
 </div>
 
- <div class="design-card">
-  <% @designs.each do |design| %>
-    <%= cl_image_tag design.photo%>
-    <%= design.title %>
-    <%= cl_image_tag design.user.photo %>
-    <%= design.user.first_name %> <%= design.user.last_name %>
-    <%= link_to "show", design_path(design.id) %>
-  <% end %>
+<div class="card-container">
+<% @designs.each do |design| %>
+  <div class="cards">
+    <%= render 'card', design: design %>
   </div>
+<% end %>
+</div>

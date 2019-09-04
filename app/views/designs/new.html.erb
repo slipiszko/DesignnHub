@@ -1,2 +1,11 @@
-<h1>Design#new</h1>
-<p>Find me in app/views/design/new.html.erb</p>
+<h1>Upload Your Design</h1>
+<br>
+<%= simple_form_for @design , method: :post do |form| %>
+  <%= form.input :title %>
+  <%= form.input :description %>
+  <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+  <%= form.association :design_tags, input_html: { class: 'select2' } %>
+  <%= form.input :photo, label: 'Profile Picture' %>
+  <%= form.input :photo_cache, as: :hidden %>
+  <%= form.submit "UPLOAD" %>
+<% end %>

@@ -1,6 +1,4 @@
 .container-bar {
-  display: flex;
-  justify-content: space-between;
   padding: 0 24px;
 }
 
@@ -10,7 +8,7 @@
   a {
     color: black;
     margin-right: 18px;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0.3s;
     border-bottom: 1px solid transparent;
 
     &:hover {
