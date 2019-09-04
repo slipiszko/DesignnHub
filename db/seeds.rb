@@ -13,7 +13,7 @@ count = 1
     job: "Photography Freelancer",
     bio: "Design lover",
     city: "Berlin",
-    photo: open('app/assets/images/profile-picture.jpg')
+    photo: open('app/assets/images/avatar-default.png')
     )
   user.save!
   count += 1
