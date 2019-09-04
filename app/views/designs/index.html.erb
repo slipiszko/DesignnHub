@@ -1,31 +1,47 @@
 <div class="container-bar">
-  <div class="category-link">
-    <%= link_to "Web Design", designs_path %>
-    <%= link_to "Photography", designs_path %>
-    <%= link_to "Architecture", designs_path %>
-    <%= link_to "Product Design", designs_path %>
-    <%= link_to "Illustration", designs_path %>
-  </div>
   <div class="search-bar ml-auto">
     <%= form_tag designs_path, :method => 'get', class: "search-form" do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
       <%= button_tag(type: 'submit', class: "search-btn") do %>
         <i class="fas fa-search"></i>
       <% end %>
-   <% end %>
+    <% end %>
+    <div class="row">
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Web Design", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Photography", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Architecture", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Product Design", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Animation", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Illustration", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Typography", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Games & Entertainment", designs_path %>
+      </div>
+      <div class="category-link col-6 col-md-4">
+        <%= link_to "Others", designs_path %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="design-card">
-  <div class="card mb-3">
-    <% @designs.each do |design| %>
-      <%= cl_image_tag design.photo, class: "card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title"><%= design.title %></h5>
-      <p class="card-text"><%= cl_image_tag design.user.photo %></p>
-      <p class="card-text"><small class="text-muted"><%= design.user.first_name %> <%= design.user.last_name %></small></p>
-      <%= link_to "See More", design_path(design.id) %>
-      <% end %>
-    </div>
+<div class="card-container">
+<% @designs.each do |design| %>
+  <div class="cards">
+    <%= render 'card', design: design %>
   </div>
+<% end %>
 </div>
