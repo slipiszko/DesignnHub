@@ -35,14 +35,17 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    if current_user.upvoted?(@comment)
-      return
-    else
-      current_user.remove_vote(@comment)
-      current_user.upvote(@comment)
+    respond_to do |format|
+      if current_user.upvoted?(@comment)
+        return
+      else
+        format.html { redirect_to design_path(@comment.design) }
+        format.json { head :no_content }
+        format.js {}
+        current_user.remove_vote(@comment)
+        current_user.upvote(@comment)
+      end
     end
-
-    redirect_to design_path(@comment.design)
   end
 
   def downvote

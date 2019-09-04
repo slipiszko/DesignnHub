@@ -1,16 +1,16 @@
-<% if current_user.upvoted?(comment) === true %>
-  <p>upvote</p>:
-  <%= comment.upvotes %>
-  <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
-  <%= comment.downvotes %>
-<% elsif current_user.downvoted?(comment) === true %>
-  <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
-  <%= comment.upvotes %>
-  <p>downvote</p>:
-  <%= comment.downvotes %>
-<% else %>
-  <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
-  <%= comment.upvotes %>
-  <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
-  <%= comment.downvotes %>
+<% if current_user.upvoted?(comment) == true %>
+    <p>upvote</p>:
+    <%= comment.upvotes %>
+    <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
+    <%= comment.downvotes %>
+  <% elsif current_user.downvoted?(comment) == true %>
+    <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
+    <%= comment.upvotes %>
+    <p>downvote</p>:
+    <%= comment.downvotes %>
+  <% else %>
+    <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
+    <%= comment.upvotes %>
+    <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
+    <%= comment.downvotes %>
 <% end %>

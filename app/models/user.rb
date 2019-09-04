@@ -23,7 +23,11 @@ class User < ApplicationRecord
   end
 
   def remove_vote(comment)
-    votes.find_by(comment: comment).destroy
+    if comment.upvotes == 0 && comment.downvotes == 0
+      return
+    else
+      votes.find_by(comment: comment).destroy
+    end
   end
 
   def downvote(comment)
