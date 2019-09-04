@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment_user,    only: [:new, :create, :edit, :update]
   before_action :set_comment_design,  only: [:new, :create, :edit, :update]
-  before_action :set_current_comment, only: [:edit, :update]
+  before_action :set_current_comment, only: [:edit, :update, :upvote, :downvote]
 
   def new
     @comment = Comment.new
@@ -32,6 +32,14 @@ class CommentsController < ApplicationController
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def upvote
+    @comment.upvotes += 1
+  end
+
+  def downvote
+    @coment.downvotes += 1
   end
 
   private
