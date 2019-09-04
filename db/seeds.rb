@@ -17,7 +17,7 @@ users = []
     job: "Photography Freelancer",
     bio: "Design lover",
     city: "Berlin",
-    photo: open('app/assets/images/profile-picture.jpg')
+    photo: open('app/assets/images/avatar-default.png')
     )
   count += 1
   }
