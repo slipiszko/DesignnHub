@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :designs, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :comments, only: [:new, :create, :edit, :update]
+    resources :comments, only: [:new, :create, :edit, :update] do
+      post :upvote, on: :member
+      post :downvote, on: :member
+    end
   end
 
   resources :profiles, only: [:show]

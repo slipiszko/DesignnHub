@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_050610) do
+ActiveRecord::Schema.define(version: 2019_09_04_054030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_050610) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "upvotes", default: 0
-    t.integer "downvotes", default: 0
+    t.integer "upvote", default: 0
+    t.integer "downvote", default: 0
     t.index ["design_id"], name: "index_comments_on_design_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -64,8 +64,21 @@ ActiveRecord::Schema.define(version: 2019_09_04_050610) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_votes_on_comment_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "comments", "designs"
   add_foreign_key "comments", "users"
   add_foreign_key "design_tags", "designs"
   add_foreign_key "designs", "users"
+  add_foreign_key "votes", "comments"
+  add_foreign_key "votes", "users"
 end
