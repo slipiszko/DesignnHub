@@ -9,7 +9,6 @@ class Design < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :category, presence: true
-  validates_uniqueness_of :design_tags
 
   # def self.search(search, id)
   #   if search
