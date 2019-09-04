@@ -4,6 +4,7 @@
   <%= form.input :title %>
   <%= form.input :description %>
   <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+  <%= form.association :design_tags, input_html: { class: 'select2' } %>
   <%= form.input :photo, label: 'Profile Picture' %>
   <%= form.input :photo_cache, as: :hidden %>
   <%= form.submit "UPLOAD" %>
