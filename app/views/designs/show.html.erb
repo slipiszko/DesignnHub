@@ -41,6 +41,8 @@
       <div>
         <%= comment.content %>
         <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+        <%= link_to "upvote", upvote_design_comment_path(comment.design, comment), method: :post %>
+        <%= comment.upvotes %>
       </div>
     </div>
     <% end %>

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment_user,    only: [:new, :create, :edit, :update]
-  before_action :set_comment_design,  only: [:new, :create, :edit, :update]
+  before_action :set_comment_user,    only: [:new, :create, :edit, :update, :upvote, :downvote]
+  before_action :set_comment_design,  only: [:new, :create, :edit, :update, :upvote, :downvote]
   before_action :set_current_comment, only: [:edit, :update, :upvote, :downvote]
 
   def new
@@ -35,11 +35,29 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    @comment.upvotes += 1
+    if current_user.upvoted?(@design, @comment)
+      current_user.remove_vote(@design, @comment)
+    elsif current_user.upvoted?(@design, @comment)
+      current_user.remove_vote(@design, @comment)
+      current_user.downvote(@design, @comment)
+    else
+      current_user.upvote(@design, @comment)
+    end
+
+    redirect_to design_path(@design)
   end
 
   def downvote
-    @coment.downvotes += 1
+    if current_user.downvoted?(@design, @comment)
+      current_user.remove_vote(@design, @comment)
+    elsif current_user.upvoted?(@design, @comment)
+      current_user.remove_vote(@design, @comment)
+      current_user.downvote(@design, @comment)
+    else
+      current_user.downvote(@design, @comment)
+    end
+
+    redirect_to design_path(@design)
   end
 
   private
