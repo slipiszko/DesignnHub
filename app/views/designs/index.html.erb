@@ -1,12 +1,22 @@
 <div class="container-bar d-flex">
-  <div class="category-link">
-    <%= link_to "All", designs_path %>
-    <%= link_to "Photography", designs_path %>
-    <%= link_to "Architecture", designs_path %>
-    <%= link_to "Product Design", designs_path %>
-    <%= link_to "Illustration", designs_path %>
+  <div class="category-link-area">
+    <div class="scroll-bar">
+      <div class="category-link">
+        <%= link_to "All", designs_path %>
+        <%= link_to "Photography", designs_path %>
+        <%= link_to "Architecture", designs_path %>
+        <%= link_to "Product Design", designs_path %>
+        <%= link_to "Animation", designs_path %>
+        <%= link_to "Web Design", designs_path %>
+        <%= link_to "Games & Entertainment", designs_path %>
+        <%= link_to "Paint", designs_path %>
+        <%= link_to "Sound Design", designs_path %>
+        <%= link_to "Typography", designs_path %>
+      </div>
+    </div>
+    <i class="fas fa-caret-right category-link-more"></i>
   </div>
-  <div class="search-bar ml-auto">
+  <div class="search-bar ml-3">
     <%= form_tag designs_path, :method => 'get', class: "search-form" do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
       <%= button_tag(type: 'submit', class: "search-btn") do %>
