@@ -14,23 +14,23 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  def upvote(design, comment)
-    votes.create(upvote: 1, design: design, comment: comment)
+  def upvote(comment)
+    votes.create(upvotes: 1, comment: comment)
   end
 
-  def upvoted?(design, comment)
-    votes.exists?(upvotes: 1, design: design, comment: comment)
+  def upvoted?(comment)
+    votes.exists?(upvotes: 1, comment: comment)
   end
 
-  def remove_vote(design, comment)
-    votes.find_by(design: design, comment: comment).destroy
+  def remove_vote(comment)
+    votes.find_by(comment: comment).destroy
   end
 
-  def downvote(design, comment)
-    votes.create(downvote: 1, design: design, comment: comment)
+  def downvote(comment)
+    votes.create(downvotes: 1, comment: comment)
   end
 
-  def downvoted?(design, comment)
-    votes.exists?(downvote: 1, design: design, comment: comment)
+  def downvoted?(comment)
+    votes.exists?(downvotes: 1, comment: comment)
   end
 end
