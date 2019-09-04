@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :designs, only: [:index, :show, :new, :edit] do
+  resources :designs, only: [:index, :show, :new, :create, :edit, :update] do
     resources :comments, only: [:new, :create, :edit, :update]
   end
 
