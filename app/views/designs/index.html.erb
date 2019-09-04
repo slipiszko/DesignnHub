@@ -1,40 +1,18 @@
-<div class="container-bar">
+<div class="container-bar d-flex">
+  <div class="category-link">
+    <%= link_to "All", designs_path %>
+    <%= link_to "Photography", designs_path %>
+    <%= link_to "Architecture", designs_path %>
+    <%= link_to "Product Design", designs_path %>
+    <%= link_to "Illustration", designs_path %>
+  </div>
   <div class="search-bar ml-auto">
     <%= form_tag designs_path, :method => 'get', class: "search-form" do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
       <%= button_tag(type: 'submit', class: "search-btn") do %>
         <i class="fas fa-search"></i>
       <% end %>
-    <% end %>
-    <div class="row">
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Web Design", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Photography", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Architecture", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Product Design", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Animation", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Illustration", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Typography", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Games & Entertainment", designs_path %>
-      </div>
-      <div class="category-link col-6 col-md-4">
-        <%= link_to "Others", designs_path %>
-      </div>
-    </div>
+   <% end %>
   </div>
 </div>
 
