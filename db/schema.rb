@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_054030) do
+ActiveRecord::Schema.define(version: 2019_09_04_072207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_054030) do
     t.datetime "updated_at", null: false
     t.integer "upvote", default: 0
     t.integer "downvote", default: 0
+    t.float "latitude"
+    t.float "longitude"
     t.index ["design_id"], name: "index_comments_on_design_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

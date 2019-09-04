@@ -1,4 +1,3 @@
-
 const designPhotoPinnerComponents = document.querySelectorAll('.js-design-photo-pinner');
 // const baseUrl = `http://localhost:3000/designs/${:id}/edit`;
 const comment = document.querySelector("#js-your-message");
