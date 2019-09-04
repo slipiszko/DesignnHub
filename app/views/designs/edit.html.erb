@@ -1,2 +1,34 @@
-<h1>Design#edit</h1>
-<p>Find me in app/views/design/edit.html.erb</p>
+    <h1> add your comment </h1>
+<html>
+  <head>
+
+  </head>
+
+  <body>
+    <p>asdf sadf asdfasdf </p>
+    <p>asdfasdfasdf</p>
+    <div class="js-design-photo-pinner design-photo-pinner">
+      <%= cl_image_tag @design.photo %>
+      <div class ="js-design-photo-pin design-photo-pin">
+
+      </div>
+    </div>
+      <p id="demo"></p>
+
+      <script>
+      function showCoords(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var coords = [x,y];
+        document.getElementById("demo").innerHTML = coords;
+      }
+      </script>
+  </body>
+</html>
+
+
+
+
+
+
+
