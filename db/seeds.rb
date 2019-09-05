@@ -162,8 +162,8 @@ content = [
 designs.uniq.each do |design|
   5.times { comment = Comment.create!(
     content: content.sample,
-    x: '0.231',
-    y: '0.1738',
+    x: rand(0.1..1),
+    y: rand(0.1..1),
     design: design,
     user: users.sample
     )

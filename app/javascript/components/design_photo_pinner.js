@@ -16,19 +16,20 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
     inputX.value = x;
     inputY.value = y;
   });
-  photoPinnerComponent.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const message = comment.value;
-  const myname = name.value;
-  list.insertAdjacentHTML("beforeend", `<li>"${message}" by "${myname}" </li>`);
-  const apiMessage = { author: myname, content: message };
-  fetch(baseUrl, {
-    method: 'POST',
-    body: JSON.stringify(apiMessage)
-  })
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-  });
-});
+ });
+
+  // photoPinnerComponent.addEventListener('submit', (event) => {
+  // event.preventDefault();
+  // const message = comment.value;
+  // const myname = name.value;
+  // list.insertAdjacentHTML("beforeend", `<li>"${message}" by "${myname}" </li>`);
+  // const apiMessage = { author: myname, content: message };
+  // fetch(baseUrl, {
+  //   method: 'POST',
+  //   body: JSON.stringify(apiMessage)
+  // })
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //   });
+
