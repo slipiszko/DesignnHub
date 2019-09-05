@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_062806) do
+ActiveRecord::Schema.define(version: 2019_09_05_074821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_062806) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "upvote", default: 0
-    t.integer "downvote", default: 0
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
     t.float "x"
     t.float "y"
     t.index ["design_id"], name: "index_comments_on_design_id"
