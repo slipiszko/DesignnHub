@@ -1,4 +1,8 @@
 .title-underline {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid $orange;
   transition: all ease-in-out 1s;
+}
+
+.thin-heading {
+  font-weight: 300;
 }
