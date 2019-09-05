@@ -1,5 +1,5 @@
  <div class="container py-5">
-  <h1>ADD DESIGN</h1>
+  <h1 class="thin-heading">ADD DESIGN</h1>
   <div class="title-underline mb-4"></div>
   <%= simple_form_for @design , method: :post do |form| %>
     <%= form.input :title %>
@@ -9,6 +9,6 @@
     <%= form.input :photo, label: 'Design' %>
     <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
     <br>
-    <%= form.submit "ADD DESIGN", class: "btn-outline-black" %>
+    <%= form.submit "ADD DESIGN", class: "btn btn-primary" %>
   <% end %>
 </div>
