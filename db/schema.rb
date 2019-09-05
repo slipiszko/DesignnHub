@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_062806) do
     t.datetime "updated_at", null: false
     t.integer "upvote", default: 0
     t.integer "downvote", default: 0
-    t.string "latitude"
-    t.string "longitude"
+    t.float "x"
+    t.float "y"
     t.index ["design_id"], name: "index_comments_on_design_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
