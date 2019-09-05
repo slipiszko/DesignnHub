@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content py-1 px-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ADD DESIGN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for design , method: :post do |form| %>
+          <%= form.input :title %>
+          <%= form.input :description %>
+          <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+          <%= form.association :design_tags, input_html: { class: 'select2' } %>
+          <%= form.input :photo, label: 'Photo' %>
+          <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
+      </div>
+      <div class="modal-footer">
+          <%= form.submit "ADD DESIGN", class: "btn-outline-black" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
