@@ -17,16 +17,17 @@
   border: 3px solid black;
   background: white;
   transition: background 0.3s ease;
+
   a {
     color: black;
   }
-}
 
-.btn-outline-black:hover {
-  background: black;
-  color: white;
-  a {
+  &:hover {
+    background: black;
     color: white;
+    a {
+      color: white;
+    }
   }
 }
 
@@ -36,16 +37,17 @@
   border: 3px solid white;
   background: transparent;
   transition: background 0.3s ease;
-    a {
+
+  a {
     color: white;
   }
-}
 
-.btn-outline-white:hover {
-  background: white;
-  color: black;
-    a {
+  &:hover {
+    background: white;
     color: black;
+      a {
+      color: black;
+    }
   }
 }
 
@@ -67,3 +69,6 @@
   }
 }
 
+.btn-primary {
+  border-color: $orange;
+}
