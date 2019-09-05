@@ -1,6 +1,16 @@
 class DesignsController < ApplicationController
   def index
-    @designs = Design.all
+    if params[:query] == "All"
+      raise
+      @designs = Design.all
+    elsif params[:query].present?
+      raise
+      @designs = Design.where("category ILIKE ?", "%#{params[:query]}%")
+    elsif params[:search].present?
+      @designs = Design.joins(:design_tags).where("name ILIKE ?", "%#{params[:search]}%")
+    else
+      @designs = Design.all
+    end
   end
 
   def show
@@ -40,6 +50,6 @@ class DesignsController < ApplicationController
   private
 
   def design_params
-    params.require(:design).permit(:photo, :title, :description, :category)
+    params.require(:design).permit(:photo, :title, :description, :category, design_tag_ids: [])
   end
 end
