@@ -1,13 +1,14 @@
-<h1>Upload Your Design</h1>
-
-<br>
-
-<%= simple_form_for @design , method: :post do |form| %>
-  <%= form.input :title %>
-  <%= form.input :description %>
-  <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
-  <%= form.association :design_tags, input_html: { class: 'select2' } %>
-  <%= form.input :photo, label: 'Profile Picture' %>
-  <%= form.input :photo_cache, as: :hidden %>
-  <%= form.submit "UPLOAD" %>
-<% end %>
+ <div class="container py-5">
+  <h1 class="thin-heading">ADD DESIGN</h1>
+  <div class="title-underline mb-4"></div>
+  <%= simple_form_for @design , method: :post do |form| %>
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+    <%= form.association :design_tags, input_html: { class: 'select2' } %>
+    <%= form.input :photo, label: 'Design' %>
+    <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
+    <br>
+    <%= form.submit "ADD DESIGN", class: "btn btn-primary" %>
+  <% end %>
+</div>
