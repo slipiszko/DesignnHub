@@ -1,4 +1,4 @@
-.title p {
-  opacity: 0.6;
-  margin: 0 auto;
+.title-underline {
+  border-bottom: 2px solid black;
+  transition: all ease-in-out 1s;
 }
