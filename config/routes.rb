@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  get 'job_posts/index'
-  get 'job_posts/show'
-  get 'job_posts/new'
-  get 'job_posts/edit'
   root to: 'pages#home'
+
+  resources :job_posts
 
   resources :comments, only: [:show] do
     post :upvote, on: :member
     post :downvote, on: :member
   end
 
-  resources :designs, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :designs do
     resources :comments, only: [:new, :create, :edit, :update]
   end
 
