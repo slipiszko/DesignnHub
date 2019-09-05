@@ -1,59 +1,70 @@
-<div>
-  <%= cl_image_tag @design.photo %>
-</div>
-
-<div>
-  <div>
-    <%= cl_image_tag @user.photo %>
-    <br>
-    <%= @user.first_name %> <%= @user.last_name %>
-  </div>
-
-  <div>
-    <%= @design.title %>
-    <br>
-    <%= @design.description %>
-  </div>
-</div>
-
-<% if @comments.nil? || @comments.empty? %>
-
-  <div>
-    No comments
-  </div>
-
-  <div>
-    <%= simple_form_for [@design, @comment] , method: :post do |form| %>
-      <%= form.input :content, label: false, placeholder: "Be the first to leave a comment..." %>
-      <%= form.submit "COMMENT" %>
-    <% end %>
-  </div>
-
-<% else %>
-
-  <div>
-    <% @comments.each do |comment| %>
-    <div id="comment-<%= comment.id %>">
-      <div>
-        <%= cl_image_tag comment.user.photo %>
-        <%= comment.user.first_name %> <%= comment.user.last_name %>
-      </div>
-      <div>
-        <%= comment.content %>
-        <%= link_to 'Edit', edit_design_comment_path(comment), remote: true %>
-        <%= render 'vote_form', comment: comment %>
-      </div>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="container">
+        <div class="js-design-photo-pinner design-photo-pinner">
+          <%= cl_image_tag @design.photo %>
+          <div class ="js-design-photo-pin design-photo-pin"></div>
+            <p id="demo"></p>
+            <script>
+              function showCoords(event) {
+                var x = event.clientX;
+                var y = event.clientY;
+                var coords = [x,y];
+                document.getElementById("demo").innerHTML = coords;
+              }
+            </script>
+            <div>
+              <div>
+                <%= @user.first_name %> <%= @user.last_name %>
+              </div>
+              <div>
+                <%= @design.title %>
+                <br>
+                <%= @design.description %>
+              </div>
+            </div>
+          <div >
+            <% if @comments.nil? || @comments.empty? %>
+              <div>
+                <%=No comments%>
+              </div>
+              <div id='js-comment-form'>
+                <%= simple_form_for [@design, @comment], method: :post do |form| %>
+                  <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
+                  <%= form.input :latitude, :input_html => { :class => "js-comment-x" }%>
+                  <%= form.input :longitude, :input_html => { :class => "js-comment-y" }%>
+                  <%= form.submit "COMMENT" %>
+                <% end %>
+              </div>
+            <% else %>
+                <% @comments.each do |comment| %>
+                <div id="comment-<%= comment.id %>">
+                  <div>
+                    <%= cl_image_tag comment.user.photo %>
+                    <%= comment.user.first_name %> <%= comment.user.last_name %>
+                  </div>
+                  <div>
+                    <%= comment.content %>
+                    <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+                    <%= render 'vote_form', comment: comment %>                   
+                  </div>
+                </div>
+                <% end %>
+                  <div id='js-comment-form'>
+                    <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
+                    <%= form.input :content, label: false, placeholder: "Comment..." %>
+                    <%= form.input :latitude, :input_html => { :class => "js-comment-x" }%>
+                    <%= form.input :longitude, :input_html => { :class => "js-comment-y" }%>
+                    <%= form.submit "COMMENT" %>
+                    <% end %>
+                  </div>
+                <% end %>
+          </div>
+        </div>
     </div>
-    <% end %>
-  </div>
+  </body>
+</html>
 
-
-  <div>
-    <%= simple_form_for [@design, @comment] , method: :post do |form| %>
-      <%= form.input :content, label: false, placeholder: "Comment..." %>
-      <%= form.submit "COMMENT" %>
-    <% end %>
-  </div>
-
-<% end %>
 
