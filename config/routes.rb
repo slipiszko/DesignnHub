@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'job_posts/index'
+  get 'job_posts/show'
+  get 'job_posts/new'
+  get 'job_posts/edit'
   root to: 'pages#home'
 
   resources :comments, only: [:show] do
