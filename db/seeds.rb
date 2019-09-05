@@ -86,6 +86,8 @@ content = [
 designs.uniq.each do |design|
   5.times { comment = Comment.create!(
     content: content.sample,
+    longitude:'0.231',
+    latitude:'0.1738',
     design: design,
     user: users.sample
     )

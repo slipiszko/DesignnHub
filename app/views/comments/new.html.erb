@@ -1,4 +1,6 @@
 <%= simple_form_for [@design, @comment] , method: :post do |form| %>
   <%= form.input :content, label: false, placeholder: "Comment" %>
+  <%= form.input :latitude, class:'js-comment-y'%>
+  <%= form.input :longitude, class:'js-comment-x'%>
   <%= form.submit "COMMENT" %>
 <% end %>
