@@ -2,12 +2,14 @@ class DesignsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "category ILIKE :query OR name ILIKE :query"
-      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
+      unfiltered_designs = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
+      @designs = unfiltered_designs.uniq
     elsif params[:search].present?
-      sql_query = "category ILIKE :query OR name ILIKE :query"
-      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
+      sql_query = "category ILIKE :search OR title ILIKE :search OR description ILIKE :search OR name ILIKE :search"
+      unfiltered_designs = Design.joins(:design_tags).where(sql_query, search: "%#{params[:search]}%")
+      @designs = unfiltered_designs.uniq
     else
-      @designs  = Design.all
+      @designs = Design.all
     end
   end
 
