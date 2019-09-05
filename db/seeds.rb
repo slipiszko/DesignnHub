@@ -29,13 +29,22 @@ users = []
 
 puts "Finished!"
 
-puts "Generating Designs..."
+puts "Generating 13 Designs..."
 
 designs = []
 
+design_images = [
+  'app/assets/images/design_test_1.png',
+  'app/assets/images/design_test_2.png',
+  'app/assets/images/design_test_3.png',
+  'app/assets/images/design_test_4.png',
+  'app/assets/images/design_test_5.png',
+  'app/assets/images/design_test_6.png'
+]
+
 13.times { designs <<
   design = Design.create!(
-  photo: open('app/assets/images/design.jpeg'),
+  photo: open(design_images.sample),
   title: "Design title",
   description: "Design description",
   category: "photography",
@@ -47,10 +56,19 @@ puts "Finished!"
 
 puts "Generating Design Tags..."
 
-14.times do
+tags = [
+  "Photography",
+  "Architecture",
+  "Web design",
+  "Paint",
+  "Typography",
+  "Product Design"
+]
+
+tags.each do |tag|
   DesignTag.create!(
     design: designs.sample,
-    name: Faker::App.name
+    name: tag
   )
 end
 
@@ -63,7 +81,7 @@ content = [
     "I left my comment here",
     "A comment was posted here",
     "My favourite comment is above"
-  ]
+]
 
 designs.uniq.each do |design|
   5.times { comment = Comment.create!(
