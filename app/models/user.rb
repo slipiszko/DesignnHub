@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :designs, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes
+  has_many :job_posts
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
