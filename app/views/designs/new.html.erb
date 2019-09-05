@@ -1,13 +1,20 @@
-<h1>Upload Your Design</h1>
+<div class="py-5">
+  <div class="title">
+    <h1>Upload Your Design</h1>
+    <p>Upload your own finished design idea! Be as descriptive as possible on what it’s about and start connectiong with other designers.</p>
+  </div>
 
-<br>
-
-<%= simple_form_for @design , method: :post do |form| %>
-  <%= form.input :title %>
-  <%= form.input :description %>
-  <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
-  <%= form.association :design_tags, input_html: { class: 'select2' } %>
-  <%= form.input :photo, label: 'Profile Picture' %>
-  <%= form.input :photo_cache, as: :hidden %>
-  <%= form.submit "UPLOAD" %>
-<% end %>
+  <div class="row py-5">
+    <div class="col-sm-6 offset-3 form-center">
+      <%= simple_form_for @design , method: :post do |form| %>
+        <%= form.input :title %>
+        <%= form.input :description %>
+        <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+        <%= form.association :design_tags, input_html: { class: 'select2' } %>
+        <%= form.input :photo, label: 'Profile Picture' %>
+        <%= form.input :photo_cache, as: :hidden %>
+        <%= form.submit "UPLOAD" %>
+      <% end %>
+    </div>
+  </div>
+</div>
