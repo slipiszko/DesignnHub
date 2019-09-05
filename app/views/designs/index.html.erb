@@ -2,13 +2,14 @@
   <div class="category-link-area">
     <div class="scroll-bar">
       <div class="category-link">
-        <%= link_to "Product Design", designs_path %>
-        <%= link_to "Animation", designs_path %>
-        <%= link_to "Web Design", designs_path %>
-        <%= link_to "Games & Entertainment", designs_path %>
-        <%= link_to "Paint", designs_path %>
-        <%= link_to "Sound Design", designs_path %>
-        <%= link_to "Typography", designs_path %>
+        <%= link_to "All", designs_path %>
+        <%= link_to "Product Design", designs_path(query: 'product design') %>
+        <%= link_to "Animation", designs_path(query: 'animation') %>
+        <%= link_to "Web Design", designs_path(query: 'web design') %>
+        <%= link_to "Games & Entertainment", designs_path(query: 'games') %>
+        <%= link_to "Paint", designs_path(query: 'paint') %>
+        <%= link_to "Sound Design", designs_path(query: 'sound design') %>
+        <%= link_to "Typography", designs_path(query: 'typography') %>
       </div>
     </div>
     <i class="fas fa-caret-right category-link-more"></i>

@@ -1,23 +1,21 @@
 class DesignsController < ApplicationController
   def index
-    if params[:query] == "All"
-      raise
-      @designs = Design.all
-    elsif params[:query].present?
-      raise
-      @designs = Design.where("category ILIKE ?", "%#{params[:query]}%")
+    if params[:query].present?
+      sql_query = "category ILIKE :query OR name ILIKE :query"
+      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
     elsif params[:search].present?
-      @designs = Design.joins(:design_tags).where("name ILIKE ?", "%#{params[:search]}%")
+      sql_query = "category ILIKE :query OR name ILIKE :query"
+      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
     else
-      @designs = Design.all
+      @designs  = Design.all
     end
   end
 
   def show
-    @design = Design.find(params[:id])
-    @user = @design.user
+    @design   = Design.find(params[:id])
+    @user     = @design.user
     @comments = @design.comments
-    @comment = Comment.new
+    @comment  = Comment.new
   end
 
   def edit
@@ -26,11 +24,11 @@ class DesignsController < ApplicationController
 
   def new
     @design = Design.new
-    @user = current_user
+    @user   = current_user
   end
 
   def create
-    @design = Design.new(design_params)
+    @design      = Design.new(design_params)
     @design.user = current_user
     if @design.save
       redirect_to profile_path(current_user)
