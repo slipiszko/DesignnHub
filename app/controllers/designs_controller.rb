@@ -1,13 +1,21 @@
 class DesignsController < ApplicationController
   def index
-    @designs = Design.all
+    if params[:query].present?
+      sql_query = "category ILIKE :query OR name ILIKE :query"
+      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:search].present?
+      sql_query = "category ILIKE :query OR name ILIKE :query"
+      @designs  = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @designs  = Design.all
+    end
   end
 
   def show
-    @design = Design.find(params[:id])
-    @user = @design.user
+    @design   = Design.find(params[:id])
+    @user     = @design.user
     @comments = @design.comments
-    @comment = Comment.new
+    @comment  = Comment.new
   end
 
   def edit
@@ -16,11 +24,11 @@ class DesignsController < ApplicationController
 
   def new
     @design = Design.new
-    @user = current_user
+    @user   = current_user
   end
 
   def create
-    @design = Design.new(design_params)
+    @design      = Design.new(design_params)
     @design.user = current_user
     if @design.save
       redirect_to profile_path(current_user)
@@ -40,6 +48,6 @@ class DesignsController < ApplicationController
   private
 
   def design_params
-    params.require(:design).permit(:photo, :title, :description, :category)
+    params.require(:design).permit(:photo, :title, :description, :category, design_tag_ids: [])
   end
 end
