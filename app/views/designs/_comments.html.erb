@@ -13,21 +13,24 @@
 <% else %>
     <% @comments.each do |comment| %>
     <div class ="comment-input" id="comment-<%= comment.id %>">
-      <div class= "comment-box">
-        <div>
-          <%= comment.content %>
-          <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
-        </div>
-        <div id="votes">
-          <%= render 'vote_form', comment: comment %>
-        </div>
-      </div>
       <div>
         <%= cl_image_tag comment.user.photo, class: 'user-profile-pic' %>
         <%= comment.user.first_name %> <%= comment.user.last_name %>
       </div>
-      <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
-
+      <div class="comment-box-container">
+        <div class= "comment-box">
+          <div>
+            <%= comment.content %>
+          </div>
+        </div>
+          <div id="votes">
+            <%= render 'vote_form', comment: comment %>
+          </div>
+        </div>
+        <div class="under-comment-box">
+          <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
+          <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+        </div>
     </div>
     <% end %>
       <div id='js-comment-form'>

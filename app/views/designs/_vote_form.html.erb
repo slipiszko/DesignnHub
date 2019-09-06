@@ -1,20 +1,20 @@
 <% if user_signed_in? %>
   <% if current_user.upvoted?(comment) == true %>
-      <p>upvote</p>:
       <%= comment.upvotes %>
-      <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
+      <p>▲</p>
+      <%= link_to "▼", downvote_comment_path(comment), method: :post %>
       <%= comment.downvotes %>
     <% elsif current_user.downvoted?(comment) == true %>
-      <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
       <%= comment.upvotes %>
-      <p>downvote</p>:
+      <%= link_to "▲", upvote_comment_path(comment), method: :post %>
+      <p>▼</p>
       <%= comment.downvotes %>
     <% else %>
-      <%= link_to "upvote", upvote_comment_path(comment), method: :post %>:
       <%= comment.upvotes %>
-      <%= link_to "downvote", downvote_comment_path(comment), method: :post %>:
+      <%= link_to "▲", upvote_comment_path(comment), method: :post %>
+      <%= link_to "▼", downvote_comment_path(comment), method: :post %>
       <%= comment.downvotes %>
   <% end %>
 <% else %>
-  <p>upvotes: <%= comment.upvotes %> downvotes: <%= comment.downvotes %></p>
+  <p>upvotes <%= comment.upvotes %> downvotes <%= comment.downvotes %></p>
 <% end %>
