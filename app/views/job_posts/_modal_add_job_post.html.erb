@@ -13,7 +13,8 @@
           <%= form.input :title %>
           <%= form.input :content, as: :text, label: "Description" %>
           <%= form.input :city, label: "Location" %>
-          <%= form.input :category, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+          <%= form.input :profession, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+    <%= form.input :type, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
           <%= form.input :photo, label: 'Design' %>
           <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
       </div>
