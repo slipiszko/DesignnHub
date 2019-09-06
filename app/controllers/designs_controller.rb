@@ -1,4 +1,7 @@
 class DesignsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_design, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:query].present?
       sql_query = "category ILIKE :query OR name ILIKE :query"
@@ -14,29 +17,28 @@ class DesignsController < ApplicationController
   end
 
   def show
-    @design   = Design.find(params[:id])
-    @user     = @design.user
-    @comments = @design.comments
-    @comment  = Comment.new
-  end
-
-  def edit
     @design = Design.find(params[:id])
+    @user = @design.user
+    @comments = @design.comments
+    @comment = Comment.new
   end
 
   def new
     @design = Design.new
-    @user   = current_user
+    @user = current_user
   end
 
   def create
-    @design      = Design.new(design_params)
+    @design = Design.new(design_params)
     @design.user = current_user
     if @design.save
       redirect_to profile_path(current_user)
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
@@ -48,6 +50,10 @@ class DesignsController < ApplicationController
   end
 
   private
+
+  def find_design
+    @design = Design.find(params[:id])
+  end
 
   def design_params
     params.require(:design).permit(:photo, :title, :description, :category, design_tag_ids: [])
