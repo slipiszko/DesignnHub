@@ -3,7 +3,7 @@
   <div class="title-underline mb-4"></div>
   <%= simple_form_for @job_post , method: :post do |form| %>
     <%= form.input :title %>
-    <%= form.input :content, as: :text %>
+    <%= form.input :content, as: :text, label: "Description" %>
     <%= form.input :city, label: "Location" %>
     <%= form.input :category, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
     <%= form.input :photo, label: 'Design' %>

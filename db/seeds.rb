@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+JobPost.destroy_all
 DesignTag.destroy_all
 Comment.destroy_all
 User.destroy_all
@@ -170,6 +171,15 @@ designs.uniq.each do |design|
     )
   }
 end
+
+JobPost.create! (
+  title:
+  content:
+  profession:
+  type:
+  city:
+  photo:
+  )
 
 puts "Finished!"
 
