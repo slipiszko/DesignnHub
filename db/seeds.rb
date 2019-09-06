@@ -172,6 +172,15 @@ designs.uniq.each do |design|
   }
 end
 
+JobPost.create! (
+  title:
+  content:
+  profession:
+  type:
+  city:
+  photo:
+  )
+
 puts "Finished!"
 
 
