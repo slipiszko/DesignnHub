@@ -15,6 +15,7 @@ class JobPostsController < ApplicationController
 
   def create
     @job_post = JobPost.new(job_post_params)
+    @job_post.user = current_user
     @job_post.save
   end
 
