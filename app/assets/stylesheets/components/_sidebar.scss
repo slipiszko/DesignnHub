@@ -1,0 +1,64 @@
+html {
+  overflow-y: scroll;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 900vw;
+  height: 100vh;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.accordion {
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.sidebar-header {
+  border-top: 1px solid ;
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-right: 55px;
+  font-weight: 300;
+}
+
+.sidebar-header .icon {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: $orange;
+  transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+.sidebar-content {
+  max-height: 0;
+  overflow: hidden;
+  display: grid;
+  transition: 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+.sidebar-content a {
+  padding: 4px 4px 4px 20px;
+}
+
+.accordion li.open .sidebar-header .icon {
+  transform: rotate(180deg);
+}
+
+.accordion li.open .sidebar-content {
+  max-height: 700px;
+}
