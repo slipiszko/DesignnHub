@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal fade" id="jobPostModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content py-1 px-5">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">POST JOB</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for job_post, method: :post do |form| %>
+          <%= form.input :title %>
+          <%= form.input :content, as: :text, label: "Description" %>
+          <%= form.input :city, label: "Location" %>
+          <%= form.input :profession, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+          <%= form.input :type, label: "Job type", input_html: { class: 'select2' }, collection: ["Full-time", "Part-time", "Freelance", "Internship"] %>
+          <%= form.input :photo, label: 'Image' %>
+          <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
+      </div>
+      <div class="modal-footer">
+          <%= form.submit "POST JOB", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

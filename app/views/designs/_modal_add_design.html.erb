@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="designModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content py-1 px-5">
       <div class="modal-header line-bottom">
@@ -9,9 +9,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for design , method: :post do |form| %>
+        <%= simple_form_for design, method: :post do |form| %>
           <%= form.input :title %>
-          <%= form.input :description %>
+          <%= form.input :description, as: :text %>
           <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
           <%= form.association :design_tags, input_html: { class: 'select2' } %>
           <%= form.input :photo, label: 'Photo' %>
