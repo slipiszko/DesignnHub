@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_023016) do
+ActiveRecord::Schema.define(version: 2019_09_06_050841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2019_09_06_023016) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_designs_on_user_id"
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.text "note"
+    t.bigint "user_id"
+    t.bigint "job_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
   create_table "job_posts", force: :cascade do |t|
@@ -94,6 +104,8 @@ ActiveRecord::Schema.define(version: 2019_09_06_023016) do
   add_foreign_key "comments", "users"
   add_foreign_key "design_tags", "designs"
   add_foreign_key "designs", "users"
+  add_foreign_key "job_applications", "job_posts"
+  add_foreign_key "job_applications", "users"
   add_foreign_key "job_posts", "users"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"
