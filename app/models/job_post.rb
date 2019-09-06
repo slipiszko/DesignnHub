@@ -5,6 +5,7 @@ class JobPost < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true
+  validates :profession, presence: true
   validates :city, presence: true
+  validates :type, presence: true
 end
