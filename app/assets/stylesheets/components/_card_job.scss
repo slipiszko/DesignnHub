@@ -1,4 +1,7 @@
 .card-columns {
+
+  margin-top: 3rem;
+
   @include media-breakpoint-only(lg) {
     column-count: 4;
   }
