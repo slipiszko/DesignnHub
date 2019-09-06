@@ -3,7 +3,17 @@ class JobPostsController < ApplicationController
   before_action :find_job_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @job_posts = JobPost.all
+    if params[:query].present?
+      sql_query = "profession ILIKE :query OR type ILIKE :query"
+      unfiltered_job_posts = JobPost.where(sql_query, query: "%#{params[:query]}%")
+      @job_posts = unfiltered_job_posts.uniq
+    elsif params[:search].present?
+      sql_query = "title ILIKE :search OR profession ILIKE :search OR type ILIKE :search OR location ILIKE :search"
+      unfiltered_job_posts = JobPost.where(sql_query, search: "%#{params[:search]}%")
+      @job_posts = unfiltered_job_posts.uniq
+    else
+      @job_posts = JobPost.all
+    end
   end
 
   def show
