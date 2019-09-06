@@ -1,0 +1,41 @@
+<% if @comments.nil? || @comments.empty? %>
+  <div>
+    <%='No comments'%>
+  </div>
+  <div id='js-comment-form'>
+    <%= simple_form_for [@design, @comment], method: :post do |form| %>
+      <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
+      <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+      <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+      <%= form.submit "COMMENT" %>
+    <% end %>
+  </div>
+<% else %>
+    <% @comments.each do |comment| %>
+    <div class ="comment-input" id="comment-<%= comment.id %>">
+      <div class= "comment-box">
+        <div>
+          <%= comment.content %>
+          <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+        </div>
+        <div id="votes">
+          <%= render 'vote_form', comment: comment %>
+        </div>
+      </div>
+      <div>
+        <%= cl_image_tag comment.user.photo, class: 'user-profile-pic' %>
+        <%= comment.user.first_name %> <%= comment.user.last_name %>
+      </div>
+      <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
+
+    </div>
+    <% end %>
+      <div id='js-comment-form'>
+        <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
+        <%= form.input :content, label: false, placeholder: "Comment..." %>
+        <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+        <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+        <%= form.submit "COMMENT" %>
+        <% end %>
+      </div>
+    <% end %>

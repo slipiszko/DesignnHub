@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="js-design-photo-pinner design-photo-pinner" >
+<div class="main-show-container">
+    <div class="js-design-photo-pinner design-photo-pinner" id="design">
       <div class="design-photo-image-wrapper">
         <%= cl_image_tag @design.photo, crop: :scale, width: 400 %>
         <% @comments.each do |comment| %>
@@ -55,7 +55,6 @@
           }
 
         </script>
-    </div>
         <div>
           <div>
             <%= @user.first_name %> <%= @user.last_name %>
@@ -66,43 +65,8 @@
             <%= @design.description %>
           </div>
         </div>
-      <div>
-        <% if @comments.nil? || @comments.empty? %>
-          <div>
-            <%='No comments'%>
-          </div>
-          <div id='js-comment-form'>
-            <%= simple_form_for [@design, @comment], method: :post do |form| %>
-              <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
-              <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-              <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-              <%= form.submit "COMMENT" %>
-            <% end %>
-          </div>
-        <% else %>
-            <% @comments.each do |comment| %>
-            <div id="comment-<%= comment.id %>">
-              <div>
-                <%= cl_image_tag comment.user.photo %>
-                <%= comment.user.first_name %> <%= comment.user.last_name %>
-              </div>
-              <div>
-                <%= comment.content %>
-                <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
-                <%= render 'vote_form', comment: comment %>
-              </div>
-              <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
-
-            </div>
-            <% end %>
-              <div id='js-comment-form'>
-                <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
-                <%= form.input :content, label: false, placeholder: "Comment..." %>
-                <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-                <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-                <%= form.submit "COMMENT" %>
-                <% end %>
-              </div>
-            <% end %>
+    </div>
+      <div class="comments">
+        <%= render 'comments' %>
       </div>
 </div>
