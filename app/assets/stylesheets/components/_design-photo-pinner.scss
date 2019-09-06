@@ -3,6 +3,13 @@
   border: 3px solid black;
   margin: 20px;
   position: relative;
+
+  .design-photo-image-wrapper {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
 }
 .design-photo-pin {
   width: 20px;
@@ -13,6 +20,11 @@
   left: 0;
   position: absolute;
   cursor: pointer;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
 }
 
 #hidden{

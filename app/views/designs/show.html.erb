@@ -1,105 +1,108 @@
-<html>
-  <head>
-  </head>
-  <body>
+<div class="container">
+    <div class="js-design-photo-pinner design-photo-pinner" >
+      <div class="design-photo-image-wrapper">
+        <%= cl_image_tag @design.photo, crop: :scale, width: 400 %>
+        <% @comments.each do |comment| %>
+          <div data-comment-id="<%=comment.id%>" class="design-photo-pin" style="top: <%= comment.y*100%>%; left: <%= comment.x*100 %>%;"></div>
+        <% end %>
+      </div>
+      <div class ="js-design-photo-pin design-photo-pin"></div>
+        <p id="demo"></p>
+        <button id="toggle-pins-button" onclick="togglePins()">Show</button>
 
-    <div class="container">
-        <div class="js-design-photo-pinner design-photo-pinner" >
-          <%= cl_image_tag @design.photo %>
-          <div class ="js-design-photo-pin design-photo-pin"></div>
-          <div id="hidden">
-            <% @comments.each do |comment| %>
-              <%= comment.x*100 %>
-              <%= comment.y*100 %>
-              <div data-comment-id="<%=comment.id%>" class="design-photo-pin" style="top: <%= comment.y*100%>%; left: <%= comment.x*100 %>%;"></div>
+
+        <script>
+          const pins = document.querySelectorAll(".design-photo-pin");
+          const toggleButton = document.querySelector("#toggle-pins-button");
+
+          function showCoords(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var coords = [x,y];
+            document.getElementById("demo").innerHTML = coords;
+          };
+
+          function showAllPins() {
+            pins.forEach((pin) => {
+              pin.classList.add("visible")
+            });
+          }
+
+          function hideAllPins() {
+            pins.forEach((pin) => {
+              pin.classList.remove("visible")
+            });
+          }
+
+          function togglePins() {
+            const visiblePins = document.querySelectorAll(".design-photo-pin.visible");
+
+            if (visiblePins.length === 0) {
+              toggleButton.innerText = "Hide"
+              showAllPins()
+            } else {
+              toggleButton.innerText = "Show"
+              hideAllPins()
+            }
+          }
+
+          function showPin(comment_id) {
+            var clickedPin = document.querySelector('[data-comment-id="' + comment_id + '"]');
+
+            hideAllPins();
+            clickedPin.classList.add("visible");
+            toggleButton.innerText = "Hide"
+          }
+
+        </script>
+    </div>
+        <div>
+          <div>
+            <%= @user.first_name %> <%= @user.last_name %>
+          </div>
+          <div>
+            <%= @design.title %>
+            <br>
+            <%= @design.description %>
+          </div>
+        </div>
+      <div>
+        <% if @comments.nil? || @comments.empty? %>
+          <div>
+            <%='No comments'%>
+          </div>
+          <div id='js-comment-form'>
+            <%= simple_form_for [@design, @comment], method: :post do |form| %>
+              <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
+              <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+              <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+              <%= form.submit "COMMENT" %>
             <% end %>
           </div>
-            <p id="demo"></p>
-            <button onclick="allPinns()"> Show all Pinns</button>
-
-
-            <script>
-              function showCoords(event) {
-                var x = event.clientX;
-                var y = event.clientY;
-                var coords = [x,y];
-                document.getElementById("demo").innerHTML = coords;
-
-              };
-              function allPinns() {
-                var x = document.getElementById("hidden");
-                if (x.style.display === "none") {
-                  x.style.display = "block";
-                } else {
-                  x.style.display = "none";
-                }
-              }
-              function singlePin(comment_id) {
-                // Hide all pins
-                var x = document.getElementById("hidden");
-                // select the clicked pin, and show it
-                 var clickedPin = document.querySelector('[data-comment-id="' + comment_id + '"]');
-                 console.log(clickedPin);
-                 if (x.style.display === "none" && clickedPin == comment_id){
-                     clickedPin.style.display = "block";
-                  } else {
-                    x.style.display = "none";
-                   }
-                 }
-
-            </script>
-            <div>
+        <% else %>
+            <% @comments.each do |comment| %>
+            <div id="comment-<%= comment.id %>">
               <div>
-                <%= @user.first_name %> <%= @user.last_name %>
+                <%= cl_image_tag comment.user.photo %>
+                <%= comment.user.first_name %> <%= comment.user.last_name %>
               </div>
               <div>
-                <%= @design.title %>
-                <br>
-                <%= @design.description %>
+                <%= comment.content %>
+                <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+                <%= render 'vote_form', comment: comment %>
               </div>
+              <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
+
             </div>
-        </div>
-          <div >
-            <% if @comments.nil? || @comments.empty? %>
-              <div>
-                <%='No comments'%>
-              </div>
+            <% end %>
               <div id='js-comment-form'>
-                <%= simple_form_for [@design, @comment], method: :post do |form| %>
-                  <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
-                  <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-                  <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-                  <%= form.submit "COMMENT" %>
+                <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
+                <%= form.input :content, label: false, placeholder: "Comment..." %>
+                <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+                <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+                <%= form.submit "COMMENT" %>
                 <% end %>
               </div>
-            <% else %>
-                <% @comments.each do |comment| %>
-                <div id="comment-<%= comment.id %>">
-                  <div>
-                    <%= cl_image_tag comment.user.photo %>
-                    <%= comment.user.first_name %> <%= comment.user.last_name %>
-                  </div>
-                  <div>
-                    <%= comment.content %>
-                    <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
-                    <%= render 'vote_form', comment: comment %>
-                  </div>
-                  <button onclick="singlePin(<%=comment.id%>)">Show Pin</button>
-
-                </div>
-                <% end %>
-                  <div id='js-comment-form'>
-                    <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
-                    <%= form.input :content, label: false, placeholder: "Comment..." %>
-                    <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-                    <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-                    <%= form.submit "COMMENT" %>
-                    <% end %>
-                  </div>
-                <% end %>
-          </div>
-    </div>
-  </body>
-</html>
-
-
+            <% end %>
+      </div>
+</div>
