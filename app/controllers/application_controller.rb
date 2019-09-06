@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_design
   def set_design
-    @design = Design.new
+    @new_design = Design.new
   end
 end
