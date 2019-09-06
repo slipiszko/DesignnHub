@@ -3,9 +3,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :set_design
+  before_action :set_job_post
 
   def set_design
     @new_design = Design.new
+  end
+
+  def set_job_post
+    @new_job_post = JobPost.new
   end
 
   private
