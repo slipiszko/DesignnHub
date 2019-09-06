@@ -11,7 +11,7 @@
       <div class="modal-body">
         <%= simple_form_for design, method: :post do |form| %>
           <%= form.input :title %>
-          <%= form.input :description %>
+          <%= form.input :description, as: :text %>
           <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
           <%= form.association :design_tags, input_html: { class: 'select2' } %>
           <%= form.input :photo, label: 'Photo' %>
