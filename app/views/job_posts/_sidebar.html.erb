@@ -1,0 +1,53 @@
+<div class="sticky-sidebar">
+  <div class="accordion">
+    <div class="search-bar ml-3">
+    <%= form_tag designs_path, :method => 'get', class: "search-form-job" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control-job" %>
+        <%= button_tag(type: 'submit', class: "search-btn") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+     <% end %>
+   </div>
+    <ul class="list-unstyled">
+      <li class="open">
+        <div class="sidebar-header">
+          <h2>Profession</h2>
+          <span class="icon ion-ios-add"></span>
+        </div>
+        <div class="sidebar-content">
+          <%= link_to "Graphic Designer", "#" %>
+          <%= link_to "UI/UX Designer", "#" %>
+          <%= link_to "Photographer", "#" %>
+          <%= link_to "Illustrator", "#" %>
+          <%= link_to "Video Editor", "#" %>
+          <%= link_to "Digital Producer", "#" %>
+          <%= link_to "Motion Graphics Designer", "#" %>
+          <%= link_to "Product Designer", "#" %>
+          <%= link_to "Other", "#" %>
+        </div>
+      </li>
+      <li>
+        <div class="sidebar-header">
+          <h2>Location</h2>
+          <span class="icon ion-ios-add"></span>
+        </div>
+        <div class="sidebar-content">
+          <%= link_to "Remote", "#" %>
+          <%= link_to "Local", "#" %>
+        </div>
+      </li>
+      <li>
+        <div class="sidebar-header">
+          <h2>Job Type</h2>
+          <span class="icon ion-ios-add"></span>
+        </div>
+        <div class="sidebar-content">
+          <%= link_to "Full Time", "#" %>
+          <%= link_to "Part Time", "#" %>
+          <%= link_to "Freelance", "#" %>
+          <%= link_to "Internship", "#" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

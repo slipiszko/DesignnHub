@@ -41,3 +41,17 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+
+.search-form-job .form-control-job {
+  padding-left: 30px;
+  border: none;
+  height: 44px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.search-form-job {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
