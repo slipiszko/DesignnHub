@@ -1,5 +1,7 @@
 class JobPostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_job_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @job_posts = JobPost.all
   end

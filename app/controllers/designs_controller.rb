@@ -1,5 +1,6 @@
 class DesignsController < ApplicationController
-  before_action :set_design, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_design, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?

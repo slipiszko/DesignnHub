@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:first_name, :last_name, :city, :bio, :photo)
   end
 
-  def after_sign_up_path_for(resource)
-    profile_path(current_user)
+  def after_sign_up_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || super
   end
 end
