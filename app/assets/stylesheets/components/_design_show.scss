@@ -1,0 +1,32 @@
+.main-show-container{
+  display: flex;
+  justify-content: center;
+}
+
+.comments{
+  margin: 20px;
+
+}
+
+#design{
+
+}
+
+.user-profile-pic{
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.comment-input{
+  padding: 10px;
+}
+
+.comment-box{
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  border-color: gray;
+  padding: 10px;
+  border-radius: 10px;
+}
