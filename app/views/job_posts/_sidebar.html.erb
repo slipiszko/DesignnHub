@@ -1,5 +1,13 @@
 <div class="sticky-sidebar">
   <div class="accordion">
+    <div class="search-bar ml-3">
+    <%= form_tag designs_path, :method => 'get', class: "search-form-job" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control-job" %>
+        <%= button_tag(type: 'submit', class: "search-btn") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+     <% end %>
+   </div>
     <ul class="list-unstyled">
       <li class="open">
         <div class="sidebar-header">
