@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'job_applications/new'
   root to: 'pages#home'
 
-  resources :job_posts
+  resources :job_posts do
+    resources :job_applications, only: [:new, :create]
+  end
 
   resources :comments, only: [:show] do
     post :upvote, on: :member
