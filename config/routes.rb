@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'job_applications/new'
   root to: 'pages#home'
 
   resources :job_posts
