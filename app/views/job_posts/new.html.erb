@@ -1,9 +1,9 @@
  <div class="container py-5">
-  <h1 class="thin-heading">CREATE JOB POST</h1>
+  <h1 class="thin-heading">POST JOB</h1>
   <div class="title-underline mb-4"></div>
   <%= simple_form_for @job_post , method: :post do |form| %>
     <%= form.input :title %>
-    <%= form.input :content %>
+    <%= form.input :content, as: :text %>
     <%= form.input :city, label: "Location" %>
     <%= form.input :category, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
     <%= form.input :photo, label: 'Design' %>
