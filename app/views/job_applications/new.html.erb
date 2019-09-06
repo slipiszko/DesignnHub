@@ -1,2 +1,9 @@
-<h1>JobApplications#new</h1>
-<p>Find me in app/views/job_applications/new.html.erb</p>
+ <div class="container py-5">
+  <h1 class="thin-heading">APPLY FOR JOB</h1>
+  <div class="title-underline mb-4"></div>
+  <%= simple_form_for @job_application , method: :post do |form| %>
+    <%= form.input :note, as: :text %>
+    <br>
+    <%= form.submit "APPLY", class: "btn btn-primary" %>
+  <% end %>
+</div>
