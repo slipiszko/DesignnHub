@@ -1,6 +1,6 @@
 const accordion = document.querySelector('.accordion');
 const items     = accordion.querySelectorAll('li');
-const headers    = accordion.querySelectorAll('.sidebar-header');
+const headers   = accordion.querySelectorAll('.sidebar-header');
 
 function toggleAccordion() {
   const thisItem = this.parentNode;
@@ -12,4 +12,5 @@ function toggleAccordion() {
     item.classList.remove('open');
   });
 }
+
 headers.forEach(header => header.addEventListener('click', toggleAccordion));
