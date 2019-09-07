@@ -5,3 +5,4 @@ import { initSelect2 } from '../plugins/init_select2';
 initSelect2();
 
 import '../components/job_sidebar';
+import '../components/job_card';
