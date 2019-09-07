@@ -1,13 +1,32 @@
-.card-columns {
 
-  padding: 30px 32px;
+
+.masonry {
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 800px;
+  margin-left: -8px; /* Adjustment for the gutter */
+  width: 100%;
+}
+
+.masonry-brick {
+  margin: 0 8px 8px 0; /* Some gutter */
+}
+
+.card-columns {
+  padding: -10px 32px;
   column-gap: 2.25rem;
 
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
   @include media-breakpoint-only(lg) {
     column-count: 2;
   }
-  @include media-breakpoint-only(xl) {
-    column-count: 3;
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
   }
 }
 
@@ -25,13 +44,11 @@
 
 .card {
   position: relative;
-  display: flex;
-  flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-color: #FFFFFF;
   background-clip: border-box;
-  border-radius: 15.5px;
+  border-radius: 3px;
   border: 0;
   letter-spacing: 0;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.125);
@@ -42,6 +59,6 @@
   }
 
   .card-img-top {
-    border-radius: 15.5px 15.5px 0 0;
+    border-radius: 3px 3px 0 0;
   }
 }
