@@ -1,6 +1,6 @@
 .design-photo-pinner {
   display: inline-block;
-  margin: 20px;
+  margin: 0 16px;
   position: relative;
 
   .design-photo-image-wrapper {
@@ -10,6 +10,7 @@
     }
   }
 }
+
 .design-photo-pin {
   width: 30px;
   height: 30px;

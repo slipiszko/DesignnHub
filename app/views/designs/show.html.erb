@@ -1,11 +1,38 @@
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-8">
+      <div class="design-photo-image-wrapper">
+        <%= cl_image_tag @design.photo, crop: :scale, width: 900 %>
+      </div>
+    </div>
+      <div class="col-4 comment-container">
+        <div class="overflow-auto">
+          <div class="comments">
+            <%= render 'comments' %>
+          </div>
+        </div>
+        <div class="new-comment">
+          <%= render 'new_comment' %>
+        </div>
+      </div>
+  </div>
+</div>
+
 <div class="main-show-container">
     <div class="js-design-photo-pinner design-photo-pinner" id="design">
-      <div class="design-photo-image-wrapper">
-        <%= cl_image_tag @design.photo, crop: :scale, width: 400 %>
-        <% @comments.each do |comment| %>
-          <div data-comment-id="<%=comment.id%>" class="design-photo-pin" style="top: <%= comment.y*100%>%; left: <%= comment.x*100 %>%;"></div>
+        <% if @comments.nil? %>
+          <p>No comments</p>
+        <% else %>
+          <% @comments.each do |comment| %>
+            <% if comment.x.nil? || comment.y.nil? %>
+              <div data-comment-id="<%=comment.id%>" class="design-photo-pin">
+              </div>
+            <% else %>
+              <div data-comment-id="<%=comment.id%>" class="design-photo-pin" style="top: <%= comment.y*100%>%; left: <%= comment.x*100 %>%;">
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
-      </div>
       <div class ="js-design-photo-pin design-photo-pin"></div>
         <p id="demo"></p>
         <button id="toggle-pins-button" onclick="togglePins()">Show all Pinns</button>
@@ -66,7 +93,4 @@
           </div>
         </div>
     </div>
-      <div class="comments">
-        <%= render 'comments' %>
-      </div>
 </div>

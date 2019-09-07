@@ -1,0 +1,21 @@
+<% if @comments.nil? || @comments.empty? %>
+  <div id='js-comment-form'>
+    <%= simple_form_for [@design, @comment], method: :post do |form| %>
+      <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
+      <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+      <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+      <%= form.submit "COMMENT" %>
+    <% end %>
+  </div>
+<% else %>
+  <div id='js-comment-form'>
+    <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
+      <%= form.input :content, label: false, placeholder: "Comment..." %>
+    <div class="location">
+      <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+      <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
+    </div>
+      <%= form.submit "COMMENT" %>
+    <% end %>
+  </div>
+<% end %>

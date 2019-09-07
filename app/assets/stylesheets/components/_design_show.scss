@@ -1,23 +1,36 @@
-.main-show-container{
+.main-show-container {
   display: flex;
   justify-content: space-between;
-  margin: 100px;
-  border: 1px solid;
-  border-color: gray;
-  padding: 50px;
-
+  margin: 16px 16px;
 }
 
-.comments{
+.row {
+  margin: 24px 16px;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.comments {
   margin: 20px;
+  height: 66vh;
 }
 
-#design{
+.new-comment {
+  height: 20vh;
+}
+
+#design {
   height: 1300px;
-  width:1300px;
+  width: 1300px;
 }
 
-.design-description{
+.design-description {
   border: 1px solid;
   border-color: gray;
   padding: 10px;
@@ -25,24 +38,24 @@
   margin-top: 10px;
 }
 
-.under-comment-box{
+.under-comment-box {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 6px;
+  margin-left: 8px;
 }
 
-.user-profile-pic{
+.user-profile-pic {
   border-radius: 50%;
   height: 50px;
   width: 50px;
 }
 
-.comment-input{
+.comment-input {
   padding: 10px;
-
 }
 
-.comment-box{
+.comment-box {
   height: 100px;
   width: 400px;
   display: flex;
@@ -53,20 +66,28 @@
   border-radius: 10px;
   margin: 5px;
 }
-#votes{
+
+.under-comment-box {
+  margin-bottom: 12px
+}
+
+#votes {
   display: flex;
   flex-direction:  column;
   text-align: right;
  }
 
-.comment-box-container{
+.comment-box-container {
   display: flex;
 }
 
-.location{
+.location {
   display: none;
 }
 
+.overflow-auto {
+  margin-bottom: 12px;
+}
 
 
 
