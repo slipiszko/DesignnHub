@@ -5,8 +5,8 @@ class JobPost < ApplicationRecord
   has_many :job_applications, dependent: :destroy
 
   validates :title, presence: true
-  validates :description, presence: true
+  validates :content, presence: true
   validates :profession, presence: true
-  validates :city, presence: true
+  validates :location, presence: true
   validates :type, presence: true
 end
