@@ -35,7 +35,7 @@ puts "Generating 13 Designs..."
 designs = []
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_2.jpg'),
+  photo: open('app/assets/images/design_test_2.jpeg'),
   title: "Crisp (Customer Messaging App) Saas website",
   description: "I had the pleasure to help the guys are Crisp bring their brand to a place worthy of their culture and ambitions.",
   category: "Web desgin",
@@ -43,7 +43,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_4.jpg'),
+  photo: open('app/assets/images/design_test_4.jpeg'),
   title: "Windmill town",
   description: "Is there such a place, the blue sky, the gloden earth, the wind blwoing the grass, everything is so beautiful.",
   category: "Illistration",
@@ -51,7 +51,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_3.jpg'),
+  photo: open('app/assets/images/design_test_3.jpeg'),
   title: "Fashion Web UI",
   description: "Fashion webite design.",
   category: "Web desgin",
@@ -59,7 +59,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_7.jpg'),
+  photo: open('app/assets/images/design_test_7.jpeg'),
   title: "Put the Yee in Haw",
   description: "Monday morning type warm-up inspired by the weekend. Have more weekends that keep you sayin' YEE-FUCKING-HAW!",
   category: "Typography",
@@ -67,7 +67,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_5.jpg'),
+  photo: open('app/assets/images/design_test_5.jpeg'),
   title: "Sunset hike",
   description: "Personal work / revamp / repost",
   category: "Illistration",
@@ -75,7 +75,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_1.jpg'),
+  photo: open('app/assets/images/design_test_1.jpeg'),
   title: "Food web page mockup",
   description: "Made this is in my freetime between jobs",
   category: "Web desgin",
@@ -83,7 +83,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_6.jpg'),
+  photo: open('app/assets/images/design_test_6.jpeg'),
   title: "Room to Roam Pennant",
   description: "We love how our Room to Roam Pennant came out! Manufactured",
   category: "Typography",
@@ -91,7 +91,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_8.jpg'),
+  photo: open('app/assets/images/design_test_8.jpeg'),
   title: "Passion fruit",
   description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
   category: "Typography",
@@ -99,7 +99,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_11.jpg'),
+  photo: open('app/assets/images/design_test_11.jpeg'),
   title: "Cafe Tropical",
   description: "Just for fun exploration for this damn funny show.",
   category: "Illistration",
@@ -107,7 +107,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_9.jpg'),
+  photo: open('app/assets/images/design_test_9.jpeg'),
   title: "VR Tennis Game App",
   description: "Connect your app to VR glasses, to play with those legendary tennis starts. Select the courts you prefer and choose the different levels",
   category: "Web desgin",
@@ -115,7 +115,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_10.jpg'),
+  photo: open('app/assets/images/design_test_10.jpeg'),
   title: "Polar Bear Holding Coca Cola and Flowers",
   description: "Just for fun",
   category: "Illistration",
