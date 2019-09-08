@@ -4,7 +4,7 @@
   <%= simple_form_for @job_post , method: :post do |form| %>
     <%= form.input :title %>
     <%= form.input :content, as: :text, label: "Description" %>
-    <%= form.input :city, label: "Location" %>
+    <%= form.input :location, label: "Location" %>
     <%= form.input :profession, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
     <%= form.input :type, label: "Profession", input_html: { class: 'select2' }, collection: ["Full-time", "Part-time", "Freelance", "Internship"] %>
     <%= form.input :photo, label: 'Image' %>

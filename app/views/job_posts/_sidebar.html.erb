@@ -15,15 +15,13 @@
           <span class="icon ion-ios-add"></span>
         </div>
         <div class="sidebar-content">
-          <%= link_to "Graphic Designer", "#" %>
-          <%= link_to "UI/UX Designer", "#" %>
-          <%= link_to "Photographer", "#" %>
-          <%= link_to "Illustrator", "#" %>
-          <%= link_to "Video Editor", "#" %>
-          <%= link_to "Digital Producer", "#" %>
-          <%= link_to "Motion Graphics Designer", "#" %>
-          <%= link_to "Product Designer", "#" %>
-          <%= link_to "Other", "#" %>
+          <%= link_to "Graphic Designer", job_posts_path(query: 'graphic designer') %>
+          <%= link_to "UI/UX Designer", job_posts_path(query: 'UI/UX designer') %>
+          <%= link_to "Photographer", job_posts_path(query: 'photographer') %>
+          <%= link_to "Illustrator", job_posts_path(query: 'illustrator') %>
+          <%= link_to "Video Editor", job_posts_path(query: 'video Editor') %>
+          <%= link_to "Digital Producer", job_posts_path(query: 'digital producer') %>
+          <%= link_to "Product Designer", job_posts_path(query: 'product designer') %>
         </div>
       </li>
       <li>
@@ -42,10 +40,10 @@
           <span class="icon ion-ios-add"></span>
         </div>
         <div class="sidebar-content">
-          <%= link_to "Full Time", "#" %>
-          <%= link_to "Part Time", "#" %>
-          <%= link_to "Freelance", "#" %>
-          <%= link_to "Internship", "#" %>
+          <%= link_to "Full Time", job_posts_path(query: 'full time') %>
+          <%= link_to "Part Time", job_posts_path(query: 'part time') %>
+          <%= link_to "Freelance", job_posts_path(query: 'freelance') %>
+          <%= link_to "Internship", job_posts_path(query: 'internship') %>
         </div>
       </li>
     </ul>

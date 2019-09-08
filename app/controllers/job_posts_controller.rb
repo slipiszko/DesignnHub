@@ -4,11 +4,11 @@ class JobPostsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "profession ILIKE :query OR type ILIKE :query"
+      sql_query = "profession ILIKE :query OR location ILIKE :query OR type ILIKE :query"
       unfiltered_job_posts = JobPost.where(sql_query, query: "%#{params[:query]}%")
       @job_posts = unfiltered_job_posts.uniq
     elsif params[:search].present?
-      sql_query = "title ILIKE :search OR profession ILIKE :search OR type ILIKE :search OR location ILIKE :search"
+      sql_query = "title ILIKE :search OR content ILIKE :search OR profession ILIKE :search OR type ILIKE :search OR location ILIKE :search"
       unfiltered_job_posts = JobPost.where(sql_query, search: "%#{params[:search]}%")
       @job_posts = unfiltered_job_posts.uniq
     else
@@ -27,6 +27,7 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.new(job_post_params)
     @job_post.user = current_user
     @job_post.save
+    redirect_to job_posts_path
   end
 
   def edit
@@ -47,6 +48,6 @@ class JobPostsController < ApplicationController
   end
 
   def job_post_params
-    params.require(:job_post).permit(:photo, :title, :content, :category, :city)
+    params.require(:job_post).permit(:photo, :title, :content, :profession, :location)
   end
 end
