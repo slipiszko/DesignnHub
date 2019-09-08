@@ -8,5 +8,5 @@ class JobPost < ApplicationRecord
   validates :content, presence: true
   validates :profession, presence: true
   validates :location, presence: true
-  validates :type, presence: true
+  validates :job_type, presence: true
 end
