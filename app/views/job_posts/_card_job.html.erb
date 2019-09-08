@@ -1,6 +1,6 @@
 <div class="masonry-wrapper">
   <div class="masonry">
-    <%= link_to job_post_path(job_post.user), class: "masonry-item" do %>
+    <%= link_to job_post_path(job_post.user), class: "masonry-item", target: :_blacnk do %>
       <div class="masonry-content">
         <h3 class="masonry-title"><%= job_post.title %>.truncate(150)</h3>
         <p class="masonry-description"><%= job_post.content %></p>

@@ -1,4 +1,4 @@
-<%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
+<%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), target: :_blank, width: 600, height: 400, crop: "pad" %>
   <%= link_to profile_path(design.user) do %>
     <div class="infos">
       <div class="text-background">
@@ -9,7 +9,7 @@
             <%= design.user.last_name %>
           </div>
         </div>
-        <div class="title-link"><%= link_to design.title.truncate(30), design_path(design.id) %></div>
+        <div class="title-link"><%= link_to design.title.truncate(30), design_path(design.id), target: :_blank %></div>
       </div>
     </div>
   <% end %>
