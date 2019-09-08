@@ -1,16 +1,8 @@
 <div class="d-flex">
   <%= render 'sidebar' %>
-    <% @job_posts.each do |job_post| %>
-      <div class="masonry-wrapper">
-        <div class="masonry">
-          <div class="masonry-item">
-            <div class="masonry-content">
-              <img src="<%= cl_image_tag(job_post.photo) %>" alt="Dummy Image">
-              <h3 class="masonry-title"><%= job_post.title %></h3>
-              <p class="masonry-description"><%= job_post.content %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <% @job_posts.each do |job_post| %>
+    <div>
+      <%= render 'card_job', job_post: job_post %>
+    </div>
+  <% end %>
 </div>
