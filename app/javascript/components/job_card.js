@@ -1,10 +1,11 @@
 function resizeMasonryItem(item){
   // Get the grid object, its row-gap, and the size of its implicit rows
   const grid = document.querySelectorAll('.masonry')[0];
+
   if( grid ) {
-    const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
-        rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
-        gridImagesAsContent = item.querySelector('img.masonry-content');
+    const rowGap    = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+          rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
+          gridImagesAsContent = item.querySelector('img.masonry-content');
 
     const rowSpan = Math.ceil((item.querySelector('.masonry-content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
 
@@ -23,7 +24,7 @@ function resizeAllMasonryItems(){
   // Loop through the above list and execute the spanning function to
   // each masonry item
   if( allItems ) {
-    for(let i=0;i>allItems.length;i++){
+    for(let i = 0; i > allItems.length; i++){
       resizeMasonryItem(allItems[i]);
     }
   }
@@ -32,7 +33,7 @@ function resizeAllMasonryItems(){
 function waitForImages() {
   const allItems = document.querySelectorAll('.masonry-item');
   if( allItems ) {
-    for(let i=0;i<allItems.length;i++){
+    for(let i = 0; i < allItems.length; i++){
       imagesLoaded( allItems[i], function(instance) {
         const item = instance.elements[0];
         resizeMasonryItem(item);
