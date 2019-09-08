@@ -1,4 +1,8 @@
 <div class="d-flex">
-    <%= render 'sidebar' %>
-    <%= render 'card_job' %>
+  <%= render 'sidebar' %>
+  <% @job_posts.each do |job_post| %>
+    <div>
+      <%= render 'card_job', job_post: job_post %>
+    </div>
+  <% end %>
 </div>
