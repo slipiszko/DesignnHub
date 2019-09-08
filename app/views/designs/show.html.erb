@@ -38,50 +38,6 @@
         <button id="toggle-pins-button" onclick="togglePins()">Show all Pinns</button>
 
 
-        <script>
-          const pins = document.querySelectorAll(".design-photo-pin");
-          const toggleButton = document.querySelector("#toggle-pins-button");
-
-          function showCoords(event) {
-            var x = event.clientX;
-            var y = event.clientY;
-            var coords = [x,y];
-            document.getElementById("demo").innerHTML = coords;
-          };
-
-          function showAllPins() {
-            pins.forEach((pin) => {
-              pin.classList.add("visible")
-            });
-          }
-
-          function hideAllPins() {
-            pins.forEach((pin) => {
-              pin.classList.remove("visible")
-            });
-          }
-
-          function togglePins() {
-            const visiblePins = document.querySelectorAll(".design-photo-pin.visible");
-
-            if (visiblePins.length === 0) {
-              toggleButton.innerText = "Hide"
-              showAllPins()
-            } else {
-              toggleButton.innerText = "Show"
-              hideAllPins()
-            }
-          }
-
-          function showPin(comment_id) {
-            var clickedPin = document.querySelector('[data-comment-id="' + comment_id + '"]');
-
-            hideAllPins();
-            clickedPin.classList.add("visible");
-            toggleButton.innerText = "Hide"
-          }
-
-        </script>
         <div class="design-description">
           <div>
             <%= @user.first_name %> <%= @user.last_name %>
