@@ -103,7 +103,7 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
-  photo: open('app/assets/images/design_test_25.jpeg'),
+  photo: open('app/assets/images/design_test_24.jpeg'),
   title: "Portfolio Mockup",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam incidunt, quis aliquid accusantium dicta animi. Doloribus qui facere amet sequi itaque ullam dolor dignissimos eligendi accusamus harum. Vero illum, delectus.",
   category: "Web Design",
