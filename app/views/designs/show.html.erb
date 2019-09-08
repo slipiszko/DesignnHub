@@ -5,20 +5,21 @@
         <%= cl_image_tag @design.photo, crop: :scale, width: 900 %>
       </div>
     </div>
-      <div class="col-4 comment-container">
-        <div class="overflow-auto">
-          <div class="comments">
-            <%= render 'comments' %>
-          </div>
-        </div>
-        <div class="new-comment">
-          <%= render 'new_comment' %>
+
+    <div class="col-4 comment-container">
+      <div class="overflow-auto">
+        <div class="comments">
+          <%= render 'comments' %>
         </div>
       </div>
+      <div class="new-comment">
+        <%= render 'new_comment' %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="main-show-container">
+<div class="design-info-container">
     <div class="js-design-photo-pinner design-photo-pinner" id="design">
         <% if @comments.nil? %>
           <p>No comments</p>
@@ -33,20 +34,24 @@
             <% end %>
           <% end %>
         <% end %>
+
+
       <div class ="js-design-photo-pin design-photo-pin"></div>
-        <p id="demo"></p>
-        <button id="toggle-pins-button" onclick="togglePins()">Show all Pinns</button>
+      <p id="demo"></p>
+      <button id="toggle-pins-button" onclick="togglePins()">Show all Pinns</button>
 
-
-        <div class="design-description">
-          <div>
-            <%= @user.first_name %> <%= @user.last_name %>
-          </div>
-          <div>
-            <%= @design.title %>
-            <br>
-            <%= @design.description %>
-          </div>
-        </div>
+    <div class="design-description">
+      <div class="align-items-center">
+        <%= link_to profile_path(@design.user), class: "user-info" do %>
+          <%= cl_image_tag(@design.user.photo, class: "avatar-small") %>
+          <%= @user.first_name %>
+          <%= @user.last_name %>
+        <% end %>
+      </div>
+      <div class="design-info">
+        <h5><%= @design.title %></h5>
+        <p><%= @design.description %></p>
+      </div>
     </div>
+  </div>
 </div>
