@@ -8,7 +8,7 @@ class DesignsController < ApplicationController
       unfiltered_designs = Design.joins(:design_tags).where(sql_query, query: "%#{params[:query]}%")
       @designs = unfiltered_designs.uniq
     elsif params[:search].present?
-      sql_query = "category ILIKE :search OR title ILIKE :search OR description ILIKE :search OR name ILIKE :search"
+      sql_query = "category ILIKE :search OR title ILIKE :search OR name ILIKE :search OR description ILIKE :search"
       unfiltered_designs = Design.joins(:design_tags).where(sql_query, search: "%#{params[:search]}%")
       @designs = unfiltered_designs.uniq
     else
