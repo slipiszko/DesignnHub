@@ -8,7 +8,7 @@ class JobPostsController < ApplicationController
       unfiltered_job_posts = JobPost.where(sql_query, query: "%#{params[:query]}%")
       @job_posts = unfiltered_job_posts.uniq
     elsif params[:search].present?
-      sql_query = "title ILIKE :search OR content ILIKE :search OR profession ILIKE :search OR job_type ILIKE :search OR location ILIKE :search"
+      sql_query = "title ILIKE :search OR profession ILIKE :search OR job_type ILIKE :search OR location ILIKE :search"
       unfiltered_job_posts = JobPost.where(sql_query, search: "%#{params[:search]}%")
       @job_posts = unfiltered_job_posts.uniq
     else
