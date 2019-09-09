@@ -1,0 +1,113 @@
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.job-show-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.job-container {
+  position: absolute;
+  box-shadow: 0 0 10px rgba(160, 160, 160, 0.2);
+  min-height: 500px;
+  padding: 16px;
+  margin-top: 16px;
+  text-align: center;
+  width: 60vw;
+
+
+  .job-detials {
+    margin: 24px 24px 20px 176px;
+
+    h2 {
+      margin-bottom: 20px;
+      margin-right: 32px;
+    }
+  }
+
+  .job-user {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 12px;
+
+    p {
+      color: #b7b7b7;
+      font-weight: lighter;
+      font-size: 14px;
+    }
+
+    .user-link {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .apply-btn {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.job-tag-container-img {
+  background: $orange;
+  box-shadow: 6px 6px 10px rgba(160, 160, 160, 0.4);
+  padding: 20px 24px;
+  height: 280px;
+  width: 230px;
+  position: absolute;
+  left: -80px;
+  top: 320px;
+  text-align: left;
+
+  .job-tag {
+    line-height: 0.6em;
+  }
+
+  h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+.job-tag-container-no-img {
+  background: $orange;
+  box-shadow: 6px 6px 10px rgba(160, 160, 160, 0.2);
+  padding: 20px 24px;
+  height: 270px;
+  width: 220px;
+  position: relative;
+  left: -120px;
+  top: 80px;
+  text-align: left;
+
+  .job-tag {
+    line-height: 0.6em;
+  }
+
+  h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+.job-image {
+  margin-left: 32px;
+  height: 280px;
+}
