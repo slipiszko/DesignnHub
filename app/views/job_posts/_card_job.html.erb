@@ -1,14 +1,14 @@
-<div class="masonry-wrapper">
-  <div class="masonry">
-    <%= link_to job_post_path(job_post.user), class: "masonry-item" do %>
-      <div class="masonry-content">
-        <h3 class="masonry-title"><%= job_post.title %>.truncate(150)</h3>
-        <p class="masonry-description"><%= job_post.content %></p>
+<div class="masonry-item">
+  <%= link_to job_post_path(job_post.user), class: "masonry-content" do %>
+    <h3 class="masonry-title text-center"><%= job_post.title.truncate(150) %></h3>
+    <p class="masonry-description"><%= job_post.content %></p>
+    <%= link_to profile_path(job_post.user),class: "masonry-content" do %>
+      <div class="text-center">
         <%= cl_image_tag(job_post.user.photo, class: "avatar-small") %>
         <small class="masonry-description"><%= job_post.user.first_name %> <%= job_post.user.last_name %></small>
         <% from_time = Time.now - job_post.created_at %>
         <small class="masonry-description text-muted"><%= time_ago_in_words(from_time) %></small>
       </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
