@@ -15,7 +15,7 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
     pinEl.style.top   = `${(y * 100)}%`;
     pinEl.style.left  = `${(x * 100)}%`;
     inputX.value      = x;
-    inputY.value      s= y;
+    inputY.value      = y;
   });
  });
 
