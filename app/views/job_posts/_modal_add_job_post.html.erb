@@ -14,12 +14,12 @@
           <%= form.input :content, as: :text, label: "Description" %>
           <%= form.input :location, label: "Location" %>
           <%= form.input :profession, label: "Profession", input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
-          <%= form.input :job_type, label: "Job type", input_html: { class: 'select2' }, collection: ["Full-time", "Part-time", "Freelance", "Internship"] %>
+          <%= form.input :job_type, label: "Job type", input_html: { class: 'select2' }, collection: ["Full-time", "Part-time", "Freelance", "Collaboration", "Internship"] %>
           <%= form.input :photo, label: 'Image' %>
           <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
       </div>
       <div class="modal-footer">
-          <%= form.submit "POST JOB", class: "btn btn-primary" %>
+          <%= form.submit "POST JOB", class: "btn btn-primary", id: "apply-btn" %>
         <% end %>
       </div>
     </div>

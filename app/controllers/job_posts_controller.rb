@@ -17,6 +17,7 @@ class JobPostsController < ApplicationController
   end
 
   def show
+    @job_application = JobApplication.new
   end
 
   def new
