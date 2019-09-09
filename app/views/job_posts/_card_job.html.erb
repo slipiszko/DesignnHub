@@ -2,12 +2,12 @@
   <%= link_to job_post_path(job_post.user), class: "masonry-content" do %>
     <h3 class="masonry-title text-center"><%= job_post.title %></h3>
     <% if job_post.photo.present? %>
-    <div class="text-center">
+    <div class="text-center p-3">
       <%= cl_image_tag(job_post.photo, width: 200, height: 150, crop: :fill) %>
       </div>
       <% else %>
     <% end %>
-    <p class="masonry-description"><%= job_post.content.truncate(400) %></p>
+    <p class="masonry-description text-center p-2"><%= job_post.content.truncate(400) %></p>
     <div class="text-center">
 <%= link_to profile_path(job_post.user), class: "masonry-content" do %>
           <%= cl_image_tag(job_post.user.photo, class: "avatar-small") %>
