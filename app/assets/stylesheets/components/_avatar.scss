@@ -15,8 +15,8 @@
   border: white 1px solid;
 }
 .avatar-square {
-  width: 24px;
-  border-radius: 0px;
+  width: 70%;
+  object-fit: cover;
+  border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
 }
