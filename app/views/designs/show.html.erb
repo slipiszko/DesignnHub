@@ -1,57 +1,95 @@
 <div class="fluid-container">
-  <div class="row">
-    <div class="col-8">
-      <div class="design-photo-image-wrapper">
-        <%= cl_image_tag @design.photo, crop: :scale, width: 900 %>
+  <div class="row" >
+    <div class="col-12 col-xl-8" style="margin: 0; padding: 0;" >
+
+      <div class="main-show-container">
+          <div class="js-design-photo-pinner design-photo-pinner">
+            <div class="design-photo-image-wrapper">
+              <%= cl_image_tag @design.photo, width: 900 %>
+              <% if @comments.nil? %>
+                <p>No comments</p>
+              <% else %>
+                <% @comments.each.with_index do |comment, index| %>
+                  <% if comment.x.nil? || comment.y.nil? %>
+                    <div data-comment-id="<%=comment.id%>" class="design-photo-pin"></div>
+                  <% else %>
+                    <div data-comment-id="<%=comment.id%>" class="design-photo-pin visible" style="top: <%= (comment.y * 100) %>%; left: <%= comment.x * 100 %>%;">
+                      <%= index + 1 %>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <div class ="js-design-photo-pin design-photo-pin" ></div>
+            </div>
+              <button id="toggle-pins-button" onclick="togglePins()"><i class="fas fa-eye-slash"></i></button>
+
+
+              <script>
+                const pins = document.querySelectorAll(".design-photo-pin");
+                const toggleButton = document.querySelector("#toggle-pins-button");
+
+                function showCoords(event) {
+                  var x = event.clientX;
+                  var y = event.clientY;
+                  var coords = [y, x];
+                  document.getElementById("js-design-photo-pin").innerHTML = coords;
+                };
+
+                function showAllPins() {
+                  pins.forEach((pin) => {
+                    pin.classList.add("visible")
+                  });
+                }
+
+                function hideAllPins() {
+                  pins.forEach((pin) => {
+                    pin.classList.remove("visible")
+                  });
+                }
+
+                function togglePins() {
+                  const visiblePins = document.querySelectorAll(".design-photo-pin.visible");
+
+                  if (visiblePins.length === 0) {
+                    toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
+                    showAllPins()
+                  } else {
+                    toggleButton.innerHTML = "<i class=\"fas fa-eye\"></i>";
+                    hideAllPins()
+                  }
+                }
+
+                function showPin(comment_id) {
+                  var clickedPin = document.querySelector('[data-comment-id="' + comment_id + '"]');
+
+                  hideAllPins();
+                  clickedPin.classList.add("visible");
+                  toggleButton.innerText = "<i class=\"fas fa-eye\"></i>";
+                }
+
+              </script>
+          </div>
+              <div class="design-description">
+                <div>
+                  <%= @user.first_name %> <%= @user.last_name %>
+                </div>
+                <div>
+                  <%= @design.title %>
+                  <br>
+                  <%= @design.description %>
+                </div>
+              </div>
       </div>
     </div>
-
-    <div class="col-4 comment-container">
-      <div class="overflow-auto">
-        <div class="comments">
-          <%= render 'comments' %>
+      <div class="col-12 col-xl-4 comment-container" >
+        <div class="overflow-auto">
+          <div class="comments">
+            <%= render 'comments' %>
+          </div>
+        </div>
+        <div class="new-comment">
+          <%= render 'new_comment' %>
         </div>
       </div>
-      <div class="new-comment">
-        <%= render 'new_comment' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="design-info-container">
-    <div class="js-design-photo-pinner design-photo-pinner" id="design">
-        <% if @comments.nil? %>
-          <p>No comments</p>
-        <% else %>
-          <% @comments.each do |comment| %>
-            <% if comment.x.nil? || comment.y.nil? %>
-              <div data-comment-id="<%=comment.id%>" class="design-photo-pin">
-              </div>
-            <% else %>
-              <div data-comment-id="<%=comment.id%>" class="design-photo-pin" style="top: <%= comment.y*100%>%; left: <%= comment.x*100 %>%;">
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-
-
-      <div class ="js-design-photo-pin design-photo-pin"></div>
-      <p id="demo"></p>
-      <button id="toggle-pins-button" onclick="togglePins()">Show all Pinns</button>
-
-    <div class="design-description">
-      <div class="align-items-center">
-        <%= link_to profile_path(@design.user), class: "user-info" do %>
-          <%= cl_image_tag(@design.user.photo, class: "avatar-small") %>
-          <%= @user.first_name %>
-          <%= @user.last_name %>
-        <% end %>
-      </div>
-      <div class="design-info">
-        <h5><%= @design.title %></h5>
-        <p><%= @design.description %></p>
-      </div>
-    </div>
   </div>
 </div>

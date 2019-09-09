@@ -9,13 +9,13 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
   photoPinnerComponent.addEventListener('click', (e) => {
     const photoWidth  = photoPinnerComponent.offsetWidth;
     const photoHeight = photoPinnerComponent.offsetHeight;
-    const x           = e.offsetX / photoWidth;
-    const y           = e.offsetY / photoHeight;
-    const pinEl       = photoPinnerComponent.querySelector('.js-design-photo-pin');
-    pinEl.style.top   = `${(y * 100)}%`;
-    pinEl.style.left  = `${(x * 100)}%`;
-    inputX.value      = x;
-    inputY.value      = y;
+    const x = (e.offsetX - 15) / photoWidth;
+    const y = (e.offsetY - 15) / photoHeight;
+    const pinEl = photoPinnerComponent.querySelector('.js-design-photo-pin');
+    pinEl.style.top = `${(y * 100)}%`;
+    pinEl.style.left = `${(x * 100)}%`;
+    inputX.value = x;
+    inputY.value = y;
   });
  });
 

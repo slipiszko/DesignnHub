@@ -1,5 +1,5 @@
-.design-info-container {
-  display: flex;
+
+.main-show-container {
   justify-content: space-between;
   margin: 16px 16px;
 }
@@ -13,21 +13,20 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 800px;
 }
 
 .comments {
   margin: 20px;
-  height: 66vh;
+  height: 72vh;
 }
+
+
 
 .new-comment {
-  height: 20vh;
-}
 
-#design {
-  height: 1300px;
-  width: 1300px;
+  // height: 20vh;
+
 }
 
 .design-description {
@@ -47,8 +46,8 @@
 
 .user-profile-pic {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
 }
 
 .comment-input {
@@ -56,15 +55,8 @@
 }
 
 .comment-box {
-  height: 100px;
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid;
-  border-color: gray;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .under-comment-box {
@@ -77,8 +69,17 @@
   text-align: right;
  }
 
-.comment-box-container {
-  display: flex;
+.comment-card {
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 40px;
+  position: relative;
+
+  &:nth-child(even) {
+    margin-left: 20px;
+  }
 }
 
 .location {
@@ -87,9 +88,48 @@
 
 .overflow-auto {
   margin-bottom: 12px;
+ padding-top: 30px;
+
 }
 
+ .row{
+//  border: 1px solid;
+ margin: 0;
+//  margin-top: 20px;
+ }
 
+$card_number_size: 35px;
+ .comment-card-number{
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background-color: white;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: 2px solid white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 50%;
+  width: $card_number_size;
+  height: $card_number_size;
+  text-align: center;
+  line-height: 33px;
+  font-family: arial;
+ }
+.comment-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.comment-meta-name {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #222;
+}
+.comment-meta-date {
+  color: #aaa;
+}
 
 
 
