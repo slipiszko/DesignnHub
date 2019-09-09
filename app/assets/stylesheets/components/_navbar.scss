@@ -47,6 +47,7 @@ a {
 
   &.navbar-transparent {
     background-color: transparent;
+    box-shadow: none;
 
     .logo {
       filter: invert(1);
