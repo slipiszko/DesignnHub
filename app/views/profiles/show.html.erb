@@ -1,1 +1,21 @@
-<h1>User Show</h1>
+<div class="container py-5">
+<%= cl_image_tag(@user.photo, class: "avatar-square") %>
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<p><%= @user.job %></p>
+<p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
+<p><%= @user.bio %></p>
+Email: <%= @user.email %>
+</div>
+
+<i class="icon ion-md-globe"></i>
+<i class="fas fa-basketball-ball"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-facebook-f"></i>
+<i class="fab fa-instagram"></i>
+
+
+<i class="icon ion-ios-timer"></i>
+<i class="icon ion-md-code"></i>
+<i class="fas fa-chart-line"></i>
+<i class="fab fa-sketch"></i>
+<i class="fas fa-people-carry"></i>
