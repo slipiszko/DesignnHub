@@ -22,19 +22,16 @@
           <div class="comment-meta-date">
             <%= time_ago_in_words(comment.created_at) %> ago
           </div>
-
+          <div class="comment-meta-link">
+            <button onclick="showPin(<%=comment.id%>)" hidden="hidden">Show Pin</button>
+            <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+          </div>
         </div>
       </div>
 
       <div id="votes">
         <%= render 'vote_form', comment: comment %>
       </div>
-
-      <div class="under-comment-box">
-        <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
-        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
-      </div>
-
     </div>
   <% end %>
 <% end %>

@@ -16,6 +16,32 @@
   }
 }
 
+#toggle-pins-button{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: auto;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  line-height: 33px;
+  font-family: arial;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  margin: 1px;
+
+  i{
+    color: black;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
 .design-photo-pin {
   width: 35px;
   height: 35px;

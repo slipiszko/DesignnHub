@@ -21,27 +21,12 @@
   height: 72vh;
 }
 
-
-
-.new-comment {
-
-  // height: 20vh;
-
-}
-
 .design-description {
-  border: 1px solid;
-  border-color: gray;
-  padding: 10px;
   border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
-}
-
-.under-comment-box {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
-  margin-left: 8px;
+  padding: 10px;
 }
 
 .user-profile-pic {
@@ -57,16 +42,21 @@
 .comment-box {
   font-size: 18px;
   font-weight: 400;
-}
-
-.under-comment-box {
-  margin-bottom: 12px
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
 }
 
 #votes {
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
   text-align: right;
+
+  p{
+    margin: 0;
+    padding: 0;
+  }
  }
 
 .comment-card {
@@ -74,12 +64,12 @@
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   padding: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin-right: 10px;
   position: relative;
-
-  &:nth-child(even) {
-    margin-left: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 .location {
@@ -88,7 +78,8 @@
 
 .overflow-auto {
   margin-bottom: 12px;
- padding-top: 30px;
+  padding-top: 30px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -116,12 +107,14 @@ $card_number_size: 35px;
   line-height: 33px;
   font-family: arial;
  }
+
 .comment-meta {
   display: flex;
   align-items: center;
   font-size: 14px;
   margin-top: 10px;
 }
+
 .comment-meta-name {
   margin: 0 10px;
   font-weight: bold;
@@ -129,6 +122,10 @@ $card_number_size: 35px;
 }
 .comment-meta-date {
   color: #aaa;
+}
+
+.comment-meta-link{
+  margin: 0 10px;
 }
 
 

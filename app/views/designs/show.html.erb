@@ -20,8 +20,10 @@
                 <% end %>
               <% end %>
               <div class ="js-design-photo-pin design-photo-pin" ></div>
+              <div class="eye-button">
+                <button id="toggle-pins-button" onclick="togglePins()"><i class="fas fa-eye-slash"></i></button>
+              </div>
             </div>
-              <button id="toggle-pins-button" onclick="togglePins()"><i class="fas fa-eye-slash"></i></button>
 
 
               <script>
@@ -31,7 +33,7 @@
                 function showCoords(event) {
                   var x = event.clientX;
                   var y = event.clientY;
-                  var coords = [y, x];
+                  var coords = [x,y];
                   document.getElementById("js-design-photo-pin").innerHTML = coords;
                 };
 
@@ -64,14 +66,14 @@
 
                   hideAllPins();
                   clickedPin.classList.add("visible");
-                  toggleButton.innerText = "<i class=\"fas fa-eye\"></i>";
+                  toggleButton.innerHTML = "<i class=\"fas fa-eye\"></i>";
                 }
 
               </script>
           </div>
               <div class="design-description">
-                <div>
-                  <%= @user.first_name %> <%= @user.last_name %>
+                <div class="comment-meta-name" style="margin: 0;">
+                  <%=@user.first_name %> <%= @user.last_name %>
                 </div>
                 <div>
                   <%= @design.title %>

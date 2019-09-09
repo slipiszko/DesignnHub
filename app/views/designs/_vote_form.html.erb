@@ -16,5 +16,8 @@
       <%=comment.downvotes %>
   <% end %>
 <% else %>
-  <p>upvotes <%=comment.upvotes %> downvotes <%=comment.downvotes %></p>
+  <%=comment.upvotes %>
+  <p>▲</p>
+  <p>▼</p>
+  <%=comment.downvotes %>
 <% end %>
