@@ -10,6 +10,18 @@ Design.destroy_all
 
 puts "Generating 4 Users..."
 
+photo = [
+  open('app/assets/images/profilepic_1.jpeg'),
+  open('app/assets/images/profilepic_7.jpeg'),
+  open('app/assets/images/profilepic_3.jpeg'),
+  open('app/assets/images/profilepic_6.jpeg'),
+  open('app/assets/images/profilepic_4.jpeg'),
+  open('app/assets/images/profilepic_5.jpeg')
+]
+
+
+
+
 users = []
 
 users << User.create!(
@@ -20,7 +32,7 @@ users << User.create!(
     job: "Freelance Photographer",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt sunt debitis beatae quos, cum fugit eius quam delectus voluptas laudantium veritatis repellat numquam vero. Unde beatae magni sed nemo consequatur?",
     city: "Berlin",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: photo.sample
   )
 
 users << User.create!(
@@ -31,7 +43,7 @@ users << User.create!(
     job: "Graphic Design Student",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum corporis officiis, minima iure! Minima commodi omnis voluptas reiciendis quos ratione placeat facilis neque tempore sint libero possimus, eos rem facere.",
     city: "Dehli",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: photo.sample
   )
 
 users << User.create!(
@@ -42,7 +54,7 @@ users << User.create!(
     job: "Illustrator",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla facere nostrum ab aperiam temporibus aliquid reprehenderit natus ipsam officia rem nesciunt est nobis, rerum recusandae eius aspernatur molestias pariatur unde.",
     city: "Melbourne",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: photo.sample
   )
 
 users << User.create!(
@@ -53,7 +65,7 @@ users << User.create!(
     job: "Creative Director",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum nostrum quisquam harum natus modi necessitatibus nobis. Temporibus amet similique id tempore, vitae, cum porro possimus, reiciendis sint odio aliquam quasi.",
     city: "Melbourne",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: photo.sample
   )
 
 puts "Finished!"
@@ -312,10 +324,11 @@ puts "Finished!"
 puts "Generating Comments..."
 
 content = [
-    "This is my comment",
-    "I left my comment here",
-    "A comment was posted here",
-    "My favourite comment is above"
+    "I love the colors but the background-color could be a bit brighter.",
+    "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
+    "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
+    "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
+    "In case of originality I would give you 10 out of 10. But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!"
 ]
 
 designs.uniq.each do |design|
