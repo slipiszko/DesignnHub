@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_08_032253) do
+ActiveRecord::Schema.define(version: 2019_09_09_231710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_09_08_032253) do
     t.bigint "job_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
