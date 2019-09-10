@@ -3,7 +3,7 @@
     <div class="infos">
       <div class="text-background">
         <div class="d-flex align-items-center">
-          <%= cl_image_tag(design.user.photo, class: "avatar-small") %>
+          <%= cl_image_tag(design.user.photo, class: "avatar-small", :gravity=>"faces") %>
           <div class="user-link">
             <%= design.user.first_name %>
             <%= design.user.last_name %>
