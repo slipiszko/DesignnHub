@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :votes
   has_many :job_posts, dependent: :destroy
   has_many :job_applications
+  has_many :job_experiences, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

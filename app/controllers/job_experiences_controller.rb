@@ -26,6 +26,6 @@ class JobExperiencesController < ApplicationController
   end
 
   def job_experience_params
-    params.require(:job_experiences).permit(:title, :description, :start_date, :end_date)
+    params.require(:job_experiences).permit(:title, :description, :location, :start_date, :end_date)
   end
 end

@@ -11,11 +11,11 @@
       <div class="modal-body">
         <%= simple_form_for design, method: :post do |form| %>
           <%= form.input :title %>
-          <%= form.input :description, as: :text %>
+          <%= form.input :description %>
           <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
           <%= form.association :design_tags, input_html: { class: 'select2' } %>
-          <%= form.input :photo, label: 'Photo' %>
-          <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
+          <%= form.input :photo, label: 'Design' %>
+          <%= form.input :photo_cache, as: :hidden %>
       </div>
       <div class="modal-footer line-top">
           <%= form.submit "ADD DESIGN", class: "btn btn-primary" %>
