@@ -75,6 +75,16 @@
   }
 }
 
+.design-photo-pin-user {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .design-photo-pin {
+    z-index: 999;
+  }
+}
+
 #hidden{
   display: none;
 }
