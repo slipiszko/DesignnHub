@@ -13,8 +13,12 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  height: 775px;
+  height: calc(100vh - 75px);
   width: 300px;
+}
+
+.comment-content{
+  font-size: 16px;
 }
 
 .comment-btn{
@@ -32,9 +36,7 @@
 
 .design-description {
   border-radius: 4px;
-  background-color: #E7EAEE;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 16px;
 }
 
@@ -81,7 +83,6 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   padding: 20px;
   margin-bottom: 30px;
-  margin-right: 10px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -92,15 +93,6 @@
   display: none;
 }
 
-.overflow-auto {
-  margin-right:10px;
-  margin-top: 17px;
-  margin-bottom: 20px;
-  background-color: #E7EAEE;
-  border-radius: 4px;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
-
-}
 
  .row{
 //  border: 1px solid;
@@ -134,17 +126,22 @@ $card_number_size: 35px;
   margin-top: 10px;
 }
 
-.comment-meta-name {
-  margin: 0 10px;
-  font-weight: bold;
-  color: #222;
-}
-.comment-meta-date {
-  color: #aaa;
-}
-
 .comment-meta-link{
   margin: 0 10px;
+}
+
+.design-meta-title {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.design-meta-description{
+  color: #222;
+}
+
+.design-meta-name{
+  display: flex;
+
 }
 
 

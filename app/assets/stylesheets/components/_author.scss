@@ -1,0 +1,19 @@
+.author {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.author-meta-name{
+  margin: 0 10px;
+  font-weight: bold;
+  color: #222;
+}
+.author-meta-date {
+  color: #aaa;
+}
+.author-profile-pic {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}

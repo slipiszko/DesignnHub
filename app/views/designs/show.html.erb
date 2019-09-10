@@ -19,7 +19,14 @@
                   <% end %>
                 <% end %>
               <% end %>
-              <div class ="js-design-photo-pin design-photo-pin" ></div>
+              <div class ="js-design-photo-pin design-photo-pin-user" >
+                <div class="design-photo-pin visible">
+                  <%= @comments.count + 1 %>
+                </div>
+                <div class="popup-comment-form d-none js-popup-comment-form">
+                  <%= render 'new_comment' %>
+                </div>
+              </div>
               <div class="eye-button">
                 <button id="toggle-pins-button" onclick="togglePins()"><i class="fas fa-eye-slash"></i></button>
               </div>
@@ -72,19 +79,19 @@
               </script>
           </div>
               <div class="design-description">
-                <div class="comment-meta-name" style="margin: 0;">
-                  <%=@user.first_name %> <%= @user.last_name %>
-                </div>
-                <div>
+                <div class="design-meta-title">
                   <%= @design.title %>
-                  <br>
-                  <%= @design.description %>
                 </div>
+                <p class="design-meta-description">
+                  <%= @design.description %>
+                </p>
+                <%= render partial: 'partials/author', locals: { user: @user, created_at: @design.created_at } %>
+
               </div>
       </div>
     </div>
       <div class="col-12 col-xl-4 comment-container" >
-        <div class="overflow-auto">
+        <div class="overflow-auto comment-wrapper">
           <div class="comments">
             <%= render 'comments' %>
           </div>
