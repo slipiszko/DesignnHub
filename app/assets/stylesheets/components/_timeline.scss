@@ -3,11 +3,12 @@
   position: relative;
   max-width: 46em;
   padding: 0;
+  font-size: 0.8rem;
 
   &:before {
     background-color: $black;
     content: '';
-    margin-left: 39px;
+    margin-left: 31px;
     position: absolute;
     top: 0;
     width: 2px;
