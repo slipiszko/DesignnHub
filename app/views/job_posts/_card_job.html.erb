@@ -3,7 +3,7 @@
     <h3 class="masonry-title text-center"><%= job_post.title %></h3>
     <% if job_post.photo.present? %>
     <div class="text-center p-3">
-      <%= cl_image_tag(job_post.photo, width: 200, height: 150, crop: :fill) %>
+      <%= cl_image_tag(job_post.photo, class: "job-img", crop: "scale") %>
       </div>
       <% else %>
     <% end %>
