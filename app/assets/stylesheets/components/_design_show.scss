@@ -17,6 +17,10 @@
   width: 300px;
 }
 
+.comment-content{
+  font-size: 16px;
+}
+
 .comment-btn{
   background-color: $orange;
   border-radius: 10px;
@@ -32,9 +36,7 @@
 
 .design-description {
   border-radius: 4px;
-  background-color: #E7EAEE;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 16px;
 }
 
@@ -134,17 +136,19 @@ $card_number_size: 35px;
   margin-top: 10px;
 }
 
-.comment-meta-name {
+.comment-meta-link{
+  margin: 0 10px;
+}
+
+.design-meta-description{
   margin: 0 10px;
   font-weight: bold;
   color: #222;
 }
-.comment-meta-date {
-  color: #aaa;
-}
 
-.comment-meta-link{
-  margin: 0 10px;
+.design-meta-name{
+  display: flex;
+
 }
 
 

@@ -12,8 +12,8 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
     const x = (e.offsetX - 15) / photoWidth;
     const y = (e.offsetY - 15) / photoHeight;
     const pinEl = photoPinnerComponent.querySelector('.js-design-photo-pin');
-    pinEl.style.top = `${(x * 100)}%`;
-    pinEl.style.left = `${(y * 100)}%`;
+    pinEl.style.top = `${(y * 100)}%`;
+    pinEl.style.left = `${(x * 100)}%`;
     inputX.value = x;
     inputY.value = y;
   });

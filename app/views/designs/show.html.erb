@@ -72,12 +72,11 @@
               </script>
           </div>
               <div class="design-description">
-                <div class="comment-meta-name" style="margin: 0;">
-                  <%=@user.first_name %> <%= @user.last_name %>
+                <%= render partial: 'partials/author', locals: { user: @user, created_at: @design.created_at } %>
+                <div class="design-meta-description" style="padding-bottom: 3px; padding-bottom: 3px;">
+                  <%= @design.title %>
                 </div>
                 <div>
-                  <%= @design.title %>
-                  <br>
                   <%= @design.description %>
                 </div>
               </div>
