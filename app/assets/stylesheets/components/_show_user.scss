@@ -1,6 +1,28 @@
-.main-container {
-  display:flex;
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-icon {
+  margin: 4px;
+  padding: 8px;
+}
+
+.fa-caret-down {
+  font-size: 16px;
+  margin-left: 12px;
+}
+
+.fa-map-marker-alt {
+  margin-right: 8px;
+}
+
+.experience-title {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
 }
