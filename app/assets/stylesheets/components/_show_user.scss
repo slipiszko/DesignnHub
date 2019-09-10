@@ -61,4 +61,8 @@
   img {
     border-radius: 8px 8px 0 0;
   }
+
+  &:hover {
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, .2));
+  }
 }
