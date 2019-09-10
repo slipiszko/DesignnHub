@@ -24,10 +24,10 @@ function togglePins() {
   const visiblePins = document.querySelectorAll(".design-photo-pin.visible");
 
   if (visiblePins.length === 0) {
-    toggleButton.innerText = "Hide"
+    toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
     showAllPins()
   } else {
-    toggleButton.innerText = "Show"
+    toggleButton.innerHTML = "<i class=\"fas fa-eye\"></i>";
     hideAllPins()
   }
 }
@@ -37,5 +37,5 @@ function showPin(comment_id) {
 
   hideAllPins();
   clickedPin.classList.add("visible");
-  toggleButton.innerText = "Hide"
+  toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
 }

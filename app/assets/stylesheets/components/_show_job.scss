@@ -34,7 +34,7 @@
     }
   }
   .apply-btn {
-    margin-top: 24px;
+    margin-top: 32px;
     display: flex;
     justify-content: flex-end;
   }
@@ -76,7 +76,7 @@
   height: 270px;
   width: 220px;
   position: absolute;
-  left: -120px;
+  left: -80px;
   top: 80px;
   text-align: left;
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
@@ -102,9 +102,30 @@
   margin: 32px;
 }
 
+.user-review {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .user-review-info {
+    margin-left: 12px;
+    line-height: .4rem;
+  }
+
+  #review-profile {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 18px;
+    font-weight: 450;
+  }
+}
+
+
 @keyframes slideInFromLeft {
   0% {
-    transform: translateX(-20%);
+    transform: translateX(-4%);
   }
   100% {
     transform: translateX(0);

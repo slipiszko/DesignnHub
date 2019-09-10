@@ -2,8 +2,9 @@ const designPhotoPinnerComponents = document.querySelectorAll('.js-design-photo-
 // const baseUrl = `http://localhost:3000/designs/${:id}/edit`;
 const comment = document.querySelector("#js-your-message");
 // const form = document.querySelector("#js-comment-form");
-const inputX  = document.querySelector(".js-comment-x")
-const inputY  = document.querySelector(".js-comment-y")
+const inputX  = document.querySelector(".js-comment-x");
+const inputY  = document.querySelector(".js-comment-y");
+const popupCommentFormEl = document.querySelector(".js-popup-comment-form");
 
 designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
   photoPinnerComponent.addEventListener('click', (e) => {
@@ -16,8 +17,10 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
     pinEl.style.left = `${(x * 100)}%`;
     inputX.value = x;
     inputY.value = y;
+
+    popupCommentFormEl.classList.remove('d-none');
   });
- });
+});
 
 
 

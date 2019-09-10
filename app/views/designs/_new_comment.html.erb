@@ -1,21 +1,12 @@
-<% if @comments.nil? || @comments.empty? %>
-  <div id='js-comment-form'>
-    <%= simple_form_for [@design, @comment], method: :post do |form| %>
-      <%= form.input :content, label: false, placeholder: "Be the first to leave a comment...", id:'js-your-message' %>
-      <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-      <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-      <%= form.submit "COMMENT" %>
-    <% end %>
+<div id='js-comment-form'>
+  <%= simple_form_for [@design, @comment] , html: { class: 'new-comment-form' }, method: :post do |form| %>
+    <%= form.input :content, label: false, placeholder: @comments.nil? || @comments.empty? ? "Be the first to leave a comment..." : "Leave your Comment here...", wrapper_html: { class: 'new-comment-form-input' } %>
+  <div class="location">
+    <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
+    <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
   </div>
-<% else %>
-  <div id='js-comment-form'>
-    <%= simple_form_for [@design, @comment], id:'js-comment-form' , method: :post do |form| %>
-      <%= form.input :content, label: false, placeholder: "Comment..." %>
-    <div class="location">
-      <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
-      <%= form.input :y, :input_html => { :class => "js-comment-y" }%>
-    </div>
-      <%= form.submit "COMMENT" %>
+    <%= form.button :button, class:'new-comment-form-submit' do %>
+      <span class="fas fa-angle-right"></span>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

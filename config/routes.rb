@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  resources :job_experiences, only: [:new, :create, :edit, :update, :destroy]
+
   # as :user do
     # get    '/users/cancel',    to: 'devise/registrations#cancel', as: 'cancel_user_registration'
     # post   '/users',           to: 'devise/registrations#create', as: 'user_registration'

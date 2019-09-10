@@ -10,31 +10,22 @@
       </div>
 
       <div class= "comment-box">
-        <div>
+        <div class="comment-content">
          <%= comment.content %>
         </div>
         <div class="comment-meta">
-          <%= cl_image_tag comment.user.photo, class: 'user-profile-pic' %>
-          <div class="comment-meta-name">
-            Marton Bodonyi
-            <!--  <%= comment.user.first_name %> <%= comment.user.last_name %> -->
-          </div>
-          <div class="comment-meta-date">
-            <%= time_ago_in_words(comment.created_at) %> ago
-          </div>
+          <%= render partial:'partials/author', locals: { user: comment.user, created_at: comment.created_at } %>
+          <div class="comment-meta-link">
+                      <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
 
+            <button onclick="showPin(<%=comment.id%>)" hidden="hidden">Show Pin</button>
+          </div>
         </div>
       </div>
 
       <div id="votes">
         <%= render 'vote_form', comment: comment %>
       </div>
-
-      <div class="under-comment-box">
-        <button onclick="showPin(<%=comment.id%>)">Show Pin</button>
-        <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
-      </div>
-
     </div>
   <% end %>
 <% end %>

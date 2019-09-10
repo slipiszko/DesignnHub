@@ -13,48 +13,86 @@ puts "Generating 4 Users..."
 users = []
 
 users << User.create!(
-    first_name: "Simon",
-    last_name: "Tyne",
+    first_name: "Bradley",
+    last_name: "Cooper",
     email: "user@user.com",
     password: "123456",
     job: "Freelance Photographer",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt sunt debitis beatae quos, cum fugit eius quam delectus voluptas laudantium veritatis repellat numquam vero. Unde beatae magni sed nemo consequatur?",
     city: "Berlin",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: open('app/assets/images/profilepic_1.jpeg'),
   )
 
 users << User.create!(
-    first_name: "Hunsi",
-    last_name: "Kumari",
+    first_name: "Whitney",
+    last_name: "Huston",
     email: "user2@user.com",
     password: "123456",
     job: "Graphic Design Student",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum corporis officiis, minima iure! Minima commodi omnis voluptas reiciendis quos ratione placeat facilis neque tempore sint libero possimus, eos rem facere.",
     city: "Dehli",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: open('app/assets/images/profilepic_7.jpeg'),
+
   )
 
 users << User.create!(
-    first_name: "Danielle",
-    last_name: "Viletti",
+    first_name: "Justin",
+    last_name: "Timberlake",
     email: "user3@user.com",
     password: "123456",
     job: "Illustrator",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla facere nostrum ab aperiam temporibus aliquid reprehenderit natus ipsam officia rem nesciunt est nobis, rerum recusandae eius aspernatur molestias pariatur unde.",
     city: "Melbourne",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: open('app/assets/images/profilepic_2.jpeg'),
   )
 
 users << User.create!(
-    first_name: "Caitlin",
-    last_name: "Owen",
+    first_name: "Barack",
+    last_name: "Obama",
     email: "user4@user.com",
     password: "123456",
     job: "Creative Director",
     bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum nostrum quisquam harum natus modi necessitatibus nobis. Temporibus amet similique id tempore, vitae, cum porro possimus, reiciendis sint odio aliquam quasi.",
     city: "Melbourne",
-    photo: open('app/assets/images/avatar-default.png')
+    photo: open('app/assets/images/profilepic_3.jpeg'),
   )
+
+users << User.create!(
+    first_name: "Sarah Jessica",
+    last_name: "Parker",
+    email: "user5@user.com",
+    password: "123456",
+    job: "Creative Director",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum nostrum quisquam harum natus modi necessitatibus nobis. Temporibus amet similique id tempore, vitae, cum porro possimus, reiciendis sint odio aliquam quasi.",
+    city: "Melbourne",
+    photo: open('app/assets/images/profilepic_4.jpeg'),
+  )
+
+users << User.create!(
+    first_name: "David",
+    last_name: "Beckham",
+    email: "user6@user.com",
+    password: "123456",
+    job: "Creative Director",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum nostrum quisquam harum natus modi necessitatibus nobis. Temporibus amet similique id tempore, vitae, cum porro possimus, reiciendis sint odio aliquam quasi.",
+    city: "Melbourne",
+    photo: open('app/assets/images/profilepic_5.jpeg'),
+  )
+
+users << User.create!(
+    first_name: "George",
+    last_name: "Clooney",
+    email: "user7@user.com",
+    password: "123456",
+    job: "Creative Director",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum nostrum quisquam harum natus modi necessitatibus nobis. Temporibus amet similique id tempore, vitae, cum porro possimus, reiciendis sint odio aliquam quasi.",
+    city: "Melbourne",
+    photo: open('app/assets/images/profilepic_6.jpeg'),
+  )
+
+
+
+
 
 puts "Finished!"
 
@@ -312,10 +350,11 @@ puts "Finished!"
 puts "Generating Comments..."
 
 content = [
-    "This is my comment",
-    "I left my comment here",
-    "A comment was posted here",
-    "My favourite comment is above"
+    "I love the colors but the background-color could be a bit brighter.",
+    "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
+    "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
+    "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
+    "In case of originality I would give you 10 out of 10. But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!"
 ]
 
 designs.uniq.each do |design|
