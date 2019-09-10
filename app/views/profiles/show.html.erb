@@ -6,10 +6,11 @@
 
     <div class="col bio-container">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      <p><%= @user.job %></p>
+      <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
       <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
       <p><%= @user.bio %></p>
-      <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">EMAIL</a>
+      <br>
+      <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
       <div class="user-social-link">
         <a href="#"><i class="icon ion-md-globe"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -20,14 +21,14 @@
     </div>
 
     <div class="col experience-container">
-      <h6 class="experience-title">Experiences<i class="fas fa-caret-down"></i></h6>
+      <h6 class="item-title">Experiences<i class="fas fa-caret-down"></i></h6>
       <ul class="timeline">
         <li class="timeline-event">
           <label class="timeline-event-icon"></label>
           <div class="timeline-event-copy">
             <p class="timeline-event-thumbnail">April 2019 - now</p>
             <h4>UI/UX Designer</h4>
-            <p>Schwerpunkt Frontend Design</p>
+            <p>Schwerpunkt Design</p>
           </div>
         </li>
         <li class="timeline-event">
@@ -48,23 +49,24 @@
         </li>
       </ul>
 
-      <div class="skill-icons text-center">
-        <h6 class="experience-title">Skills<i class="fas fa-caret-down"></i></h6>
-        <i class="skill-icon icon ion-ios-timer"></i>
-        <i class="skill-icon icon ion-md-code"></i>
-        <i class="skill-icon fas fa-chart-line"></i>
-        <i class="skill-icon fab fa-sketch"></i>
-        <i class="skill-icon fas fa-people-carry"></i>
-      </div>
+
     </div>
   </div>
-
-
-    <h5>My Case Studies</h5>
+<br>
+<div class="py-4">
+  <h6 class="item-title">My Designs<i class="fas fa-caret-right"></i></h6>
+  </div>
   <div class="row">
-    <div class="col-sm">col</div>
-    <div class="col-sm">col-sm</div>
-    <div class="col-sm">col-sm</div>
+  <% @user.designs.each do |design| %>
+    <div class="col-4 mb-5">
+      <div class="card">
+        <%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
+        <div class="card-body">
+          <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %></div>
+        </div>
+      </div>
+    </div>
+      <% end %>
   </div>
 
 </div>
