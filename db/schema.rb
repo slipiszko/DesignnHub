@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_231710) do
+ActiveRecord::Schema.define(version: 2019_09_10_023831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 2019_09_09_231710) do
     t.string "photo"
     t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
     t.index ["user_id"], name: "index_job_applications_on_user_id"
+  end
+
+  create_table "job_experiences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "location"
+    t.index ["user_id"], name: "index_job_experiences_on_user_id"
   end
 
   create_table "job_posts", force: :cascade do |t|
@@ -107,6 +119,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_231710) do
   add_foreign_key "designs", "users"
   add_foreign_key "job_applications", "job_posts"
   add_foreign_key "job_applications", "users"
+  add_foreign_key "job_experiences", "users"
   add_foreign_key "job_posts", "users"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"
