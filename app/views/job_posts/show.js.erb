@@ -1,0 +1,14 @@
+document.body.insertAdjacentHTML('beforeend', '<%= j render 'show_modal', job_post: @job_post %>');
+
+(function() {
+  const modal = document.getElementById('job-post-modal');
+  const modalCloseButton = modal.querySelector('.js-job-post-modal-close');
+
+  modalCloseButton.addEventListener('click', () => {
+    modal.remove();
+  });
+
+  setTimeout(() => {
+    modal.querySelector('.modal').classList.add('show');
+  }, 20);
+})();
