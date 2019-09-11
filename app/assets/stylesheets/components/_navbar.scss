@@ -1,25 +1,24 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background-color: white;
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 10px 12px;
 
 .logo-name {
   display: inline;
+  color: $orange;
+  font-weight: 300;
 }
 
 a {
     text-decoration: none;
-    background-color: transparent;
-    font-size: 0.9rem;
-    font-weight: 300;
+    opacity: 1;
 
   &:hover {
     transform: translateX(-1%);
     transition-timing-function: ease-out;
     transition: 0.2s;
-    color: $orange;
   }
-
 }
 
   .navbar-collapse {
@@ -55,6 +54,7 @@ a {
 
     .nav-link {
       filter: invert(1);
+      color: black;
     }
   }
 }
@@ -62,4 +62,10 @@ a {
 .dropdown-menu {
   border: 0.5px solid;
   padding: 2px 4px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0; /* When the element reaches top: 10px, it becomes fixed. */
+  z-index: 100;
 }
