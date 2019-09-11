@@ -14,24 +14,25 @@ window.showAllPins = function() {
   // pins.forEach((pin) => {
   //   pin.classList.add("visible")
   // });
+  toggleButton.innerHTML = "<i class=\"fas fa-eye\"></i>";
 }
 
 window.hideAllPins = function() {
   photoPinner.classList.toggle('hide-pins', true);
 
-  // pins.forEach((pin) => {
-  //   pin.classList.remove("visible")
-  // });
+  pins.forEach((pin) => {
+    pin.classList.remove("visible")
+  });
+
+  toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
 }
 
 window.togglePins = function() {
   const arePinsHidden = photoPinner.classList.contains('hide-pins');
 
   if (arePinsHidden) {
-    toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
     showAllPins()
   } else {
-    toggleButton.innerHTML = "<i class=\"fas fa-eye\"></i>";
     hideAllPins()
   }
 }
@@ -41,5 +42,4 @@ window.showPin = function(comment_id) {
 
   hideAllPins();
   clickedPin.classList.add("visible");
-  toggleButton.innerHTML = "<i class=\"fas fa-eye-slash\"></i>";
 }
