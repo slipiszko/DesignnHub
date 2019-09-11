@@ -6,7 +6,8 @@
   height: calc(100vh);
   min-height: 700px;
   position: relative;
-  padding: 230px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .banner h1 {
