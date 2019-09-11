@@ -14,7 +14,9 @@
          <%= comment.content %>
         </div>
         <div class="comment-meta">
-          <%= render partial:'partials/author', locals: { user: comment.user, created_at: comment.created_at } %>
+          <%= link_to profile_path(comment.user), class: "masonry-content" do %>
+            <%= render partial:'partials/author', locals: { user: comment.user, created_at: comment.created_at } %>
+          <% end %>
           <div class="comment-meta-link">
                       <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
 
