@@ -54,6 +54,7 @@
 .btn-home {
   padding: 8px 24px;
   border: 3px solid $orange;
+  border-radius: 2px;
   background: transparent;
   transition: background 0.3s ease;
   color: $orange;
@@ -75,12 +76,14 @@
 }
 
 .btn-sign-up {
-  color: gray;
-  background-color: $orange;
-  border-color: $orange;
-  border-radius: 8px;
-  a {
-  font-weight: 750;
+  color: $orange;
+  border: 3px solid $orange;
+  border-radius: 2px;
+
+  &:hover {
+    background: $orange;
+    color: white;
+
   }
 }
 
