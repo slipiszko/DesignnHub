@@ -25,6 +25,8 @@ designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
     inputX.value = x;
     inputY.value = y;
 
+    window.showAllPins();
+
     popupCommentFormEl.classList.remove('d-none');
 
     popupCommentFormInputEl.focus();
