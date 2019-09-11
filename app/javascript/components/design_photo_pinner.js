@@ -2,8 +2,8 @@ const designPhotoPinnerComponents = document.querySelectorAll('.js-design-photo-
 // const baseUrl = `http://localhost:3000/designs/${:id}/edit`;
 const commentEl = document.querySelector("#js-your-message");
 // const form = document.querySelector("#js-comment-form");
-const inputX  = document.querySelector(".js-comment-x");
-const inputY  = document.querySelector(".js-comment-y");
+const inputX    = document.querySelector(".js-comment-x");
+const inputY    = document.querySelector(".js-comment-y");
 
 const popupCommentFormEl = document.querySelector(".js-popup-comment-form");
 
@@ -22,7 +22,7 @@ if (popupCommentFormEl) {
       const x = (e.offsetX - 15) / photoWidth;
       const y = (e.offsetY - 15) / photoHeight;
       const pinEl = photoPinnerComponent.querySelector('.js-design-photo-pin');
-      pinEl.style.top = `${(y * 100)}%`;
+      pinEl.style.top  = `${(y * 100)}%`;
       pinEl.style.left = `${(x * 100)}%`;
       inputX.value = x;
       inputY.value = y;

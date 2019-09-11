@@ -13,9 +13,10 @@ if (elem) {
   AOS.init();
 }
 
-const applyButtonEl = document.querySelector('.js-post-apply-btn');
+const applyButtonEl        = document.querySelector('.js-post-apply-btn');
 const postInitialContentEl = document.querySelector('.js-post-initial-content');
-const postApplyContentEl = document.querySelector('.js-post-apply-content');
+const postApplyContentEl   = document.querySelector('.js-post-apply-content');
+
 applyButtonEl.addEventListener('click', (e) => {
   postInitialContentEl.classList.add('d-none');
   postApplyContentEl.classList.remove('d-none');
