@@ -396,7 +396,6 @@ tags = [
 
 tags.each do |tag|
   DesignTag.create!(
-    design: designs.sample,
     name: tag
   )
 end
