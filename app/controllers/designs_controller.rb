@@ -49,6 +49,7 @@ class DesignsController < ApplicationController
 
   def destroy
     @design.destroy
+    redirect_to profile_path(current_user)
   end
 
   private
