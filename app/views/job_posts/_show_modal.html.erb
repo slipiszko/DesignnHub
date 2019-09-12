@@ -47,6 +47,7 @@
               </div>
             <% end %>
             <div class="job-detials">
+              <div class="js-post-initial-content">
               <h2><%= @job_post.title %></h2>
                 <div class="job-user">
                   <%= link_to profile_path(@job_post.user) do %>
@@ -60,7 +61,6 @@
                   <% from_time = Time.now - @job_post.created_at %>
                   <p>Date posted: <%= time_ago_in_words(from_time).capitalize %></p>
                 </div>
-              <div class="js-post-initial-content">
                 <p><%= @job_post.content %></p>
                 <div class="apply-btn">
                   <a href="" class="btn btn-home js-post-apply-btn">START APPLICATION <span class="fa fa-angle-right"></span></a>
