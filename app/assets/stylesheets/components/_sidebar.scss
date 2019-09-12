@@ -1,10 +1,12 @@
+$navbar-height: 64px; // Not used on navbar, but assumed
+
 html {
   overflow-y: scroll;
 }
 
 .sticky-sidebar {
   position: sticky;
-  top: 0;
+  top: $navbar-height;
   left: 0;
   height: 100vh;
   background: #f5f5f5;
