@@ -11,4 +11,14 @@ document.body.insertAdjacentHTML('beforeend', '<%= j render 'show_modal', job_po
   setTimeout(() => {
     modal.querySelector('.modal').classList.add('show');
   }, 20);
+
+  const applyButtonEl        = document.querySelector('.js-post-apply-btn');
+  const postInitialContentEl = document.querySelector('.js-post-initial-content');
+  const postApplyContentEl   = document.querySelector('.js-post-apply-content');
+
+  applyButtonEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    postInitialContentEl.classList.add('d-none');
+    postApplyContentEl.classList.remove('d-none');
+  });
 })();
