@@ -26,6 +26,7 @@ class DesignsController < ApplicationController
   def new
     @design = Design.new
     @user = current_user
+    @design.design_tags.build(name: 'submitter').build_entity
   end
 
   def create
@@ -57,6 +58,6 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:photo, :title, :description, :category, design_tag_ids: [])
+    params.require(:design).permit(:photo, :title, :description, :category, design_tags_attributes: [:id, :name])
   end
 end

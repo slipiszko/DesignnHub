@@ -13,7 +13,9 @@
           <%= form.input :title %>
           <%= form.input :description %>
           <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
-          <%= form.association :design_tags, input_html: { class: 'select2' } %>
+          <%= form.simple_fields_for :design_design_tags do |tag| %>
+              <%= tag.input :name, collection: DesignTag.all, label: "Tags", input_html: { class: 'select2' } %>
+          <% end %>
           <%= form.input :photo, label: 'Design' %>
           <%= form.input :photo_cache, as: :hidden %>
       </div>
