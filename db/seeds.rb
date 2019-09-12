@@ -13,8 +13,8 @@ puts "Generating 4 Users..."
 users = []
 
 users << User.create!(
-    first_name: "Bradley",
-    last_name: "Cooper",
+    first_name: "Jun",
+    last_name: "Low",
     email: "user@user.com",
     password: "123456",
     job: "Freelance Photographer",
@@ -24,8 +24,8 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "Whitney",
-    last_name: "Huston",
+    first_name: "Sebastian",
+    last_name: "Lipiszko",
     email: "user2@user.com",
     password: "123456",
     job: "Graphic Design Student",
@@ -36,8 +36,8 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "Justin",
-    last_name: "Timberlake",
+    first_name: "Hien",
+    last_name: "Nguen",
     email: "user3@user.com",
     password: "123456",
     job: "Illustrator",
@@ -47,8 +47,8 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "Barack",
-    last_name: "Obama",
+    first_name: "Christopher",
+    last_name: "Goodwin",
     email: "user4@user.com",
     password: "123456",
     job: "Creative Director",
@@ -58,8 +58,8 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "Sarah Jessica",
-    last_name: "Parker",
+    first_name: "Paal",
+    last_name: "Riwagon",
     email: "user5@user.com",
     password: "123456",
     job: "Creative Director",
@@ -69,7 +69,7 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "David",
+    first_name: "Caio",
     last_name: "Beckham",
     email: "user6@user.com",
     password: "123456",
@@ -80,8 +80,8 @@ users << User.create!(
   )
 
 users << User.create!(
-    first_name: "George",
-    last_name: "Clooney",
+    first_name: "Charly",
+    last_name: "Poodlerio",
     email: "user7@user.com",
     password: "123456",
     job: "Creative Director",
