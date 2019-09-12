@@ -316,6 +316,62 @@ designs << Design.create!(
   user: users.sample
 )
 
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign1.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Typography",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign2.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Typography",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign3.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Illistration",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign4.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Paint",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign5.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Paint",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign6.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Animation",
+  user: users.sample
+)
+
+designs << Design.create!(
+  photo: open('app/assets/images/newdesign7.jpg'),
+  title: "Cafe Tropical",
+  description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
+  category: "Animation",
+  user: users.sample
+)
+
 
 puts "Finished!"
 
@@ -354,11 +410,14 @@ content = [
     "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
     "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
     "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
-    "In case of originality I would give you 10 out of 10. But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!"
+    "In case of originality I would give you 10 out of 10. But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!",
+    "I think the spacing between the two words could be a little bit bigger and the left corner looks a bit squeezed",
+    "By changing it into negativ you make it look was more exciting",
+    "Maybe you could make the birds in the front pop out a little more"
 ]
 
 designs.uniq.each do |design|
-  5.times { comment = Comment.create!(
+  7.times { comment = Comment.create!(
     content: content.sample,
     x: rand(0.1..1),
     y: rand(0.1..1),
@@ -473,6 +532,89 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/job_post_test_5.jpeg'),
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Art director",
+  content: "Art directors work in a variety of settings such as magazines, newspapers, internet-based publications and advertising or public relations agencies. They communicate with clients while overseeing project budgets and timelines. They manage a team of design professionals, reviewing and approving all creative materials before presenting to clients.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Advertising & promotions manager",
+  content: "Professionals in these positions often work in agencies to organize campaigns for clients. They may also be responsible for selling advertising space or time for media firms. They work with sales staff to develop concepts for campaigns, partner with creative teams to produce layouts, negotiate contracts and prepare overall campaign budgets.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "User experience (UX) designer",
+  content: "UX designers make websites, mobile applications, software or video games easier to navigate and more intuitive for users to interact with. They study and evaluate how people feel about a particular system and design their product to cater to the needs of the user. They also analyze the specific components of the system such as usefulness, value, credibility and accessibility. For example, a UX designer might work with a retailer to update their product webpages and remove issues like frustrating forms, hard-to-find buttons and visual clutter that can prevent users from making a purchase.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Graphic designer",
+  content:"One of the most in-demand design professionals out there is a graphic designer. These professionals create designs for marketing collateral, product illustrations, brand identities and websites using computer software like the Adobe® Creative Suite. They merge technical skill with artistic ability to create a design that communicates with its desired audience. Graphic designers may work independently as freelancers or contractors, in an in-house setting for a company or in an agency setting.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Multimedia artist & animator",
+  content: "These professionals create animations and special effects for movies, television, video games and other forms of media—both two-dimensional and three-dimensional. They work with teams of animators and artists to bring ideas to life using computer software or by writing their own computer code. Some work in studios or offices, but many are self-employed and work from home.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Photographer",
+  content: "Photographers utilize their creativity and composition skills alongside their technical expertise to capture photographs that tell a story or document an event. The majority of today’s photographers work with digital cameras and editing software to capture subjects in commercial-quality images.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  photo: open('app/assets/images/photographer.jpg'),
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Internship - Multimedia artist & animator ",
+  content: " 6 Months Project driven internship at my community startup People of Purpose is looking for a photographer for our upcoming event 'Connect Four'. The event is two hours and we're hoping to recruit someone on a voluntary basis because we're a not-for-profit and a.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Parttime - Developer",
+  content: " Looking for an Parttime Employee that can halp me with my community startup People of Purpose is looking for a photographer for our upcoming event 'Connect Four'. The event is two hours and we're hoping to recruit someone on a voluntary basis because we're a not-for-profit and are volunteers ourselves. \nThe event is on Wed 18th Sept from 6-8pm at WeWork on 222 Exhibition Street, CBD.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  user: users.sample
+)
+
+JobPost.create!(
+  title: "Sorftware Developer",
+  content: "Frodo is the worldwide leading company in my community startup People of Purpose is looking for a photographer for our upcoming event 'Connect Four'. The event is two hours and we're hoping to recruit someone on a voluntary basis because we're a not-for-profit and are volunteers ourselves. \nThe event is on Wed 18th Sept from 6-8pm at WeWork on 222 Exhibition Street, CBD.",
+  profession: "Photographer",
+  job_type: "Freelance",
+  location: "Melbourne",
+  photo: open('app/assets/images/sd.jpg'),
   user: users.sample
 )
 
