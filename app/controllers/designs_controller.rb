@@ -32,6 +32,7 @@ class DesignsController < ApplicationController
     @design = Design.new(design_params)
     @design.user = current_user
     if @design.save
+      flash[:notice] = "Your design has been added"
       redirect_to profile_path(current_user)
     else
       render :new
