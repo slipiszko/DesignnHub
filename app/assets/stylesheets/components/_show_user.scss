@@ -53,6 +53,11 @@
   font-weight: 500;
 }
 
+.card-text {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card {
   border-radius: 8px;
   border: none;
