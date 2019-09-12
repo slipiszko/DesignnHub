@@ -1,22 +1,24 @@
-<!-- Modal -->
-  <h5 class="modal-title" id="exampleModalLabel">Apply for <%= job_post.title %></h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <div class="user-review">
-    <%= cl_image_tag(job_post.user.photo, class: "avatar-medium") %>
-    <div class="user-review-info">
-      <h6><%= current_user.first_name %> <%= current_user.last_name %></h6>
-      <% if current_user.job.present? %>
-        <p><%= current_user.job %></p>
-      <% else %>
-      <% end %>
-      <%= link_to "Review profile", profile_path(current_user), target: :_blank, id: "review-profile" %>
-    </div>
+<h5 class="modal-title" id="exampleModalLabel">Apply for <%= job_post.title %></h5>
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<div class="user-review">
+  <%= cl_image_tag(job_post.user.photo, class: "avatar-medium") %>
+  <div class="user-review-info">
+    <h6><%= current_user.first_name %> <%= current_user.last_name %></h6>
+    <% if current_user.job.present? %>
+      <p><%= current_user.job %></p>
+    <% else %>
+    <% end %>
+    <%= link_to "Review profile", profile_path(current_user), target: :_blank, id: "review-profile" %>
   </div>
-  <%= simple_form_for [job_post, job_application], method: :post do |form| %>
-    <%= form.input :note, as: :text, label: "Note:", placeholder: "Optional..." %>
-    <%= form.input :photo, label: "Cover Letter:" %>
-    <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
-    <%= form.submit "SUBMIT APPLICATION", class: "btn btn-primary" %>
-  <% end %>
+</div>
+
+<%= simple_form_for [job_post, job_application], method: :post do |form| %>
+  <%= form.input :note, as: :text, label: "Note:", placeholder: "Optional..." %>
+  <%= form.input :photo, label: "Cover Letter:" %>
+  <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
+  <%= form.submit "SUBMIT APPLICATION", class: "btn btn-primary" %>
+<% end %>
