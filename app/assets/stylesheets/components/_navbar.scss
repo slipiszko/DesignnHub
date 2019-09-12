@@ -66,6 +66,6 @@ a {
 
 .sticky {
   position: sticky;
-  top: 0; /* When the element reaches top: 10px, it becomes fixed. */
-  z-index: 100;
+  top: 0;
+  z-index: 1000;
 }
