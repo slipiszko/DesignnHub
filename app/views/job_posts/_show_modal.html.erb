@@ -1,76 +1,73 @@
 <div id="job-post-modal">
   <div class="modal-backdrop show"></div>
-  <div class="modal d-block fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="js-job-post-modal-close close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-6 offset-3">
-              <div class="job-container my-5">
-                <% if @job_post.photo.present? %>
-                  <div class="job-image">
-                  <%= cl_image_tag @job_post.photo, crop: :pad, width: 500, height: 280 %>
-                  </div>
-                  <div class="job-tag-container-img">
-                    <div class="job-tag">
-                      <h3>Profession:</h3>
-                      <p><%= @job_post.profession %></p>
-                    </div>
-                    <div class="job-tag">
-                      <h3>Job Type:</h3>
-                      <p><%= @job_post.job_type %></p>
-                    </div>
-                    <div class="job-tag">
-                      <h3>Location:</h3>
-                      <p><%= @job_post.location %></p>
-                    </div>
-                  </div>
-                <% else %>
-                  <div class="job-tag-container-no-img">
-                    <div class="job-tag">
-                      <h3>Profession:</h3>
-                      <p><%= @job_post.profession %></p>
-                    </div>
-                    <div class="job-tag">
-                      <h3>Job Type:</h3>
-                      <p><%= @job_post.job_type %></p>
-                    </div>
-                    <div class="job-tag">
-                      <h3>Location:</h3>
-                      <p><%= @job_post.location %></p>
-                    </div>
-                  </div>
-                <% end %>
-                <div class="job-detials">
-                  <h2><%= @job_post.title %></h2>
-                    <div class="job-user">
-                      <%= link_to profile_path(@job_post.user) do %>
-                        <div class="d-flex align-items-center">
-                          <%= cl_image_tag(@job_post.user.photo, class: "avatar-small") %>
-                          <div class="user-link">
-                            <p><%= @job_post.user.first_name %> <%= @job_post.user.last_name %></p>
-                          </div>
-                        </div>
-                      <% end %>
-                      <% from_time = Time.now - @job_post.created_at %>
-                      <p>Date posted: <%= time_ago_in_words(from_time).capitalize %></p>
-                    </div>
-                  <div class="js-post-initial-content">
-                    <p><%= @job_post.content %></p>
-                    <div class="apply-btn">
-                      <a href="" class="btn btn-primary js-post-apply-btn">START APPLICATION <span class="fa fa-angle-right"></span></a>
-                    </div>
-                  </div>
-                  <div class="js-post-apply-content d-none">
-                    <%= render 'job_applications/modal_job_application', job_post: @job_post, job_application: @job_application  %>
-                  </div>
+  <div class="modal d-block fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @job_post.title %></h5>
+        <button type="button" class="js-job-post-modal-close close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-body col-12 offset-2">
+        <div class="job-container">
+          <% if @job_post.photo.present? %>
+            <div class="job-image">
+            <%= cl_image_tag @job_post.photo, crop: :pad, width: 500, height: 280 %>
+            </div>
+            <div class="job-content-container">
+              <div class="job-tag-container-img">
+                <div class="job-tag">
+                  <h5>Profession:</h5>
+                  <p><%= @job_post.profession %></p>
                 </div>
+                <div class="job-tag">
+                  <h5>Job Type:</h5>
+                  <p><%= @job_post.job_type %></p>
+                </div>
+                <div class="job-tag">
+                  <h5>Location:</h5>
+                  <p><%= @job_post.location %></p>
+                </div>
+              </div>
+            <% else %>
+              <div class="job-tag-container-no-img">
+                <div class="job-tag">
+                  <h5>Profession:</h5>
+                  <p><%= @job_post.profession %></p>
+                </div>
+                <div class="job-tag">
+                  <h5>Job Type:</h5>
+                  <p><%= @job_post.job_type %></p>
+                </div>
+                <div class="job-tag">
+                  <h5>Location:</h5>
+                  <p><%= @job_post.location %></p>
+                </div>
+              </div>
+            <% end %>
+            <div class="job-detials">
+              <h2><%= @job_post.title %></h2>
+                <div class="job-user">
+                  <%= link_to profile_path(@job_post.user) do %>
+                    <div class="d-flex align-items-center">
+                      <%= cl_image_tag(@job_post.user.photo, class: "avatar-small") %>
+                      <div class="user-link">
+                        <p><%= @job_post.user.first_name %> <%= @job_post.user.last_name %></p>
+                      </div>
+                    </div>
+                  <% end %>
+                  <% from_time = Time.now - @job_post.created_at %>
+                  <p>Date posted: <%= time_ago_in_words(from_time).capitalize %></p>
+                </div>
+              <div class="js-post-initial-content">
+                <p><%= @job_post.content %></p>
+                <div class="apply-btn">
+                  <a href="" class="btn btn-home js-post-apply-btn">START APPLICATION <span class="fa fa-angle-right"></span></a>
+                </div>
+              </div>
+              <div class="js-post-apply-content d-none">
+                <%= render 'job_applications/modal_job_application', job_post: @job_post, job_application: @job_application  %>
               </div>
             </div>
           </div>
