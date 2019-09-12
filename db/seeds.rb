@@ -445,6 +445,14 @@ designs << Design.create!(
 )
 
 designs << Design.create!(
+  photo: open('app/assets/images/newdesign19.png'),
+  title: "Home page for recent projects",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
+  category: "Web Design",
+  user: users.sample
+)
+
+designs << Design.create!(
   photo: open('app/assets/images/newdesign17.jpg'),
   title: "Font family for my new case studies",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
@@ -457,14 +465,6 @@ designs << Design.create!(
   title: "Branding for the Japan airport",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
   category: "Logo",
-  user: users.sample
-)
-
-designs << Design.create!(
-  photo: open('app/assets/images/newdesign19.jpg'),
-  title: "Home page for recent projects",
-  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
-  category: "Web Design",
   user: users.sample
 )
 
