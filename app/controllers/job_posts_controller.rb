@@ -28,6 +28,7 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.new(job_post_params)
     @job_post.user = current_user
     @job_post.save
+    flash[:notice] = "Your job post has been added"
     redirect_to job_posts_path
   end
 
