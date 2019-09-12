@@ -1,14 +1,17 @@
 .job-container {
   // position: absolute;
-  box-shadow: 0 0 10px rgba(160, 160, 160, 0.2);
-  min-height: 500px;
+  // box-shadow: 0 0 10px rgba(160, 160, 160, 0.2);
+  // min-height: 500px;
   padding: 16px;
   margin-top: 16px;
-  text-align: center;
+  text-align: justify;
+  width: 60%;
+  display: inline-flex;
+  flex-direction: column;
 
 
   .job-detials {
-    margin: 24px 24px 20px 176px;
+    margin: 20px 10px 10px 42px;
 
     h2 {
       margin-bottom: 20px;
@@ -24,7 +27,6 @@
     p {
       color: #b7b7b7;
       font-weight: lighter;
-      font-size: 14px;
     }
 
     .user-link {
@@ -43,63 +45,66 @@
 .job-tag-container-img {
   background: $orange;
   box-shadow: 6px 6px 10px rgba(160, 160, 160, 0.4);
-  padding: 20px 24px;
-  height: 280px;
-  width: 230px;
+  padding: 20px 71px 20px 16px;
+  border-radius: 1px;
+  // height: 150px;
+  width: 240px;
   // position: absolute;
-  left: -80px;
-  top: 380px;
+  // left: -40px;
+  // top: 280px;
   text-align: left;
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
 
   .job-tag {
-    line-height: 0.6em;
+    line-height: 0.9em;
   }
 
-  h3 {
+  h5 {
     color: white;
-    font-size: 24px;
     font-weight: 400;
+    font-size: 12px;
+    margin: 0;
   }
 
   p {
     color: white;
-    font-size: 16px;
-    margin-bottom: 32px;
+    font-size: 10px;
   }
 }
 
 .job-tag-container-no-img {
   background: $orange;
   box-shadow: 6px 6px 10px rgba(160, 160, 160, 0.2);
-  padding: 20px 24px;
-  height: 270px;
-  width: 220px;
-  // position: absolute;
-  left: -80px;
-  top: 80px;
+  padding: 20px 71px 20px 16px;
+  border-radius: 1px;
+  // height: 230px;
+  width: 150px;
+  position: fixed;
+  left: 150px;
+  // top: 80px;
   text-align: left;
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
 
   .job-tag {
-    line-height: 0.6em;
+    line-height: 0.9em;
   }
 
-  h3 {
+  h5 {
     color: white;
-    font-size: 24px;
     font-weight: 400;
+    font-size: 12px;
+    margin: 0;
   }
 
   p {
     color: white;
-    font-size: 16px;
-    margin-bottom: 32px;
+    font-size: 10px;
   }
 }
 
 .job-image {
-  margin: 32px;
+  margin: 8px;
+  text-align: center;
 }
 
 .user-review {
@@ -117,7 +122,6 @@
   }
 
   h6 {
-    font-size: 18px;
     font-weight: 450;
   }
 }
@@ -125,9 +129,19 @@
 
 @keyframes slideInFromLeft {
   0% {
-    transform: translateX(-4%);
+    transform: translateX(90%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
+}
+
+.job-content-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
 }
