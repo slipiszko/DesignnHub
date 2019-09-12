@@ -48,8 +48,7 @@
                 </div>
               </div>
             <% end %>
-            <% from_time = Time.now - @job_post.created_at %>
-            <p>Date posted: <%= time_ago_in_words(from_time).capitalize %></p>
+            <p>Date posted: <%= time_ago_in_words(@job_post.created_at).capitalize %> ago</p>
           </div>
         <p><%= @job_post.content %></p>
         <div class="apply-btn">
