@@ -10,7 +10,7 @@ class JobApplicationsController < ApplicationController
     @job_application.job_post = @job_post
     @job_application.user = current_user
     @job_application.save
-    redirect_to job_post_path(@job_post)
+    redirect_to job_posts_path
   end
 
   private
