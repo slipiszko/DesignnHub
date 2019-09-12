@@ -62,7 +62,11 @@
         <div class="card">
           <%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
           <div class="card-body">
-            <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %></div>
+            <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %>
+              <%= link_to design_path(design), method: :delete, confirm: "Are you sure ?" do%>
+                <span><i class="far fa-trash-alt"></i></span>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
