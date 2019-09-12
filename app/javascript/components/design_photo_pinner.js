@@ -7,30 +7,28 @@ const inputY    = document.querySelector(".js-comment-y");
 
 const popupCommentFormEl = document.querySelector(".js-popup-comment-form");
 
-if (popupCommentFormEl) {
-  const popupCommentFormInputEl = popupCommentFormEl.querySelector('textarea');
+designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
+  photoPinnerComponent.addEventListener('click', (e) => {
+    // Only ever move the user pin if the user is actually clicking on the image.
+    if (e.target.nodeName !== 'IMG') {
+      return;
+    }
 
-  designPhotoPinnerComponents.forEach((photoPinnerComponent) => {
-    photoPinnerComponent.addEventListener('click', (e) => {
-      // Only ever move the user pin if the user is actually clicking on the image.
-      if (e.target.nodeName !== 'IMG') {
-        return;
-      }
+    const photoWidth  = photoPinnerComponent.offsetWidth;
+    const photoHeight = photoPinnerComponent.offsetHeight;
+    const x = (e.offsetX - 15) / photoWidth;
+    const y = (e.offsetY - 15) / photoHeight;
+    const pinEl = photoPinnerComponent.querySelector('.js-design-photo-pin');
+    pinEl.style.top = `${(y * 100)}%`;
+    pinEl.style.left = `${(x * 100)}%`;
+    inputX.value = x;
+    inputY.value = y;
 
-      const photoWidth  = photoPinnerComponent.offsetWidth;
-      const photoHeight = photoPinnerComponent.offsetHeight;
-      const x = (e.offsetX - 15) / photoWidth;
-      const y = (e.offsetY - 15) / photoHeight;
-      const pinEl = photoPinnerComponent.querySelector('.js-design-photo-pin');
-      pinEl.style.top  = `${(y * 100)}%`;
-      pinEl.style.left = `${(x * 100)}%`;
-      inputX.value = x;
-      inputY.value = y;
+    window.showAllPins();
 
-      popupCommentFormEl.classList.remove('d-none');
+    popupCommentFormEl.classList.remove('d-none');
 
-      popupCommentFormInputEl.focus();
-    });
+    popupCommentFormInputEl.focus();
   });
 
   popupCommentFormInputEl.addEventListener('keydown', (e) => {

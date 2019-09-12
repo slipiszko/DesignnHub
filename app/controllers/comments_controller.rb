@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment_user,    only: [:new, :create, :edit, :update]
+  before_action :set_comment_user,    only: [:new, :create, :edit, :update, :upvote, :downvote]
   before_action :set_comment_design,  only: [:new, :create, :edit, :update]
   before_action :set_current_comment, only: [:edit, :update, :upvote, :downvote]
 
@@ -35,25 +35,30 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    respond_to do |format|
-      if current_user.upvoted?(@comment)
-        return
+    if @user.upvoted?(@comment)
+      return
+    else
+      if @user.downvote(@comment).present? || @user.upvote(@comment).present?
+        @user.remove_vote(@comment)
+        @user.upvote(@comment)
       else
-        format.html { redirect_to design_path(@comment.design) }
-        format.json { head :no_content }
-        format.js {}
-        current_user.remove_vote(@comment)
-        current_user.upvote(@comment)
+        @user.upvote(@comment)
       end
     end
+
+    redirect_to design_path(@comment.design)
   end
 
   def downvote
-    if current_user.downvoted?(@comment)
+    if @user.downvoted?(@comment)
       return
     else
-      current_user.remove_vote(@comment)
-      current_user.downvote(@comment)
+      if @user.upvote(@comment).present? || @user.downvote(@comment).present?
+        @user.remove_vote(@comment)
+        @user.downvote(@comment)
+      else
+        @user.downvote(@comment)
+      end
     end
 
     redirect_to design_path(@comment.design)

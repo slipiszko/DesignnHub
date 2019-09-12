@@ -1,1 +1,61 @@
 <%= render 'show_modal', job_post: @job_post %>
+<%= render 'job_applications/modal_job_application', job_post: @job_post, job_application: @job_application  %>
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="job-container my-5">
+      <% if @job_post.photo.present? %>
+        <div class="job-image">
+        <%= cl_image_tag @job_post.photo, crop: :pad, width: 500, height: 280 %>
+        </div>
+        <div class="job-tag-container-img">
+          <div class="job-tag">
+            <h3>Profession:</h3>
+            <p><%= @job_post.profession %></p>
+          </div>
+          <div class="job-tag">
+            <h3>Job Type:</h3>
+            <p><%= @job_post.job_type %></p>
+          </div>
+          <div class="job-tag">
+            <h3>Location:</h3>
+            <p><%= @job_post.location %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="job-tag-container-no-img">
+          <div class="job-tag">
+            <h3>Profession:</h3>
+            <p><%= @job_post.profession %></p>
+          </div>
+          <div class="job-tag">
+            <h3>Job Type:</h3>
+            <p><%= @job_post.job_type %></p>
+          </div>
+          <div class="job-tag">
+            <h3>Location:</h3>
+            <p><%= @job_post.location %></p>
+          </div>
+        </div>
+      <% end %>
+      <div class="job-detials">
+        <h2><%= @job_post.title %></h2>
+          <div class="job-user">
+            <%= link_to profile_path(@job_post.user) do %>
+              <div class="d-flex align-items-center">
+                <%= cl_image_tag(@job_post.user.photo, class: "avatar-small") %>
+                <div class="user-link">
+                  <p><%= @job_post.user.first_name %> <%= @job_post.user.last_name %></p>
+                </div>
+              </div>
+            <% end %>
+            <p>Date posted: <%= time_ago_in_words(@job_post.created_at).capitalize %> ago</p>
+          </div>
+        <p><%= @job_post.content %></p>
+        <div class="apply-btn">
+          <a href="" class="btn btn-primary" id="apply-btn" data-toggle="modal" data-target="#jobApplicationModal">APPLY</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

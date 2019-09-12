@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     @new_job_post = JobPost.new
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def storable_location?
