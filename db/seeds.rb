@@ -748,7 +748,7 @@ Comment.create!(
   x: 0.33,
   y: 0.6,
   design: highlighted_design,
-  user: users.[1]
+  user: users[1]
 )
 
 Comment.create!(
@@ -756,7 +756,7 @@ Comment.create!(
   x: 0.68,
   y: 0.36,
   design: highlighted_design,
-  user: users.[2]
+  user: users[2]
 )
 
 Comment.create!(
@@ -764,7 +764,7 @@ Comment.create!(
   x: 0.87,
   y: 0.41,
   design: highlighted_design,
-  user: users.[4]
+  user: users[4]
 )
 
 Comment.create!(
@@ -772,7 +772,7 @@ Comment.create!(
   x: 0.35,
   y: 0.69,
   design: highlighted_design,
-  user: users.[6]
+  user: users[6]
 )
 
 puts "Finished highlight post!"
