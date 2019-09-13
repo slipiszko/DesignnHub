@@ -576,9 +576,9 @@ JobPost.create!(
   content: "Hi there, I run a busy studio in Northcote creating brands primarily for other creatives such as wedding photographers. I'm looking for a midweight graphic designer to work on some type and layout projects for at least a month with the possibility of extension. \nAre you: \n1. Able to start work in 2 weeks in Northcote? \n2. An absolute wiz in Illustrator and Indesign? \n3. Well versed in type and layout design? \n4. Able to work in a team environment? \n5. Confident about creating design in the attached mood board style?",
   profession: "Graphic Designer",
   job_type: "Full time",
-  location: "Sydney",
+  location: "Remote",
   user: users[4]
-)
+  )
 
 JobPost.create!(
   title: "Graphic Designer",
@@ -689,7 +689,7 @@ JobPost.create!(
   content: "UX designers make websites, mobile applications, software or video games easier to navigate and more intuitive for users to interact with. They study and evaluate how people feel about a particular system and design their product to cater to the needs of the user. They also analyze the specific components of the system such as usefulness, value, credibility and accessibility. For example, a UX designer might work with a retailer to update their product webpages and remove issues like frustrating forms, hard-to-find buttons and visual clutter that can prevent users from making a purchase.",
   profession: "Photographer",
   job_type: "Freelance",
-  location: "Melbourne",
+  location: "Remote",
   user: users[4]
 )
 
@@ -707,7 +707,7 @@ JobPost.create!(
   content: "These professionals create animations and special effects for movies, television, video games and other forms of media—both two-dimensional and three-dimensional. They work with teams of animators and artists to bring ideas to life using computer software or by writing their own computer code. Some work in studios or offices, but many are self-employed and work from home.",
   profession: "Photographer",
   job_type: "Freelance",
-  location: "Melbourne",
+  location: "Remote",
   user: users[3]
 )
 

@@ -19,6 +19,7 @@
 
 .comment-content{
   font-size: 16px;
+  margin-right: 16px;
 }
 
 .comment-btn{
@@ -69,7 +70,7 @@
 #votes {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  text-align: center;
 
   p{
     margin: 0;
