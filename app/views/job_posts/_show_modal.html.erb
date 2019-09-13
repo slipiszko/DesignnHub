@@ -13,39 +13,24 @@
         <div class="job-container">
           <% if @job_post.photo.present? %>
             <div class="job-image">
-            <%= cl_image_tag @job_post.photo, crop: :pad, width: 500, height: 280 %>
+              <%= cl_image_tag @job_post.photo, crop: :pad, width: 500, height: 280 %>
             </div>
-            <div class="job-content-container">
-              <div class="job-tag-container-img">
-                <div class="job-tag">
-                  <h5>Profession:</h5>
-                  <p><%= @job_post.profession %></p>
-                </div>
-                <div class="job-tag">
-                  <h5>Job Type:</h5>
-                  <p><%= @job_post.job_type %></p>
-                </div>
-                <div class="job-tag">
-                  <h5>Location:</h5>
-                  <p><%= @job_post.location %></p>
-                </div>
+          <% end %>
+          <div class="job-content-container">
+            <div class="<%= @job_post.photo.present? ? "job-tag-container-img" : "job-tag-container-no-img" %>">
+              <div class="job-tag">
+                <h5>Profession:</h5>
+                <p><%= @job_post.profession %></p>
               </div>
-            <% else %>
-              <div class="job-tag-container-no-img">
-                <div class="job-tag">
-                  <h5>Profession:</h5>
-                  <p><%= @job_post.profession %></p>
-                </div>
-                <div class="job-tag">
-                  <h5>Job Type:</h5>
-                  <p><%= @job_post.job_type %></p>
-                </div>
-                <div class="job-tag">
-                  <h5>Location:</h5>
-                  <p><%= @job_post.location %></p>
-                </div>
+              <div class="job-tag">
+                <h5>Job Type:</h5>
+                <p><%= @job_post.job_type %></p>
               </div>
-            <% end %>
+              <div class="job-tag">
+                <h5>Location:</h5>
+                <p><%= @job_post.location %></p>
+              </div>
+            </div>
             <div class="job-detials">
               <div class="js-post-initial-content">
                 <h2><%= @job_post.title %></h2>
@@ -74,6 +59,7 @@
                 </div>
               <% end %>
             </div>
+          </div>
           </div>
         </div>
       </div>
