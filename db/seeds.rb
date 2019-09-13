@@ -567,8 +567,8 @@ JobPost.create!(
   content: "We are looking for a suitably experienced freelance photographic retoucher to join our team. \nWhat the role entails:. \nA strong understanding of all aspects of post-production and workflow. \nExcellent time management skills, with the ability to effectively prioritise simultaneous demands and adapt and respond appropriately. \nExcellent verbal and written communication skills. Customer service and client management skills and the ability to manage ongoing relationships. \nConcern for quality and pride in all work produced, with a sharp eye for detail to ensure accuracy and consistent delivery. \nAbility to work on own initiative, always thinking ahead.  Demonstrating a hands-on and highly organised approach to all tasks. \nAbility to multi-task seamlessly and manage responsibilities and timelines. \nEnthusiastic and positive attitude with a proactive approach to all tasks. \nAbility to problem solve and make decisions independently, escalating when required. \nWebsite and Instagram updates on a regular basis, adding in and managing our latest projects. \nHigh level of understanding of Photoshop, Dropbox, Wacom tablet, data back up and Mac OS. \nRemoving blemishes and imperfections using cloning, healing and patching. \nIntermediate skin retouching. \nAn understanding of Photoshop’s tool settings and how they relate to different tasks. Layer and channel masking. \nUsing adjustment layers to add colour grades and tones. \nAdapting to our workflow using Adobe Bridge and Photoshop basic compositing. \nExperience with Capture One is highly regarded.",
   profession: "Photographer",
   job_type: "Full time",
-  location: "Melbourne",
-  user: users.sample
+  location: "Remote",
+  user: users[2]
 )
 
 JobPost.create!(
@@ -577,7 +577,7 @@ JobPost.create!(
   profession: "Graphic Designer",
   job_type: "Full time",
   location: "Sydney",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -587,7 +587,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Victoria",
   photo: open('app/assets/images/job_post_test_1.jpg'),
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -596,7 +596,7 @@ JobPost.create!(
   profession: "Digital Designer",
   job_type: "Full time",
   location: "Remote",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -606,7 +606,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Sydney",
   photo: open('app/assets/images/job_post_test_4.jpeg'),
-  user: users.sample
+  user: users[6]
 )
 
 JobPost.create!(
@@ -615,7 +615,7 @@ JobPost.create!(
   profession: "Graphic Designer",
   job_type: "Part time",
   location: "Victoria",
-  user: users.sample
+  user: users[6]
 )
 
 JobPost.create!(
@@ -625,7 +625,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Victoria",
   photo: open('app/assets/images/job_post_test_2.jpeg'),
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -635,7 +635,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Remote",
   photo: open('app/assets/images/job_post_test_3.jpeg'),
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -644,7 +644,7 @@ JobPost.create!(
   profession: "UX/UI Designer",
   job_type: "Part time",
   location: "Remote",
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -653,7 +653,7 @@ JobPost.create!(
   profession: "Digital Producer",
   job_type: "Freelance",
   location: "Sydney",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -663,7 +663,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/job_post_test_5.jpeg'),
-  user: users.sample
+  user: users[5]
 )
 
 JobPost.create!(
@@ -672,7 +672,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -681,7 +681,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -690,7 +690,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -699,7 +699,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -708,7 +708,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -718,7 +718,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/photographer.jpg'),
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -727,7 +727,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -736,7 +736,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -746,7 +746,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/sd.jpg'),
-  user: users.sample
+  user: users[2]
 )
 
 puts "Finished randoms!"
