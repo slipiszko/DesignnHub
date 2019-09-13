@@ -10,6 +10,7 @@ class JobApplicationsController < ApplicationController
     @job_application.job_post = @job_post
     @job_application.user = current_user
     @job_application.save
+    flash[:notice] = "Your application is submitted"
     redirect_to job_posts_path
   end
 

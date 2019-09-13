@@ -172,6 +172,16 @@ designs << Design.create!(
   user: users.sample
 )
 
+puts "Adding highlight design"
+
+highlighted_design = Design.create!(
+  photo: open('app/assets/images/design_test_4.jpeg'),
+  title: "Windmill town",
+  description: "Is there such a place, the blue sky, the gloden earth, the wind blwoing the grass, everything is so beautiful.",
+  category: "Illustration",
+  user: users.sample
+)
+
 designs << Design.create!(
   photo: open('app/assets/images/design_test_16.jpeg'),
   title: "Incredibles Themed Typography Collage",
@@ -249,14 +259,6 @@ designs << Design.create!(
   title: "Crisp (Customer Messaging App) Saas website",
   description: "I had the pleasure to help the guys are Crisp bring their brand to a place worthy of their culture and ambitions.",
   category: "Web Design",
-  user: users.sample
-)
-
-designs << Design.create!(
-  photo: open('app/assets/images/design_test_4.jpeg'),
-  title: "Windmill town",
-  description: "Is there such a place, the blue sky, the gloden earth, the wind blwoing the grass, everything is so beautiful.",
-  category: "Illustration",
   user: users.sample
 )
 
@@ -516,25 +518,26 @@ puts "Finished!"
 puts "Generating Comments..."
 
 content = [
-    "I love the colors but the background-color could be a bit brighter.",
-    "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
-    "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
-    "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
-    "In case of originality I would give you 10 out of 10 😍 But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!",
-    "I think the spacing between the two words could be a little bit bigger and the left corner looks a bit squeezed",
-    "By changing it into negative you make it look was more exciting",
-    "Maybe you could make the birds in the front pop out a little more??"
+  "I love the colors but the background-color could be a bit brighter.",
+  "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
+  "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
+  "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
+  "In case of originality I would give you 10 out of 10 😍 But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!",
+  "I think the spacing between the two words could be a little bit bigger and the left corner looks a bit squeezed",
+  "By changing it into negative you make it look was more exciting",
+  "Maybe you could make the birds in the front pop out a little more??"
 ]
 
 designs.uniq.each do |design|
-  7.times { comment = Comment.create!(
-    content: content.sample,
-    x: rand(0.1..1),
-    y: rand(0.1..1),
-    design: design,
-    user: users.sample
+  content.each do |comment|
+    Comment.create!(
+      content: comment,
+      x: rand(0.1..1),
+      y: rand(0.1..1),
+      design: design,
+      user: users.sample
     )
-  }
+  end
 end
 
 puts "Finished!"
@@ -710,7 +713,7 @@ JobPost.create!(
 )
 
 JobPost.create!(
-  title: "Parttime - Developer",
+  title: "Creative Illustrator",
   content: " Looking for an Parttime Employee that can halp me with my community startup People of Purpose is looking for a photographer for our upcoming event 'Connect Four'. The event is two hours and we're hoping to recruit someone on a voluntary basis because we're a not-for-profit and are volunteers ourselves. \nThe event is on Wed 18th Sept from 6-8pm at WeWork on 222 Exhibition Street, CBD.",
   profession: "Photographer",
   job_type: "Freelance",
@@ -719,7 +722,7 @@ JobPost.create!(
 )
 
 JobPost.create!(
-  title: "Sorftware Developer",
+  title: "Multimedia internship",
   content: "Frodo is the worldwide leading company in my community startup People of Purpose is looking for a photographer for our upcoming event 'Connect Four'. The event is two hours and we're hoping to recruit someone on a voluntary basis because we're a not-for-profit and are volunteers ourselves. \nThe event is on Wed 18th Sept from 6-8pm at WeWork on 222 Exhibition Street, CBD.",
   profession: "Photographer",
   job_type: "Freelance",
@@ -728,6 +731,50 @@ JobPost.create!(
   user: users.sample
 )
 
-puts "Finished!"
+puts "Finished randoms!"
 
+
+
+puts "Adding highlight comment"
+
+hightlight_content = [
+  "I love the design but the background color could be a bit brighter.",
+  "Amazing design!! 😍 I Love the way you pop up the old grandma style with an cowboy touch.",
+  "Not sure what mood you're going for. Although I think adding windows to the side of the homes would help open the image nicely.",
+  "By changing it into more animals you make it look was more exciting",
+]
+
+Comment.create!(
+  content: hightlight_content[0],
+  x: 0.33,
+  y: 0.6,
+  design: highlighted_design,
+  user: users[1]
+)
+
+Comment.create!(
+  content: hightlight_content[1],
+  x: 0.68,
+  y: 0.36,
+  design: highlighted_design,
+  user: users[2]
+)
+
+Comment.create!(
+  content: hightlight_content[2],
+  x: 0.87,
+  y: 0.41,
+  design: highlighted_design,
+  user: users[4]
+)
+
+Comment.create!(
+  content: hightlight_content[3],
+  x: 0.35,
+  y: 0.69,
+  design: highlighted_design,
+  user: users[6]
+)
+
+puts "Finished highlight post!"
 
