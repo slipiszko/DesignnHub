@@ -13,6 +13,17 @@ puts "Generating Users..."
 users = []
 
 users << User.create!(
+    first_name: "Kim",
+    last_name: "Nesselhauf",
+    email: "kim@user.com",
+    password: "123456",
+    job: "Graphic Design Student",
+    bio: "Kim has a huge passion for German Techno music lover and create new design. She was the winner for Academy Award for her exquisite graphic designing. For her, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, She has been designing and developing complex and compelling experiences for various brands. Her main influences come from graphic novels, techno culture, and a mild touch of constructivism.",
+    city: "Berlin",
+    photo: open('app/assets/images/profilepic_kim.jpg'),
+  )
+
+users << User.create!(
     first_name: "Jun",
     last_name: "Low",
     email: "user@user.com",
@@ -113,7 +124,7 @@ designs << Design.create!(
   title: "Polar Bear Holding Coca Cola and Flowers",
   description: "Just for fun",
   category: "Illustration",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -153,7 +164,7 @@ designs << Design.create!(
   title: "The Modern Thinker",
   description: "Instead of limiting your artwork to just the front panel, consider extending it to expand over the width of the case, and perhaps even across the disc, just as has been done in this example, to create a larger image.",
   category: "Illustration",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -161,7 +172,7 @@ designs << Design.create!(
   title: "Portugal the Man",
   description: "This sleek album cover was actually designed by the musician himself, Tycho, also known as Scott Hansen. The design is built on a strong colour scheme, showcased in sharp geometric shapes, and each colour has been made to correspond to a track. Creating a strong palette that can be used cohesively with the content can make for a pretty effective design.",
   category: "Typography",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -495,16 +506,23 @@ tags = [
   "Photoshop",
   "Cartoon",
   "Logo",
+  "Minimalist",
+  "Visual Design",
+  "Motion Design",
   "Illustrator",
   "Animation",
   "Calligraphy",
   "Web",
+  "Creative content",
   "Merchandise",
   "Web Design",
   "Typography",
   "UX",
   "UI",
-  "After Effects"
+  "Graphic Design",
+  "After Effects",
+  "Warm tone",
+  "Cold tone"
 ]
 
 tags.each do |tag|
@@ -550,7 +568,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Full time",
   location: "Remote",
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -559,8 +577,8 @@ JobPost.create!(
   profession: "Graphic Designer",
   job_type: "Full time",
   location: "Remote",
-  user: users.sample
-)
+  user: users[4]
+  )
 
 JobPost.create!(
   title: "Graphic Designer",
@@ -569,7 +587,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Victoria",
   photo: open('app/assets/images/job_post_test_1.jpg'),
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -578,7 +596,7 @@ JobPost.create!(
   profession: "Digital Designer",
   job_type: "Full time",
   location: "Remote",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -588,7 +606,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Sydney",
   photo: open('app/assets/images/job_post_test_4.jpeg'),
-  user: users.sample
+  user: users[6]
 )
 
 JobPost.create!(
@@ -596,8 +614,8 @@ JobPost.create!(
   content: "This position is part of a small team that provides design support to the Australian and International business.  The role reports directly to the Art Director and plays a critical role in the design function and in the day to day output of the marketing team. The role has great breadth across all graphic design aspects of the business and is responsible for designing and producing brand, marketing, sales and corporate communication materials across print, online and multimedia channels.",
   profession: "Graphic Designer",
   job_type: "Part time",
-  location: "Remote",
-  user: users.sample
+  location: "Victoria",
+  user: users[6]
 )
 
 JobPost.create!(
@@ -607,7 +625,7 @@ JobPost.create!(
   job_type: "Part time",
   location: "Victoria",
   photo: open('app/assets/images/job_post_test_2.jpeg'),
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -617,7 +635,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Remote",
   photo: open('app/assets/images/job_post_test_3.jpeg'),
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -626,7 +644,7 @@ JobPost.create!(
   profession: "UX/UI Designer",
   job_type: "Part time",
   location: "Remote",
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -635,7 +653,7 @@ JobPost.create!(
   profession: "Digital Producer",
   job_type: "Freelance",
   location: "Sydney",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -645,7 +663,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/job_post_test_5.jpeg'),
-  user: users.sample
+  user: users[5]
 )
 
 JobPost.create!(
@@ -654,7 +672,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -663,7 +681,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -672,7 +690,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Remote",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -681,7 +699,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[1]
 )
 
 JobPost.create!(
@@ -690,7 +708,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Remote",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -700,7 +718,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/photographer.jpg'),
-  user: users.sample
+  user: users[2]
 )
 
 JobPost.create!(
@@ -709,7 +727,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[4]
 )
 
 JobPost.create!(
@@ -718,7 +736,7 @@ JobPost.create!(
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
-  user: users.sample
+  user: users[3]
 )
 
 JobPost.create!(
@@ -728,7 +746,7 @@ JobPost.create!(
   job_type: "Freelance",
   location: "Melbourne",
   photo: open('app/assets/images/sd.jpg'),
-  user: users.sample
+  user: users[2]
 )
 
 puts "Finished randoms!"
