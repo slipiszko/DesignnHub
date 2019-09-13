@@ -172,6 +172,16 @@ designs << Design.create!(
   user: users.sample
 )
 
+puts "Adding highlight design"
+
+highlighted_design = Design.create!(
+  photo: open('app/assets/images/design_test_4.jpeg'),
+  title: "Windmill town",
+  description: "Is there such a place, the blue sky, the gloden earth, the wind blwoing the grass, everything is so beautiful.",
+  category: "Illustration",
+  user: users.sample
+)
+
 designs << Design.create!(
   photo: open('app/assets/images/design_test_16.jpeg'),
   title: "Incredibles Themed Typography Collage",
@@ -724,15 +734,6 @@ JobPost.create!(
 puts "Finished randoms!"
 
 
-puts "Adding highlight design"
-
-highlighted_design = Design.create!(
-  photo: open('app/assets/images/design_test_4.jpeg'),
-  title: "Windmill town",
-  description: "Is there such a place, the blue sky, the gloden earth, the wind blwoing the grass, everything is so beautiful.",
-  category: "Illustration",
-  user: users.sample
-)
 
 puts "Adding highlight comment"
 
