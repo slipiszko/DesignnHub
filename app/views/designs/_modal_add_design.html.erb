@@ -12,7 +12,7 @@
         <%= simple_form_for design, method: :post do |form| %>
           <%= form.input :title %>
           <%= form.input :description %>
-          <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
+          <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illustraion","Logo", "Branding", "Typography", "UI/UX Design", "Paint", "Animation", "Product Design", "Web Design"] %>
           <%= form.simple_fields_for :design_design_tags do |tag| %>
               <%= tag.input :name, collection: DesignTag.all, label: "Tags", input_html: { class: 'select2' } %>
           <% end %>
