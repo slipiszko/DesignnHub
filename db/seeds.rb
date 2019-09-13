@@ -13,6 +13,17 @@ puts "Generating Users..."
 users = []
 
 users << User.create!(
+    first_name: "Kim",
+    last_name: "Nesselhauf",
+    email: "kim@user.com",
+    password: "123456",
+    job: "Graphic Design Student",
+    bio: "Kim has a huge passion for German Techno music lover and create new design. She was the winner for Academy Award for her exquisite graphic designing. For her, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, She has been designing and developing complex and compelling experiences for various brands. Her main influences come from graphic novels, techno culture, and a mild touch of constructivism.",
+    city: "Berlin",
+    photo: open('app/assets/images/profilepic_kim.jpg'),
+  )
+
+users << User.create!(
     first_name: "Jun",
     last_name: "Low",
     email: "user@user.com",
@@ -113,7 +124,7 @@ designs << Design.create!(
   title: "Polar Bear Holding Coca Cola and Flowers",
   description: "Just for fun",
   category: "Illustration",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -153,7 +164,7 @@ designs << Design.create!(
   title: "The Modern Thinker",
   description: "Instead of limiting your artwork to just the front panel, consider extending it to expand over the width of the case, and perhaps even across the disc, just as has been done in this example, to create a larger image.",
   category: "Illustration",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -161,7 +172,7 @@ designs << Design.create!(
   title: "Portugal the Man",
   description: "This sleek album cover was actually designed by the musician himself, Tycho, also known as Scott Hansen. The design is built on a strong colour scheme, showcased in sharp geometric shapes, and each colour has been made to correspond to a track. Creating a strong palette that can be used cohesively with the content can make for a pretty effective design.",
   category: "Typography",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -495,16 +506,23 @@ tags = [
   "Photoshop",
   "Cartoon",
   "Logo",
+  "Minimalist",
+  "Visual Design",
+  "Motion Design",
   "Illustrator",
   "Animation",
   "Calligraphy",
   "Web",
+  "Creative content",
   "Merchandise",
   "Web Design",
   "Typography",
   "UX",
   "UI",
-  "After Effects"
+  "Graphic Design",
+  "After Effects",
+  "Warm tone",
+  "Cold tone"
 ]
 
 tags.each do |tag|
