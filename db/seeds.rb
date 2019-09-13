@@ -549,7 +549,7 @@ JobPost.create!(
   content: "We are looking for a suitably experienced freelance photographic retoucher to join our team. \nWhat the role entails:. \nA strong understanding of all aspects of post-production and workflow. \nExcellent time management skills, with the ability to effectively prioritise simultaneous demands and adapt and respond appropriately. \nExcellent verbal and written communication skills. Customer service and client management skills and the ability to manage ongoing relationships. \nConcern for quality and pride in all work produced, with a sharp eye for detail to ensure accuracy and consistent delivery. \nAbility to work on own initiative, always thinking ahead.  Demonstrating a hands-on and highly organised approach to all tasks. \nAbility to multi-task seamlessly and manage responsibilities and timelines. \nEnthusiastic and positive attitude with a proactive approach to all tasks. \nAbility to problem solve and make decisions independently, escalating when required. \nWebsite and Instagram updates on a regular basis, adding in and managing our latest projects. \nHigh level of understanding of Photoshop, Dropbox, Wacom tablet, data back up and Mac OS. \nRemoving blemishes and imperfections using cloning, healing and patching. \nIntermediate skin retouching. \nAn understanding of Photoshop’s tool settings and how they relate to different tasks. Layer and channel masking. \nUsing adjustment layers to add colour grades and tones. \nAdapting to our workflow using Adobe Bridge and Photoshop basic compositing. \nExperience with Capture One is highly regarded.",
   profession: "Photographer",
   job_type: "Full time",
-  location: "Melbourne",
+  location: "Remote",
   user: users.sample
 )
 
@@ -558,7 +558,7 @@ JobPost.create!(
   content: "Hi there, I run a busy studio in Northcote creating brands primarily for other creatives such as wedding photographers. I'm looking for a midweight graphic designer to work on some type and layout projects for at least a month with the possibility of extension. \nAre you: \n1. Able to start work in 2 weeks in Northcote? \n2. An absolute wiz in Illustrator and Indesign? \n3. Well versed in type and layout design? \n4. Able to work in a team environment? \n5. Confident about creating design in the attached mood board style?",
   profession: "Graphic Designer",
   job_type: "Full time",
-  location: "Sydney",
+  location: "Remote",
   user: users.sample
 )
 
@@ -596,7 +596,7 @@ JobPost.create!(
   content: "This position is part of a small team that provides design support to the Australian and International business.  The role reports directly to the Art Director and plays a critical role in the design function and in the day to day output of the marketing team. The role has great breadth across all graphic design aspects of the business and is responsible for designing and producing brand, marketing, sales and corporate communication materials across print, online and multimedia channels.",
   profession: "Graphic Designer",
   job_type: "Part time",
-  location: "Victoria",
+  location: "Remote",
   user: users.sample
 )
 
@@ -671,7 +671,7 @@ JobPost.create!(
   content: "UX designers make websites, mobile applications, software or video games easier to navigate and more intuitive for users to interact with. They study and evaluate how people feel about a particular system and design their product to cater to the needs of the user. They also analyze the specific components of the system such as usefulness, value, credibility and accessibility. For example, a UX designer might work with a retailer to update their product webpages and remove issues like frustrating forms, hard-to-find buttons and visual clutter that can prevent users from making a purchase.",
   profession: "Photographer",
   job_type: "Freelance",
-  location: "Melbourne",
+  location: "Remote",
   user: users.sample
 )
 
@@ -689,7 +689,7 @@ JobPost.create!(
   content: "These professionals create animations and special effects for movies, television, video games and other forms of media—both two-dimensional and three-dimensional. They work with teams of animators and artists to bring ideas to life using computer software or by writing their own computer code. Some work in studios or offices, but many are self-employed and work from home.",
   profession: "Photographer",
   job_type: "Freelance",
-  location: "Melbourne",
+  location: "Remote",
   user: users.sample
 )
 
