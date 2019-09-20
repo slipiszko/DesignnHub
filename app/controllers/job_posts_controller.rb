@@ -12,11 +12,12 @@ class JobPostsController < ApplicationController
       unfiltered_job_posts = JobPost.where(sql_query, search: "%#{params[:search]}%")
       @job_posts = unfiltered_job_posts.uniq
     else
-      @job_posts = JobPost.all
+      @job_posts = policy_scope(JobPost).order(created_at: :desc)
     end
   end
 
   def show
+    authorize @job_post
     @job_application = JobApplication.new
   end
 
@@ -27,6 +28,7 @@ class JobPostsController < ApplicationController
   def create
     @job_post = JobPost.new(job_post_params)
     @job_post.user = current_user
+    authorize @job_post
     @job_post.save
     flash[:notice] = "Your job post has been added"
     redirect_to job_posts_path
@@ -36,10 +38,12 @@ class JobPostsController < ApplicationController
   end
 
   def update
+    authorize @job_post
     @job_post.update(job_post_params)
   end
 
   def destroy
+    authorize @job_post
     @job_post.destroy
   end
 

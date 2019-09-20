@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   protect_from_forgery with: :exception
+
   before_action :authenticate_user!
+  include Pundit
+
   before_action :set_design
   before_action :set_job_post
+
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def set_design
     @new_design = Design.new
@@ -25,5 +31,9 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
+  end
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end

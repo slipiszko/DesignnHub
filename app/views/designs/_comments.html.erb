@@ -18,8 +18,9 @@
             <%= render partial:'partials/author', locals: { user: comment.user, created_at: comment.created_at } %>
           <% end %>
           <div class="comment-meta-link" >
-                      <%= link_to 'Reply', edit_design_comment_path(comment.design, comment), remote: true %>
-
+            <% if policy(comment).edit? %>
+              <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+            <% end %>
             <button onclick="showPin(<%=comment.id%>)" hidden="hidden">Show Pin</button>
           </div>
         </div>

@@ -3,5 +3,6 @@ class ProfilesController < ApplicationController
     @current_user = current_user
     @user = User.find(params[:id])
     @job_experience = JobExperience.new
+    authorize @user
   end
 end
