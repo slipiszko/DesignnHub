@@ -43,9 +43,23 @@
           </div>
         </li>
       <% else %>
+        <div class="directory">
+          <li class="nav-item">
+            <%= link_to "COMMUNITY", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "GALLERY", designs_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "JOBS", job_posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "DESIGNERS", "#", class: "nav-link" %>
+          </li>
+        </div>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-sign-up" %>
+          <%= link_to "LOGIN", new_user_session_path, class: "nav-link" %>
+          <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-sign-up" %>
         </li>
       <% end %>
     </ul>
