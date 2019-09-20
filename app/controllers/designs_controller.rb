@@ -30,6 +30,7 @@ class DesignsController < ApplicationController
   end
 
   def create
+    authorize @design
     @design = Design.new(design_params)
     @design.user = current_user
     if @design.save
