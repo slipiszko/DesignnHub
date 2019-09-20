@@ -10,7 +10,10 @@
       <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
       <p><%= @user.bio %></p>
       <br>
-      <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
+      <% if @user == current_user %>
+      <% else %>
+        <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
+      <% end %>
       <div class="user-social-link">
         <a href="#"><i class="icon ion-md-globe"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
