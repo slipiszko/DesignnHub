@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = @user
     @comment.design = @design
+    authorize @comment
     if @comment.save
       redirect_to design_path(@design)
     else
@@ -22,6 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def update
+    authorize @comment
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to design_path(@design) }
@@ -35,6 +37,7 @@ class CommentsController < ApplicationController
   end
 
   def upvote
+    authorize @comment
     if @user.upvoted?(@comment)
       return
     else
@@ -50,6 +53,7 @@ class CommentsController < ApplicationController
   end
 
   def downvote
+    authorize @comment
     if @user.downvoted?(@comment)
       return
     else

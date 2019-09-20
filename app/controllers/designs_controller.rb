@@ -12,11 +12,12 @@ class DesignsController < ApplicationController
       unfiltered_designs = Design.joins(:design_tags).where(sql_query, search: "%#{params[:search]}%")
       @designs = unfiltered_designs.uniq
     else
-      @designs = Design.all
+      @designs = policy_scope(Design).order(created_at: :desc)
     end
   end
 
   def show
+    authorize @design
     @design = Design.find(params[:id])
     @user = @design.user
     @comments = @design.comments

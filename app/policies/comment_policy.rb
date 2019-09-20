@@ -1,4 +1,4 @@
-class DesignPolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,7 +9,11 @@ class DesignPolicy < ApplicationPolicy
     true
   end
 
-  def show?
+  def upvote?
+    true
+  end
+
+  def downvote?
     true
   end
 
