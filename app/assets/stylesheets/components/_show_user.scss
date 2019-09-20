@@ -59,12 +59,12 @@
 }
 
 .card {
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.125);
 
   img {
-    border-radius: 8px 8px 0 0;
+    border-radius: 4px 4px 0 0;
   }
 
   &:hover {
