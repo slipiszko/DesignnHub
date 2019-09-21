@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for job_experiences, method: :post do |form| %>
+        <%= simple_form_for @new_job_experience, method: :post do |form| %>
           <%= form.input :title %>
           <%= form.input :description %>
           <%= form.input :location %>

@@ -1,3 +1,5 @@
+<%= render 'job_experiences/modal_add_job_experience', job_post: @new_job_experience %>
+
 <div class="py-5 mx-3">
   <div class="row">
     <div class="col avatar-container">
@@ -33,7 +35,11 @@
     </div>
 
     <div class="col experience-container">
-      <h6 class="item-title">Experiences<i class="fas fa-caret-down"></i></h6>
+      <h6 class="item-title">Experiences<i class="fas fa-caret-down"></i>
+      <a href="#" class="dropdown-item" data-toggle="modal" data-target="#jobExperienceModal">
+        <span id="edit-icon"><i class="fas fa-plus"></i></span>
+      </a>
+      </h6>
       <div class="experiences">
         <ul class="timeline">
           <li class="timeline-event">
