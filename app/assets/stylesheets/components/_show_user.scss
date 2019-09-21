@@ -34,6 +34,11 @@
   height: 320px;
 }
 
+.experience-bar {
+  display: flex;
+  align-items: center;
+}
+
 .user-social-link {
   margin-top: 46px;
   a {
@@ -48,6 +53,10 @@
 
 .fa-caret-down, .fa-caret-right {
   font-size: 16px;
+  margin-left: 12px;
+}
+
+.fa-plus {
   margin-left: 12px;
 }
 

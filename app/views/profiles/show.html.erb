@@ -13,8 +13,10 @@
     <div class="col bio-container">
       <div class="bio-name">
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <%= link_to edit_user_registration_path do %>
-          <span id="edit-icon"><i class="fas fa-pencil-alt"></i></span>
+        <% if @user == current_user %>
+          <%= link_to edit_user_registration_path do %>
+            <span id="edit-icon"><i class="fas fa-pencil-alt"></i></span>
+          <% end %>
         <% end %>
       </div>
       <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
@@ -35,11 +37,15 @@
     </div>
 
     <div class="col experience-container">
-      <h6 class="item-title">Experiences<i class="fas fa-caret-down"></i>
-      <a href="#" class="dropdown-item" data-toggle="modal" data-target="#jobExperienceModal">
-        <span id="edit-icon"><i class="fas fa-plus"></i></span>
-      </a>
-      </h6>
+      <div class="experience-bar">
+        <h6 class="item-title">Experiences
+          <% if @user == @current_user %>
+            <a href="#" class="fas fa-plus" data-toggle="modal" data-target="#jobExperienceModal"></a>
+          <% else %>
+            <i class="fas fa-caret-down"></i>
+          <% end %>
+        </h6>
+      </div>
       <div class="experiences">
         <ul class="timeline">
           <li class="timeline-event">
