@@ -7,6 +7,7 @@ class JobExperiencesController < ApplicationController
   def create
     @job_experience = JobExperience.new(job_experience_params)
     @job_experience.user = @user
+    authorize @job_experience
     @job_experience.save
   end
 
@@ -14,9 +15,11 @@ class JobExperiencesController < ApplicationController
   end
 
   def update
+    authorize @job_experience
   end
 
   def destroy
+    authorize @job_experience
   end
 
   private

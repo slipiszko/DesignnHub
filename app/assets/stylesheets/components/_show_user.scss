@@ -7,6 +7,18 @@
   flex-direction: column;
 }
 
+#edit-icon {
+  position: absolute;
+  top: 10px
+}
+
+.bio-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 .bio-container {
   p {
     font-size: 0.8rem;
@@ -15,6 +27,16 @@
   h2 {
     margin-bottom: 16px;
   }
+}
+
+.experiences {
+  overflow: scroll;
+  height: 320px;
+}
+
+.experience-bar {
+  display: flex;
+  align-items: center;
 }
 
 .user-social-link {
@@ -34,6 +56,14 @@
   margin-left: 12px;
 }
 
+.fa-plus {
+  margin-left: 12px;
+}
+
+#plus-icon-down {
+  margin-top: 2px;
+}
+
 .fa-map-marker-alt {
   margin-right: 12px;
 }
@@ -45,6 +75,7 @@
 .item-title {
   font-weight: 600;
   margin-left: 26px;
+  margin-top: 10px;
 }
 
 .card-body {
