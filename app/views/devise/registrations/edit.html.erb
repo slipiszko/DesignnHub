@@ -11,6 +11,5 @@
   <%= form.input :photo_cache, as: :hidden %>
   <%= form.submit %>
 <% end %>
-  <a href="#" data-toggle="modal" data-target="#editProfileModal">
-            Post Job
-            </a>
+
+<%= link_to 'Back', profile_path(current_user) %>

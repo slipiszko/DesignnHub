@@ -1,11 +1,20 @@
 <div class="py-5 mx-3">
   <div class="row">
     <div class="col avatar-container">
-      <%= cl_image_tag(@user.photo, crop: "scale", class: "avatar-square") %>
+      <% if @user.photo.present? %>
+        <%= cl_image_tag(@user.photo, crop: "scale", class: "avatar-square") %>
+      <% else %>
+        <%= image_tag (asset_path('avatar-default.png')), class: "avatar-square" %>
+      <% end %>
     </div>
 
     <div class="col bio-container">
-      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <div class="bio-name">
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <%= link_to edit_user_registration_path do %>
+          <span id="edit-icon"><i class="fas fa-pencil-alt"></i></span>
+        <% end %>
+      </div>
       <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
       <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
       <p><%= @user.bio %></p>
@@ -25,32 +34,42 @@
 
     <div class="col experience-container">
       <h6 class="item-title">Experiences<i class="fas fa-caret-down"></i></h6>
-      <ul class="timeline">
-        <li class="timeline-event">
-          <label class="timeline-event-icon"></label>
-          <div class="timeline-event-copy">
-            <p class="timeline-event-thumbnail">April 2019 - now</p>
-            <h4>Freelance</h4>
-            <p>Schwerpunkt Design</p>
-          </div>
-        </li>
-        <li class="timeline-event">
-          <label class="timeline-event-icon"></label>
-          <div class="timeline-event-copy">
-            <p class="timeline-event-thumbnail">October 2018 - March 2019</p>
-            <h4>Graphic Designer</h4>
-            <p>Geschäftsführerin Web-Studios</p>
-          </div>
-        </li>
-        <li class="timeline-event">
-          <label class="timeline-event-icon"></label>
-          <div class="timeline-event-copy">
-            <p class="timeline-event-thumbnail">April 2018 - September 2018</p>
-            <h4>Layout Design Intern</h4>
-            <p>Compass of Design</p>
-          </div>
-        </li>
-      </ul>
+      <div class="experiences">
+        <ul class="timeline">
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">April 2019 - now</p>
+              <h4>Freelance</h4>
+              <p>Schwerpunkt Design</p>
+            </div>
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">October 2018 - March 2019</p>
+              <h4>Graphic Designer</h4>
+              <p>Geschäftsführerin Web-Studios</p>
+            </div>
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">April 2018 - September 2018</p>
+              <h4>Layout Design Intern</h4>
+              <p>Compass of Design</p>
+            </div>
+          </li>
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">October 2018 - March 2019</p>
+              <h4>Graphic Designer</h4>
+              <p>Geschäftsführerin Web-Studios</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
