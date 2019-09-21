@@ -19,21 +19,25 @@
           <% end %>
         <% end %>
       </div>
-      <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
-      <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
+      <% if @user.job.present? %>
+        <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
+      <% end %>
+      <% if @user.city.present? %>
+        <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
+      <% end %>
       <p><%= @user.bio %></p>
       <br>
       <% if @user == current_user %>
       <% else %>
         <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
       <% end %>
-      <div class="user-social-link">
+      <!-- <div class="user-social-link">
         <a href="#"><i class="icon ion-md-globe"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fas fa-basketball-ball"></i></a>
         <a href="#"><i class="fab fa-facebook-f"></i></a>
-      </div>
+      </div> -->
     </div>
 
     <div class="col experience-container">
@@ -46,40 +50,23 @@
           <% end %>
         </h6>
       </div>
+
       <div class="experiences">
         <ul class="timeline">
-          <li class="timeline-event">
-            <label class="timeline-event-icon"></label>
-            <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">April 2019 - now</p>
-              <h4>Freelance</h4>
-              <p>Schwerpunkt Design</p>
-            </div>
-          </li>
-          <li class="timeline-event">
-            <label class="timeline-event-icon"></label>
-            <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">October 2018 - March 2019</p>
-              <h4>Graphic Designer</h4>
-              <p>Geschäftsführerin Web-Studios</p>
-            </div>
-          </li>
-          <li class="timeline-event">
-            <label class="timeline-event-icon"></label>
-            <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">April 2018 - September 2018</p>
-              <h4>Layout Design Intern</h4>
-              <p>Compass of Design</p>
-            </div>
-          </li>
-          <li class="timeline-event">
-            <label class="timeline-event-icon"></label>
-            <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">October 2018 - March 2019</p>
-              <h4>Graphic Designer</h4>
-              <p>Geschäftsführerin Web-Studios</p>
-            </div>
-          </li>
+          <% if @user.job_experiences.present? %>
+            <% @user.job_experiences.each do |experience| %>
+              <li class="timeline-event">
+                <label class="timeline-event-icon"></label>
+                <div class="timeline-event-copy">
+                  <p class="timeline-event-thumbnail"><%= experience.start_date %> - <%= experience.end_date %></p>
+                  <h4><%= experience.title %></h4>
+                  <p><%= experience.location %></p>
+                  <p><%= experience.description %></p>
+                </div>
+              </li>
+            <% end %>
+          <% else %>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -88,7 +75,13 @@
 <br>
 
   <div class="py-4">
-    <h6 class="item-title">My Designs<i class="fas fa-caret-right"></i></h6>
+    <h6 class="item-title">My Designs
+      <% if @user == current_user %>
+        <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#designModal"></a>
+      <% else %>
+        <i class="fas fa-caret-right"></i>
+      <% end %>
+    </h6>
     </div>
     <div class="row">
     <% @user.designs.each do |design| %>
