@@ -20,7 +20,7 @@ users << User.create!(
     job: "Graphic Design Student",
     bio: "Kim has a huge passion for German Techno music lover and create new design. She was the winner for Academy Award for her exquisite graphic designing. For her, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, She has been designing and developing complex and compelling experiences for various brands. Her main influences come from graphic novels, techno culture, and a mild touch of constructivism.",
     city: "Berlin",
-    photo: open('app/assets/images/profilepic_kim.jpg'),
+    photo: open('app/assets/images/profilepic_kim.jpg')
   )
 
 users << User.create!(
@@ -31,7 +31,7 @@ users << User.create!(
     job: "Freelance Photographer",
     bio: "Jun is a landscape photographer based in Kuala Lumpur, Malaysia. Jun's pursuit of landscape images have taken her around the world almost continuously for well over a decade now. The visual drama and artistry of her photographs are born of a keen eye for the many moods of Nature and a life-long passion for the wilderness.",
     city: "Kuala Lumpur",
-    photo: open('app/assets/images/profilepic_1.jpg'),
+    photo: open('app/assets/images/profilepic_1.jpg')
   )
 
 users << User.create!(
@@ -42,7 +42,7 @@ users << User.create!(
     job: "Graphic Design Student",
     bio: "Seb largely designed motion picture title sequences, corporate logos and movie posters. He was the winner for Academy Award for his exquisite graphic designing.",
     city: "Melbourne",
-    photo: open('app/assets/images/profilepic_2.png'),
+    photo: open('app/assets/images/profilepic_2.png')
 
   )
 
@@ -54,7 +54,7 @@ users << User.create!(
     job: "Illustrator",
     bio: "Gael is a Illustrator at Naughty Dog in Los Angeles, California. She graduated with a BS and MS in Graphic Design from West Virginia University with a minor in music. During school, she worked at local design companies and taught undergraduate classes.",
     city: "Los Angeles",
-    photo: open('app/assets/images/profilepic_3.png'),
+    photo: open('app/assets/images/profilepic_3.png')
   )
 
 users << User.create!(
@@ -65,7 +65,7 @@ users << User.create!(
     job: "Game Designer",
     bio: "I'm a video game designer and co-founder of the former game development company Maxis, and then part of Electronic Arts. In April 2017, I left EA to run Stupid Fun Club Camp, an entertainment think tank in which Wright and EA are principal shareholders.",
     city: "New York",
-    photo: open('app/assets/images/profilepic_4.jpeg'),
+    photo: open('app/assets/images/profilepic_4.jpeg')
   )
 
 users << User.create!(
@@ -76,7 +76,7 @@ users << User.create!(
     job: "Senior Graphic Designer",
     bio: "Paal is an Norwegian graphic designer, mentor and surfer. He is best known for his innovative magazine design, and use of experimental typography.",
     city: "Oslo",
-    photo: open('app/assets/images/profilepic_5.jpeg'),
+    photo: open('app/assets/images/profilepic_5.jpeg')
   )
 
 users << User.create!(
@@ -87,7 +87,7 @@ users << User.create!(
     job: "UI Designer",
     bio: "My name is Caio Beckham, a UI Designer strongly focus on Minimalist design. For me, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, I have been designing and developing complex and compelling experiences for various brands. I obtained my Bachelors of Fine Arts while studying Graphic Design in college. My main influences come from graphic novels, pop culture, and a mild touch of constructivism.",
     city: "Rio",
-    photo: open('app/assets/images/profilepic_6.jpeg'),
+    photo: open('app/assets/images/profilepic_6.jpeg')
   )
 
 users << User.create!(
@@ -98,14 +98,48 @@ users << User.create!(
     job: "Creative Director",
     bio: "Benedict Taylor was born in London, England. He is an actor, designers known for Notes on a Scandal (2006), Star Wars: Episode I - The Phantom Menace (1999) and Beau Geste (1982).",
     city: "London",
-    photo: open('app/assets/images/profilepic_7.jpeg'),
+    photo: open('app/assets/images/profilepic_7.jpeg')
   )
 
-
-
-
-
 puts "Finished!"
+
+users.each do |user|
+  experience = JobExperience.new(
+    title: "Freelance Brand Designer",
+    description: "Spent 6 months working with the City of Casey, rebranding their community to match the recent makeover they've had.",
+    location: "City of Casey",
+    start_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M")
+  )
+  experience.user = user
+
+  experience2 = JobExperience.new(
+    title: "Brand Designer",
+    description: "Worked for 3 years as a brand designer for Kern Studios, under the guidance of my mentor Danielle Azzopardi.",
+    location: "Kern Studios",
+    start_date: DateTime.strptime("11/27/2016 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M")
+  )
+  experience2.user = user
+
+  experience3 = JobExperience.new(
+    title: "Graphic Design Intern",
+    description: "Completed a 3 month internship at MYOB as part of degree, where I worked as an associate designer and assisted on various projects from rebranding to UX/UI.",
+    location: "MYOB",
+    start_date: DateTime.strptime("11/02/2015 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M")
+  )
+  experience3.user = user
+
+  experience4 = JobExperience.new(
+    title: "Freelance Graphic Designer",
+    description: "Worked on various projects from band covers to cafe murals. Got most of my work from either friends or through word of mouth from past clients.",
+    location: "Remote",
+    start_date: DateTime.strptime("05/18/2013 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M")
+  )
+  experience4.user = user
+end
 
 puts "Generating Designs..."
 
@@ -183,7 +217,7 @@ designs << Design.create!(
   user: users.sample
 )
 
-puts "Adding highlight design"
+puts "Creating Highlighted Design"
 
 highlighted_design = Design.create!(
   photo: open('app/assets/images/design_test_4.jpeg'),
@@ -578,7 +612,7 @@ JobPost.create!(
   job_type: "Full time",
   location: "Remote",
   user: users[4]
-  )
+)
 
 JobPost.create!(
   title: "Graphic Designer",
@@ -749,11 +783,7 @@ JobPost.create!(
   user: users[2]
 )
 
-puts "Finished randoms!"
-
-
-
-puts "Adding highlight comment"
+puts "Finished!"
 
 hightlight_content = [
   "I love the design but the background color could be a bit brighter.",
@@ -793,6 +823,3 @@ Comment.create!(
   design: highlighted_design,
   user: users[6]
 )
-
-puts "Finished highlight post!"
-
