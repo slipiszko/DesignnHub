@@ -16,8 +16,8 @@
       <%=comment.downvotes %>
   <% end %>
 <% else %>
-  <%=comment.upvotes %>
-  <p>▲</p>
-  <p>▼</p>
-  <%=comment.downvotes %>
+    <%=comment.upvotes %>
+    <%= link_to "▲", new_user_registration_path %>
+    <%= link_to "▼", new_user_registration_path %>
+    <%=comment.downvotes %>
 <% end %>
