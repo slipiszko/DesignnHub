@@ -112,6 +112,7 @@ users.each do |user|
     end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M")
   )
   experience.user = user
+  experience.create!
 
   experience2 = JobExperience.new(
     title: "Brand Designer",
@@ -121,6 +122,7 @@ users.each do |user|
     end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M")
   )
   experience2.user = user
+  experience2.create!
 
   experience3 = JobExperience.new(
     title: "Graphic Design Intern",
@@ -130,6 +132,7 @@ users.each do |user|
     end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M")
   )
   experience3.user = user
+  experience3.create!
 
   experience4 = JobExperience.new(
     title: "Freelance Graphic Designer",
@@ -139,6 +142,7 @@ users.each do |user|
     end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M")
   )
   experience4.user = user
+  experience4.create!
 end
 
 puts "Generating Designs..."
