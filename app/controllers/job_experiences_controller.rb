@@ -9,6 +9,7 @@ class JobExperiencesController < ApplicationController
     @job_experience.user = @user
     authorize @job_experience
     @job_experience.save
+    redirect_to profile_path(@user)
   end
 
   def edit
@@ -29,6 +30,6 @@ class JobExperiencesController < ApplicationController
   end
 
   def job_experience_params
-    params.require(:job_experiences).permit(:title, :description, :location, :start_date, :end_date)
+    params.require(:job_experience).permit(:title, :description, :location, :start_date, :end_date)
   end
 end

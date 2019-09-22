@@ -5,7 +5,7 @@
     <%= form.input :title %>
     <%= form.input :description, as: :text %>
     <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illistraion"] %>
-    <%= form.association :design_tags, input_html: { class: 'select3' } %>
+    <%= form.association :design_tags, input_html: { class: 'select2' } %>
     <%= form.input :photo, label: 'Design' %>
     <%= form.input :photo_cache, as: :hidden, class: "btn-outline-black"  %>
     <br>

@@ -31,9 +31,9 @@ class DesignsController < ApplicationController
   end
 
   def create
-    authorize @design
     @design = Design.new(design_params)
     @design.user = current_user
+    authorize @design
     if @design.save
       flash[:notice] = "Your design has been added"
       redirect_to profile_path(current_user)
