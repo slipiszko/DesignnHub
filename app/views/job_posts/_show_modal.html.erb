@@ -37,7 +37,11 @@
                 <div class="job-user">
                   <%= link_to profile_path(@job_post.user) do %>
                     <div class="d-flex align-items-center">
-                      <%= cl_image_tag(@job_post.user.photo, class: "avatar-small") %>
+                      <% if @job_post.user.photo.present? %>
+                        <%= cl_image_tag(@job_post.user.photo, class: "avatar-small") %>
+                      <% else %>
+                        <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small"  %>
+                      <% end %>
                       <div class="user-link">
                         <p><%= @job_post.user.first_name %> <%= @job_post.user.last_name %></p>
                       </div>
