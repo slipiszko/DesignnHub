@@ -2,7 +2,7 @@
   <% if current_user.photo.present? %>
     <%= cl_image_tag(current_user.photo, class: "avatar-medium") %>
   <% else %>
-    <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium"  %>
+    <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
   <% end %>
   <div class="user-review-info">
     <h6><%= current_user.first_name %> <%= current_user.last_name %></h6>
