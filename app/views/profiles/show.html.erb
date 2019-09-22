@@ -58,9 +58,9 @@
               <li class="timeline-event">
                 <label class="timeline-event-icon"></label>
                 <div class="timeline-event-copy">
-                  <p class="timeline-event-thumbnail"><%= experience.start_date %> - <%= experience.end_date %></p>
-                  <h4><%= experience.title %></h4>
-                  <p><%= experience.location %></p>
+                  <p class="timeline-event-thumbnail"><%= experience.start_date.strftime("%B, %Y") %> - <%= experience.end_date.strftime("%B, %Y") %></p>
+                  <h4 id="experience-title"><%= experience.title %></h4>
+                  <p id="experience-title"><%= experience.location %></p>
                   <p><%= experience.description %></p>
                 </div>
               </li>

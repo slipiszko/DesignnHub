@@ -104,41 +104,41 @@ users << User.create!(
 puts "Finished!"
 
 users.each do |user|
-  experience = JobExperience.new(
+  JobExperience.create!(
     title: "Freelance Brand Designer",
     description: "Spent 6 months working with the City of Casey, rebranding their community to match the recent makeover they've had.",
     location: "City of Casey",
     start_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M")
+    end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M"),
+    user: user
   )
-  experience.user = user
 
-  experience2 = JobExperience.new(
+  JobExperience.create!(
     title: "Brand Designer",
     description: "Worked for 3 years as a brand designer for Kern Studios, under the guidance of my mentor Danielle Azzopardi.",
     location: "Kern Studios",
     start_date: DateTime.strptime("11/27/2016 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M")
+    end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
+    user: user
   )
-  experience2.user = user
 
-  experience3 = JobExperience.new(
+  JobExperience.create!(
     title: "Graphic Design Intern",
     description: "Completed a 3 month internship at MYOB as part of degree, where I worked as an associate designer and assisted on various projects from rebranding to UX/UI.",
     location: "MYOB",
     start_date: DateTime.strptime("11/02/2015 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M")
+    end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M"),
+    user: user
   )
-  experience3.user = user
 
-  experience4 = JobExperience.new(
+  JobExperience.create!(
     title: "Freelance Graphic Designer",
     description: "Worked on various projects from band covers to cafe murals. Got most of my work from either friends or through word of mouth from past clients.",
     location: "Remote",
     start_date: DateTime.strptime("05/18/2013 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M")
+    end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M"),
+    user: user
   )
-  experience4.user = user
 end
 
 puts "Generating Designs..."
