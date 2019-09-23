@@ -4,7 +4,7 @@
       <div class="text-background">
         <div class="d-flex align-items-center">
           <% if design.user.photo.present? %>
-            <%= cl_image_tag(design.user.photo, class: "avatar-small", :gravity=>"faces") %>
+            <%= cl_image_tag(design.user.photo, class: "avatar-small", gravity: "faces") %>
           <% else %>
             <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
           <% end %>
