@@ -1,6 +1,6 @@
 <div class="author">
   <% if user.photo.present? %>
-    <%= cl_image_tag user.photo, class: 'author-profile-pic' %>
+    <%= cl_image_tag(user.photo, class: 'author-profile-pic') %>
   <% else %>
     <%= image_tag (asset_path('avatar-default.png')), class: "author-profile-pic" %>
   <% end %>
