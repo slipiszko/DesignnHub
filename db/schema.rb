@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_003924) do
+ActiveRecord::Schema.define(version: 2019_09_23_003059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,15 +53,6 @@ ActiveRecord::Schema.define(version: 2019_09_23_003924) do
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
-  create_table "discussions", force: :cascade do |t|
-    t.text "content"
-    t.string "photo"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
   create_table "job_applications", force: :cascade do |t|
     t.text "note"
     t.bigint "user_id"
@@ -98,6 +89,15 @@ ActiveRecord::Schema.define(version: 2019_09_23_003924) do
     t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.text "content"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -132,11 +132,11 @@ ActiveRecord::Schema.define(version: 2019_09_23_003924) do
   add_foreign_key "design_design_tags", "design_tags"
   add_foreign_key "design_design_tags", "designs"
   add_foreign_key "designs", "users"
-  add_foreign_key "discussions", "users"
   add_foreign_key "job_applications", "job_posts"
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_experiences", "users"
   add_foreign_key "job_posts", "users"
+  add_foreign_key "questions", "users"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"
 end
