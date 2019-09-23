@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  resources :questions
+
   resources :job_posts do
     resources :job_applications, only: [:new, :create]
   end
