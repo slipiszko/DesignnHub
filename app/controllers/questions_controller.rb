@@ -3,12 +3,15 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    authorize @question
   end
 
   def edit
+    authorize @question
   end
 
   def update
+    authorize @question
   end
 
   private
