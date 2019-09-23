@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+Question.destroy_all
 JobPost.destroy_all
 DesignTag.destroy_all
 Comment.destroy_all
@@ -216,8 +217,6 @@ designs << Design.create!(
   category: "Photography",
   user: users.sample
 )
-
-puts "Creating Highlighted Design"
 
 highlighted_design = Design.create!(
   photo: open('app/assets/images/design_test_4.jpeg'),
@@ -784,6 +783,37 @@ JobPost.create!(
 )
 
 puts "Finished!"
+
+puts "Generating Questions..."
+
+Question.create!(
+  content: "What free software would you recommned for graphic design?",
+  user: users.sample
+)
+
+Question.create!(
+  content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
+  user: users.sample,
+  photo: open('app/assets/images/question_test_1.jpg')
+)
+
+Question.create!(
+  content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
+  user: users.sample
+)
+
+Question.create!(
+  content: "Does anyone have a favourite desktop tool for Instagram post management?",
+  user: users.sample
+)
+
+Question.create!(
+  content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
+  user: users.sample,
+  photo: open('app/assets/images/question_test_2.jpg')
+)
+
+puts "Finished"
 
 hightlight_content = [
   "I love the design but the background color could be a bit brighter.",
