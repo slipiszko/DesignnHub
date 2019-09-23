@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @discussions = policy_scope(Question).order(created_at: :desc)
+    @questions = policy_scope(Question).order(created_at: :desc)
   end
 
   def show
