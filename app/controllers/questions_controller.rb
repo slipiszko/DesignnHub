@@ -1,4 +1,14 @@
 class QuestionsController < ApplicationController
+  def index
+    @questions = policy_scope(Question).order(created_at: :desc)
+  end
+
+  def show
+    authorize @question
+    @question = Question.find(params[:id])
+    @user = @question.user
+  end
+
   def new
   end
 
