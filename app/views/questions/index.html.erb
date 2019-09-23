@@ -1,7 +1,7 @@
 <div class="d-flex">
   <%= render 'question_sidebar' %>
   <div>
-    <div>
+    <div class="question-index">
     <% @questions.each do |question| %>
       <%= render 'card_question', question: question %>
     <% end %>
