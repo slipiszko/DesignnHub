@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    authorize @question
     @question = Question.find(params[:id])
+    authorize @question
     @user = @question.user
   end
 

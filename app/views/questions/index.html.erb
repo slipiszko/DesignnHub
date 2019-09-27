@@ -2,9 +2,11 @@
   <%= render 'question_sidebar' %>
   <div>
     <div class="question-index">
-    <% @questions.each do |question| %>
-      <%= render 'card_question', question: question %>
-    <% end %>
+      <% @questions.each do |question| %>
+        <%= link_to question_path(question), target: :_blank do %>
+          <%= render 'card_question', question: question %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
