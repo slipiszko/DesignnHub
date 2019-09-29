@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_003059) do
+ActiveRecord::Schema.define(version: 2019_09_29_211955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,12 @@ ActiveRecord::Schema.define(version: 2019_09_23_003059) do
     t.datetime "updated_at", null: false
     t.string "job_type"
     t.index ["user_id"], name: "index_job_posts_on_user_id"
+  end
+
+  create_table "question_tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
