@@ -1,4 +1,4 @@
-<%= link_to question_path(question), remote: true do %>
+<a href="#">
   <div class="question-container">
     <div class="question-header">
       <%= link_to profile_path(question.user) do  %>
@@ -32,13 +32,12 @@
 
     <div class="question-anwser">
       <div class="answer-box">
-        <% if current_user.photo.present? %>
-          <%= cl_image_tag(current_user.photo, class: "avatar-small", gravity: "faces") %>
-        <% else %>
+        <% if current_user == nil %>
           <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
+        <% else %>
+          <%= cl_image_tag(current_user.photo, class: "avatar-small", gravity: "faces") %>
         <% end %>
       </div>
     </div>
   </div>
-<% end %>
-
+</a>
