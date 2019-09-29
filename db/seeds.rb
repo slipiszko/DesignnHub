@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+QuestionTag.destroy_all
 Question.destroy_all
 JobPost.destroy_all
 DesignTag.destroy_all
@@ -533,7 +534,7 @@ puts "Finished!"
 
 puts "Generating Design Tags..."
 
-tags = [
+design_tags = [
   "Adobe",
   "Branding",
   "Photoshop",
@@ -558,7 +559,7 @@ tags = [
   "Cold tone"
 ]
 
-tags.each do |tag|
+design_tags.each do |tag|
   DesignTag.create!(
     name: tag
   )
@@ -786,31 +787,58 @@ puts "Finished!"
 
 puts "Generating Questions..."
 
+question_tags = [
+  "Freelance",
+  "Branding",
+  "Photoshop",
+  "Cartoon",
+  "Logo",
+  "Illustrator",
+  "Animation",
+  "Calligraphy",
+  "Web",
+  "Web Design",
+  "Typography",
+  "UX",
+  "UI",
+  "Graphic Design",
+]
+
+question_tags.each do |tag|
+  QuestionTag.create!(
+    name: tag
+  )
+
 Question.create!(
   content: "What free software would you recommned for graphic design?",
-  user: users.sample
+  user: users.sample,
+  question_tag: "Graphic Design"
 )
 
 Question.create!(
   content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
   user: users.sample,
-  photo: open('app/assets/images/question_test_1.jpg')
+  photo: open('app/assets/images/question_test_1.jpg'),
+  question_tag: "Graphic Design"
 )
 
 Question.create!(
   content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
-  user: users.sample
+  user: users.sample,
+  question_tag: "Freelance"
 )
 
 Question.create!(
   content: "Does anyone have a favourite desktop tool for Instagram post management?",
-  user: users.sample
+  user: users.sample,
+  question_tag: "Freelance"
 )
 
 Question.create!(
   content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
   user: users.sample,
-  photo: open('app/assets/images/question_test_2.jpg')
+  photo: open('app/assets/images/question_test_2.jpg'),
+  question_tag: "Freelance"
 )
 
 puts "Finished"
