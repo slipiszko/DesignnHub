@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_211955) do
+ActiveRecord::Schema.define(version: 2019_09_29_212208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_211955) do
     t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
+  create_table "question_question_tags", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "question_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_question_tags_on_question_id"
+    t.index ["question_tag_id"], name: "index_question_question_tags_on_question_tag_id"
+  end
+
   create_table "question_tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -142,6 +151,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_211955) do
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_experiences", "users"
   add_foreign_key "job_posts", "users"
+  add_foreign_key "question_question_tags", "question_tags"
+  add_foreign_key "question_question_tags", "questions"
   add_foreign_key "questions", "users"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"
