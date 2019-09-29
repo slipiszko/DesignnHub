@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = policy_scope(Question).order(created_at: :desc)
+    @question_tags = QuestionTag.all
   end
 
   def show
