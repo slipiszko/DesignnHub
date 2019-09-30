@@ -38,14 +38,14 @@ class CommentsController < ApplicationController
 
   def upvote
     authorize @comment
-    if @user.upvoted?(@comment)
+    if @user.upvoted_comment?(@comment)
       return
     else
-      if @user.downvote(@comment).present? || @user.upvote(@comment).present?
-        @user.remove_vote(@comment)
-        @user.upvote(@comment)
+      if @user.downvote_comment(@comment).present? || @user.upvote_comment(@comment).present?
+        @user.remove_vote_comment(@comment)
+        @user.upvote_comment(@comment)
       else
-        @user.upvote(@comment)
+        @user.upvote_comment(@comment)
       end
     end
 
@@ -54,14 +54,14 @@ class CommentsController < ApplicationController
 
   def downvote
     authorize @comment
-    if @user.downvoted?(@comment)
+    if @user.downvoted_comment?(@comment)
       return
     else
-      if @user.upvote(@comment).present? || @user.downvote(@comment).present?
-        @user.remove_vote(@comment)
-        @user.downvote(@comment)
+      if @user.upvote_comment(@comment).present? || @user.downvote_comment(@comment).present?
+        @user.remove_vote_comment(@comment)
+        @user.downvote_comment(@comment)
       else
-        @user.downvote(@comment)
+        @user.downvote_comment(@comment)
       end
     end
 

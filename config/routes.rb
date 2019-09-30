@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :questions
 
+  resources :answers
+
   resources :job_posts do
     resources :job_applications, only: [:new, :create]
   end
