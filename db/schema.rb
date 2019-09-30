@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_213325) do
+ActiveRecord::Schema.define(version: 2019_09_30_213649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 2019_09_30_213325) do
   create_table "answers", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "question_id"
-    t.bigint "vote_id"
     t.text "content"
+    t.integer "upvotes"
+    t.integer "downvotes"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
-    t.index ["vote_id"], name: "index_answers_on_vote_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -149,13 +149,14 @@ ActiveRecord::Schema.define(version: 2019_09_30_213325) do
     t.integer "downvotes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "answer_id"
+    t.index ["answer_id"], name: "index_votes_on_answer_id"
     t.index ["comment_id"], name: "index_votes_on_comment_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
-  add_foreign_key "answers", "votes"
   add_foreign_key "comments", "designs"
   add_foreign_key "comments", "users"
   add_foreign_key "design_design_tags", "design_tags"
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_213325) do
   add_foreign_key "question_question_tags", "question_tags"
   add_foreign_key "question_question_tags", "questions"
   add_foreign_key "questions", "users"
+  add_foreign_key "votes", "answers"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"
 end
