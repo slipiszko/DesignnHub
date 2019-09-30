@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_212208) do
+ActiveRecord::Schema.define(version: 2019_09_30_213325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.bigint "vote_id"
+    t.text "content"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+    t.index ["vote_id"], name: "index_answers_on_vote_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
@@ -140,6 +153,9 @@ ActiveRecord::Schema.define(version: 2019_09_29_212208) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
+  add_foreign_key "answers", "votes"
   add_foreign_key "comments", "designs"
   add_foreign_key "comments", "users"
   add_foreign_key "design_design_tags", "design_tags"
