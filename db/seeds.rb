@@ -530,6 +530,7 @@ designs << Design.create!(
   category: "Game",
   user: users.sample
 )
+
 puts "Finished!"
 
 puts "Generating Design Tags..."
@@ -801,44 +802,47 @@ question_tags = [
   "Typography",
   "UX",
   "UI",
-  "Graphic Design",
+  "Graphic Design"
 ]
 
+created_question_tags = []
+
 question_tags.each do |tag|
-  QuestionTag.create!(
+  created_question_tags << QuestionTag.create!(
     name: tag
   )
+end
 
 Question.create!(
   content: "What free software would you recommned for graphic design?",
   user: users.sample,
-  question_tag: "Graphic Design"
+  question_tag: created_question_tags[-1]
 )
 
 Question.create!(
   content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
   user: users.sample,
   photo: open('app/assets/images/question_test_1.jpg'),
-  question_tag: "Graphic Design"
+  question_tag: created_question_tags[-1]
 )
 
 Question.create!(
   content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
   user: users.sample,
-  question_tag: "Freelance"
+  question_tag: created_question_tags[1]
 )
 
 Question.create!(
   content: "Does anyone have a favourite desktop tool for Instagram post management?",
   user: users.sample,
-  question_tag: "Freelance"
+  question_tag: created_question_tags[1]
 )
 
 Question.create!(
   content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
   user: users.sample,
   photo: open('app/assets/images/question_test_2.jpg'),
-  question_tag: "Freelance"
+  question_tag: created_question_tags[1]
 )
 
 puts "Finished"

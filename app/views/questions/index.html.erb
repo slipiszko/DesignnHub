@@ -2,7 +2,7 @@
   <%= render 'question_sidebar' %>
     <div class="question-tag-index">
       <% @question_tags.each do |tag| %>
-        <%= render '../question_tags/card_question_tag', tag: tag %>
+        <%= render 'card_question_tag', tag: tag %>
       <% end %>
     </div>
     <div class="question-index">

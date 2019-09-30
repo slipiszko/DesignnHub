@@ -1,0 +1,31 @@
+<a href="#">
+  <h2>Categories</h2>
+  <div class="question-tag-container">
+    <div class="question-tag-left-block">
+      <%= tag.name %>
+    </div>
+    <div class="question-tag-right-block">
+      <div class="question-tag-right-block-top">
+        <div>
+          <p>Topics:</p>
+          <% if tag.questions.count == 0 %>
+            <p>0</p>
+          <% else %>
+            <p><%= tag.questions.count %></p>
+          <% end %>
+        </div>
+        <div>
+          <p>Activity:</p>
+          <p><%= task.questions.last.created_at %></p>
+        </div>
+      </div>
+      <div class="question-tag-right-block-bottom">
+        <p>Last topic:</p>
+        <div>
+          <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
+          <p><%= tag.questions.last.content.truncate(100) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
