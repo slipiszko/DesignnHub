@@ -1,12 +1,11 @@
 <a href="#">
-  <h2>Categories</h2>
-  <div class="question-tag-container">
+  <div class="question-tag-container col-12">
     <div class="question-tag-left-block">
       <%= tag.name %>
     </div>
     <div class="question-tag-right-block">
       <div class="question-tag-right-block-top">
-        <div>
+        <div class="question-tag-topic">
           <p>Topics:</p>
           <% if tag.questions.count == 0 %>
             <p>0</p>
@@ -14,16 +13,23 @@
             <p><%= tag.questions.count %></p>
           <% end %>
         </div>
-        <div>
+        <div class="question-tag-activity">
           <p>Activity:</p>
-          <p><%= task.questions.last.created_at %></p>
+          <% if tag.questions.count == 0 %>
+            <p>No activity</p>
+          <% else %>
+            <p><%= tag.questions.last.created_at %></p>
+          <% end %>
         </div>
       </div>
       <div class="question-tag-right-block-bottom">
-        <p>Last topic:</p>
-        <div>
-          <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
-          <p><%= tag.questions.last.content.truncate(100) %></p>
+        <div class="question-tag-last-topic">
+          <% if tag.questions.count == 0 %>
+          <% else %>
+            <p>Last topic:</p>
+            <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
+            <p><%= tag.questions.last.content.truncate(100) %></p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update]
   end
 
-
   resources :profiles, only: [:show]
 
   devise_for :users, controllers: { registrations: 'registrations' }

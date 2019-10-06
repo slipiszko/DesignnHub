@@ -7,11 +7,11 @@ class Answer < ApplicationRecord
   validates :upvotes, presence: true
   validates :downvotes, presence: true
 
-  def upvotes
+  def answer_upvotes
     votes.sum(:upvotes)
   end
 
-  def downvotes
+  def answer_downvotes
     votes.sum(:downvotes)
   end
 end

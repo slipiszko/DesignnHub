@@ -1,23 +1,23 @@
 <% if user_signed_in? %>
-  <% if current_user.upvoted?(comment) == true %>
-      <%=comment.upvotes %>
+  <% if current_user.upvoted_comment?(comment) == true %>
+      <%=comment.comment_upvotes %>
       <p>▲</p>
       <%= link_to "▼", downvote_comment_path(comment), method: :post %>
-      <%=comment.downvotes %>
-    <% elsif current_user.downvoted?(comment) == true %>
-      <%=comment.upvotes %>
+      <%=comment.comment_downvotes %>
+    <% elsif current_user.downvoted_comment?(comment) == true %>
+      <%=comment.comment_upvotes %>
       <%= link_to "▲", upvote_comment_path(comment), method: :post %>
       <p>▼</p>
-      <%= comment.downvotes %>
+      <%= comment.comment_downvotes %>
     <% else %>
-      <%=comment.upvotes %>
+      <%=comment.comment_upvotes %>
       <%= link_to "▲", upvote_comment_path(comment), method: :post %>
       <%= link_to "▼", downvote_comment_path(comment), method: :post %>
-      <%=comment.downvotes %>
+      <%=comment.comment_downvotes %>
   <% end %>
 <% else %>
-    <%=comment.upvotes %>
+    <%=comment.comment_upvotes %>
     <%= link_to "▲", new_user_registration_path %>
     <%= link_to "▼", new_user_registration_path %>
-    <%=comment.downvotes %>
+    <%=comment.comment_downvotes %>
 <% end %>

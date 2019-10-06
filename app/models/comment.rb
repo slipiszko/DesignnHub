@@ -7,11 +7,11 @@ class Comment < ApplicationRecord
   validates :upvotes, presence: true
   validates :downvotes, presence: true
 
-  def upvotes
+  def comment_upvotes
     votes.sum(:upvotes)
   end
 
-  def downvotes
+  def comment_downvotes
     votes.sum(:downvotes)
   end
 end

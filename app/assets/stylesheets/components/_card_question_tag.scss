@@ -1,0 +1,17 @@
+.question-tag-index {
+  width: 100%;
+  padding: 0 30px;
+}
+
+@media (min-width: 992px) {
+  .question-tag-index {
+    padding: 0 80px;
+  }
+}
+
+.question-tag-container {
+  display: flex;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 12px auto;
+}
