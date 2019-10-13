@@ -4,11 +4,11 @@ class QuestionsController < ApplicationController
   def index
     if params[:query].present?
       @questions = policy_scope(Question).where(content: :query)
-      @question_tags = QuestionTag.all
     else
       @questions = policy_scope(Question).order(created_at: :desc)
-      @question_tags = QuestionTag.all
     end
+    @question_tags = QuestionTag.all
+    @portfolios = Portfolio.all
   end
 
   def show
