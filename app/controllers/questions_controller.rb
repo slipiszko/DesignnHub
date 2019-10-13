@@ -2,8 +2,13 @@ class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @questions = policy_scope(Question).order(created_at: :desc)
-    @question_tags = QuestionTag.all
+    if params[:query].present?
+      @questions = policy_scope(Question).where(content: :query)
+      @question_tags = QuestionTag.all
+    else
+      @questions = policy_scope(Question).order(created_at: :desc)
+      @question_tags = QuestionTag.all
+    end
   end
 
   def show

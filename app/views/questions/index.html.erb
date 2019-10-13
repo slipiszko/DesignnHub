@@ -1,13 +1,6 @@
 <div class="d-flex">
   <%= render 'question_sidebar' %>
-    <div class="question-tag-index">
-      <% @question_tags.each do |tag| %>
-        <%= render 'card_question_tag', tag: tag %>
-      <% end %>
-    </div>
     <div class="question-index">
-      <% @questions.each do |question| %>
-        <%= render 'card_question', question: question %>
-      <% end %>
+      <%= render partial:'partials/question_tag_index', locals: { question_tags: @question_tags } %>
     </div>
 </div>

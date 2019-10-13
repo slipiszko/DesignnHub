@@ -20,18 +20,21 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    authorize @comment
   end
 
   def update
     authorize @comment
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to design_path(@design) }
-        format.json { head :no_content }
-        format.js {}
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+    if @comment.valid?
+      respond_to do |format|
+        if @comment.update_attributes(comment_params)
+          format.html { redirect_to design_path(@comment.design) }
+          format.json { head :no_content }
+          format.js {}
+        else
+          format.html { render action: "update" }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
