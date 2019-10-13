@@ -1,10 +1,12 @@
 class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.all
+    authorize @portfolios
   end
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    authorize @portfolio
   end
 
   def new
@@ -13,6 +15,8 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    authorize @portfolio
+    @portfolio.save
   end
 
   def edit
@@ -23,6 +27,7 @@ class PortfoliosController < ApplicationController
 
   def destroy
     @portfolio = Portfolio.find(params[:id])
+    authorize @portfolio
     @portfolio.destroy
   end
 
