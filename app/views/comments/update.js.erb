@@ -1,3 +1,6 @@
-var comment = document.querySelector('#comment_content');
+var updateButton = document.querySelector('#update-comment');
+var comment      = document.querySelector('#comment-<%= @comment.id %>');
 
-comment.innerHTML = '<%= @comment.content %>'
+updateButton.addEventListener("click", function() {
+  comment.innerHTML = '<%= @comment.content %>';
+});

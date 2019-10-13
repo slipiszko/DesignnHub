@@ -1,0 +1,35 @@
+  <div class="question-tag-container col-12">
+    <div class="question-tag-left-block">
+      <%= tag.name %>
+    </div>
+    <div class="question-tag-right-block">
+      <div class="question-tag-right-block-top">
+        <div class="question-tag-topic">
+          <p>Topics:</p>
+          <% if tag.questions.count == 0 %>
+            <p>0</p>
+          <% else %>
+            <p><%= tag.questions.count %></p>
+          <% end %>
+        </div>
+        <div class="question-tag-activity">
+          <p>Activity:</p>
+          <% if tag.questions.count == 0 %>
+            <p>No activity</p>
+          <% else %>
+            <p><%= tag.questions.last.created_at %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="question-tag-right-block-bottom">
+        <div class="question-tag-last-topic">
+          <% if tag.questions.count == 0 %>
+          <% else %>
+            <p>Last topic:</p>
+            <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
+            <p><%= tag.questions.last.content.truncate(100) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

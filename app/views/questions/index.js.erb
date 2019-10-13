@@ -1,0 +1,8 @@
+var questionPage = document.querySelector(".question-page")
+var questions    = document.querySelector(".question-index")
+var questionTags = document.querySelector(".question-tag-container")
+
+questionTags.addEventListener("click", function() {
+  questions.innerHTML = "<%= render partial:'partials/question_index', locals: { questions: @questions } %>";
+});
+
