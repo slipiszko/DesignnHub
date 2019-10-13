@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+QuestionQuestionTag.destroy_all
 QuestionTag.destroy_all
 Question.destroy_all
 JobPost.destroy_all
@@ -104,6 +105,67 @@ users << User.create!(
   )
 
 puts "Finished!"
+
+puts "Generating Questions..."
+
+raw_question_tags = [
+  "Freelance",
+  "Branding",
+  "Photoshop",
+  "Cartoon",
+  "Logo",
+  "Illustrator",
+  "Animation",
+  "Calligraphy",
+  "Web",
+  "Web Design",
+  "Typography",
+  "UX",
+  "UI",
+  "Graphic Design"
+]
+
+created_question_tags = []
+
+raw_question_tags.each do |tag|
+  created_question_tags << QuestionTag.create!(
+    name: tag
+  )
+end
+
+Question.create!(
+  content: "What free software would you recommned for graphic design?",
+  user: users.sample,
+  question_tag_ids: created_question_tags[-1].id
+)
+
+Question.create!(
+  content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
+  user: users.sample,
+  photo: open('app/assets/images/question_test_1.jpg'),
+  question_tag_ids: created_question_tags[-1].id
+)
+
+Question.create!(
+  content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
+  user: users.sample,
+  question_tag_ids: created_question_tags[1].id
+)
+
+Question.create!(
+  content: "Does anyone have a favourite desktop tool for Instagram post management?",
+  user: users.sample,
+  question_tag_ids: created_question_tags[1].id
+)
+
+Question.create!(
+  content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
+  user: users.sample,
+  photo: open('app/assets/images/question_test_2.jpg'),
+  question_tag_ids: created_question_tags[1].id
+)
+
+puts "Finished"
 
 users.each do |user|
   JobExperience.create!(
@@ -535,7 +597,7 @@ puts "Finished!"
 
 puts "Generating Design Tags..."
 
-design_tags = [
+raw_design_tags = [
   "Adobe",
   "Branding",
   "Photoshop",
@@ -560,7 +622,7 @@ design_tags = [
   "Cold tone"
 ]
 
-design_tags.each do |tag|
+raw_design_tags.each do |tag|
   DesignTag.create!(
     name: tag
   )
@@ -786,66 +848,6 @@ JobPost.create!(
 
 puts "Finished!"
 
-puts "Generating Questions..."
-
-question_tags = [
-  "Freelance",
-  "Branding",
-  "Photoshop",
-  "Cartoon",
-  "Logo",
-  "Illustrator",
-  "Animation",
-  "Calligraphy",
-  "Web",
-  "Web Design",
-  "Typography",
-  "UX",
-  "UI",
-  "Graphic Design"
-]
-
-created_question_tags = []
-
-question_tags.each do |tag|
-  created_question_tags << QuestionTag.create!(
-    name: tag
-  )
-end
-
-Question.create!(
-  content: "What free software would you recommned for graphic design?",
-  user: users.sample,
-  question_tag: created_question_tags[-1]
-)
-
-Question.create!(
-  content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
-  user: users.sample,
-  photo: open('app/assets/images/question_test_1.jpg'),
-  question_tag: created_question_tags[-1]
-)
-
-Question.create!(
-  content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
-  user: users.sample,
-  question_tag: created_question_tags[1]
-)
-
-Question.create!(
-  content: "Does anyone have a favourite desktop tool for Instagram post management?",
-  user: users.sample,
-  question_tag: created_question_tags[1]
-)
-
-Question.create!(
-  content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
-  user: users.sample,
-  photo: open('app/assets/images/question_test_2.jpg'),
-  question_tag: created_question_tags[1]
-)
-
-puts "Finished"
 
 hightlight_content = [
   "I love the design but the background color could be a bit brighter.",

@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <p><%= user.first_name %> <%= user.last_name %></p>
+  <p><%= user.bio %></p>
+  <p><%= user.job %></p>
+  <p><%= user.city %></p>
+  <% if user.photo.present? %>
+    <%= cl_image_tag(user.photo) %>
+  <% else %>
+  <% end %>
+<% end %>
