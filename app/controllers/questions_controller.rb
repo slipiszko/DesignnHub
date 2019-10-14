@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     if params[:query].present?
-      @questions = policy_scope(Question).where(content: :query)
+      @questions = policy_scope(Question).joins(:question_tags).where(question_tags: { name: params[:query] })
     else
       @questions = policy_scope(Question).order(created_at: :desc)
     end

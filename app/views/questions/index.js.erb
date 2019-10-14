@@ -1,10 +1,5 @@
-var questionPage = document.querySelector(".question-page");
-var questions    = document.querySelector(".question-index");
-var questionTags = document.querySelectorAll(".question-tag-container");
+var questions = document.querySelector(".question-index");
 
-Array.prototype.forEach.call(questionTags, function addClickListener(card) {
-  card.addEventListener('click', function() {
-    questions.innerHTML = "<%= render partial:'partials/question_index', locals: { questions: @questions } %>";
-  });
-});
+questions.innerHTML = "<%= render partial:'partials/question_index', locals: { questions: @questions } %>";
+
 

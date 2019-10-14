@@ -2,5 +2,5 @@ class Portfolio < ApplicationRecord
   belongs_to :user
   has_many :designs, through: :user
 
-  validates :design, presence: true
+  validates :designs, presence: true
 end

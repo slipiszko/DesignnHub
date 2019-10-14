@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+Portfolio.destroy_all
 QuestionQuestionTag.destroy_all
 QuestionTag.destroy_all
 Question.destroy_all
@@ -46,7 +47,6 @@ users << User.create!(
     bio: "Seb largely designed motion picture title sequences, corporate logos and movie posters. He was the winner for Academy Award for his exquisite graphic designing.",
     city: "Melbourne",
     photo: open('app/assets/images/profilepic_2.png')
-
   )
 
 users << User.create!(
@@ -214,7 +214,7 @@ designs << Design.create!(
   title: "VR Tennis Game App",
   description: "Connect your app to VR glasses, to play with those legendary tennis starts. Select the courts you prefer and choose the different levels",
   category: "Web Design",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -230,7 +230,7 @@ designs << Design.create!(
   title: "Traveling Into the Web",
   description: "Travelling into the web to search for the wilderness of another world. ",
   category: "Illustration",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -254,7 +254,7 @@ designs << Design.create!(
   title: "Portfolio Mockup",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam incidunt, quis aliquid accusantium dicta animi. Doloribus qui facere amet sequi itaque ullam dolor dignissimos eligendi accusamus harum. Vero illum, delectus.",
   category: "Web Design",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -278,7 +278,7 @@ designs << Design.create!(
   title: "Moody Canyon",
   description: "Consider how your audience will interact with your design, and how this interaction can be enhanced upon. Bonus points if this interactive element ties directly into the album title, as this heat-sensitive cover.",
   category: "Photography",
-  user: users.sample
+  user: users[1]
 )
 
 highlighted_design = Design.create!(
@@ -302,7 +302,7 @@ designs << Design.create!(
   title: "CampSight",
   description: " Because of the elaborateness of optical illusions like this one, it’s probably a good idea to balance it out with something simple, as this example has done with a back cover with plenty of white-space.",
   category: "Illustration",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -318,7 +318,7 @@ designs << Design.create!(
   title: "Low Impact",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni ex iste perspiciatis molestias ducimus veniam doloremque dolorem suscipit odit eligendi, repudiandae voluptas cupiditate, dolorum aperiam, atque adipisci dignissimos commodi?",
   category: "Branding",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -350,7 +350,7 @@ designs << Design.create!(
   title: "Fushimi Inari Shrine",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ipsum porro nihil dolore qui dolores assumenda perspiciatis perferendis itaque inventore. Nulla quisquam, rem aut tempora reprehenderit distinctio deleniti architecto est?",
   category: "Photography",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -366,7 +366,7 @@ designs << Design.create!(
   title: "Crisp (Customer Messaging App) Saas website",
   description: "I had the pleasure to help the guys are Crisp bring their brand to a place worthy of their culture and ambitions.",
   category: "Web Design",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -414,7 +414,7 @@ designs << Design.create!(
   title: "Passion fruit",
   description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
   category: "Typography",
-  user: users.sample
+  user: users[1]
 )
 
 designs << Design.create!(
@@ -454,7 +454,7 @@ designs << Design.create!(
   title: "Go global",
   description: "After moving to Taiwan I discovered there were so many various fruits and started to draw some of them. For this project I used my Ipad Pro and my Apple pencil. Yummny!",
   category: "Paint",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -502,7 +502,7 @@ designs << Design.create!(
   title: "Branding design for Hong Kong",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
   category: "Branding",
-  user: users.sample
+  user: users[0]
 )
 
 designs << Design.create!(
@@ -590,7 +590,7 @@ designs << Design.create!(
   title: "Gaming Design for cars",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos optio fugit qui aperiam. Accusamus velit voluptatum reprehenderit. Cum, asperiores, eaque. Minima neque saepe fugit itaque odio animi dignissimos eligendi.",
   category: "Game",
-  user: users.sample
+  user: users[1]
 )
 
 puts "Finished!"
@@ -654,6 +654,22 @@ designs.uniq.each do |design|
     )
   end
 end
+
+puts "Finished!"
+
+puts "Generating Portfolio's"
+
+Portfolio.create!(
+  user: users[1],
+  design_ids: users[1].design_ids,
+  description: "Hey guys, just updated my portfolio what do you think I'm missing?"
+)
+
+Portfolio.create!(
+  user: users[0],
+  design_ids: users[0].designs_ids,
+  description_ids: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
+)
 
 puts "Finished!"
 
