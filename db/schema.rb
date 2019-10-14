@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_213540) do
+ActiveRecord::Schema.define(version: 2019_10_13_230306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,14 @@ ActiveRecord::Schema.define(version: 2019_10_01_213540) do
     t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
+  create_table "portfolios", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
+  end
+
   create_table "question_question_tags", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "question_tag_id"
@@ -166,6 +174,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_213540) do
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_experiences", "users"
   add_foreign_key "job_posts", "users"
+  add_foreign_key "portfolios", "users"
   add_foreign_key "question_question_tags", "question_tags"
   add_foreign_key "question_question_tags", "questions"
   add_foreign_key "questions", "users"
