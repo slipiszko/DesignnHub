@@ -1,5 +1,6 @@
 <%= render 'designs/modal_add_design', design: @new_design %>
 <%= render 'job_posts/modal_add_job_post', job_post: @new_job_post %>
+<%= render 'questions/modal_add_question', question: @new_question %>
 
 <div class="navbar navbar-expand-md navbar-light navbar-lewagon <%= homepage? ? "navbar-transparent fixed-top" : "sticky" %>">
   <%= link_to root_path, class: "navbar-brand" do %>
@@ -34,10 +35,16 @@
               Add Design
               </a>
             <% end %>
-            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#jobPostModal">
-            Post Job
-            </a>
-            <%= link_to "Ask Question", new_question_path, class: "dropdown-item" %>
+            <% if policy(JobPost).create? %>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#jobPostModal">
+              Post Job
+              </a>
+            <% end %>
+            <% if policy(Question).create? %>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#questionModal">
+              Ask Question
+              </a>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

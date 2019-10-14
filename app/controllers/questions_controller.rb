@@ -18,10 +18,20 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
+    authorize @question
   end
 
   def create
+    @question = Question.new(question_params)
+    @question.user = current_user
     authorize @question
+    if @question.save
+      flash[:notice] = "Your question has been posted"
+      redirect_to profile_path(current_user)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,6 +45,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content, :photo)
+    params.require(:question).permit(:content, :photo, question_tags_attributes: [:id, :name])
   end
 end
