@@ -661,13 +661,13 @@ puts "Generating Portfolio's"
 
 Portfolio.create!(
   user: users[1],
-  design_ids: users[1].design_ids,
+  design_ids: [users[1].designs.first.id, users[1].designs.last.id],
   description: "Hey guys, just updated my portfolio what do you think I'm missing?"
 )
 
 Portfolio.create!(
   user: users[0],
-  design_ids: users[0].designs_ids,
+  designs: [users[0].designs.first.id, users[0].designs.last.id],
   description_ids: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
 )
 
@@ -808,7 +808,7 @@ JobPost.create!(
 
 JobPost.create!(
   title: "Graphic designer",
-  content:"One of the most in-demand design professionals out there is a graphic designer. These professionals create designs for marketing collateral, product illustrations, brand identities and websites using computer software like the Adobe® Creative Suite. They merge technical skill with artistic ability to create a design that communicates with its desired audience. Graphic designers may work independently as freelancers or contractors, in an in-house setting for a company or in an agency setting.",
+  content: "One of the most in-demand design professionals out there is a graphic designer. These professionals create designs for marketing collateral, product illustrations, brand identities and websites using computer software like the Adobe® Creative Suite. They merge technical skill with artistic ability to create a design that communicates with its desired audience. Graphic designers may work independently as freelancers or contractors, in an in-house setting for a company or in an agency setting.",
   profession: "Photographer",
   job_type: "Freelance",
   location: "Melbourne",
