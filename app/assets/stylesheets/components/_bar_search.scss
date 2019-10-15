@@ -56,3 +56,14 @@
   align-items: center;
   display: flex;
 }
+
+#design-search-bar {
+  margin-left: 32px;
+  width: 420px;
+}
+
+@media (max-width: 640px) {
+  #design-search-bar {
+    width: 580px;
+  }
+}

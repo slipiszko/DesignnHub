@@ -1,0 +1,5 @@
+var questions = document.querySelector(".question-index");
+
+questions.innerHTML = "<%= render partial:'partials/question_index', locals: { questions: @questions } %>";
+
+

@@ -1,4 +1,4 @@
-class QuestionPolicy < ApplicationPolicy
+class PortfolioPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,10 +6,6 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def show?
-    true
-  end
-
-  def new
     true
   end
 

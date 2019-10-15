@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :set_design
   before_action :set_job_post
   before_action :set_job_experience
+  before_action :set_question
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def set_job_experience
     @new_job_experience = JobExperience.new
+  end
+
+  def set_question
+    @new_question = Question.new
   end
 
   def default_url_options

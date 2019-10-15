@@ -1,17 +1,17 @@
-class Comment < ApplicationRecord
+class Answer < ApplicationRecord
   belongs_to :user
-  belongs_to :design
+  belongs_to :question
   has_many :votes, dependent: :destroy
 
   validates :content, presence: true
   validates :upvotes, presence: true
   validates :downvotes, presence: true
 
-  def comment_upvotes
+  def answer_upvotes
     votes.sum(:upvotes)
   end
 
-  def comment_downvotes
+  def answer_downvotes
     votes.sum(:downvotes)
   end
 end

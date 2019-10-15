@@ -1,0 +1,5 @@
+<% question_tags.each do |tag| %>
+  <%= link_to questions_path(query: tag.name), remote: true do  %>
+    <%= render 'card_question_tag', tag: tag %>
+  <% end %>
+<% end %>

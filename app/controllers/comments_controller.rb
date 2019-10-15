@@ -20,33 +20,34 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    authorize @comment
   end
 
   def update
     authorize @comment
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to design_path(@design) }
-        format.json { head :no_content }
-        format.js {}
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+    if @comment.valid?
+      respond_to do |format|
+        if @comment.update_attributes(comment_params)
+          format.html { redirect_to design_path(@comment.design) }
+          format.json { head :no_content }
+          format.js {}
+        else
+          format.html { render action: "update" }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
   def upvote
     authorize @comment
-    if @user.upvoted?(@comment)
+    if @user.upvoted_comment?(@comment)
       return
+    elsif @user.downvote_comment(@comment).present? || @user.upvote_comment(@comment).present?
+      @user.remove_vote_comment(@comment)
+      @user.upvote_comment(@comment)
     else
-      if @user.downvote(@comment).present? || @user.upvote(@comment).present?
-        @user.remove_vote(@comment)
-        @user.upvote(@comment)
-      else
-        @user.upvote(@comment)
-      end
+      @user.upvote_comment(@comment)
     end
 
     redirect_to design_path(@comment.design)
@@ -54,15 +55,13 @@ class CommentsController < ApplicationController
 
   def downvote
     authorize @comment
-    if @user.downvoted?(@comment)
+    if @user.downvoted_comment?(@comment)
       return
+    elsif @user.upvote_comment(@comment).present? || @user.downvote_comment(@comment).present?
+      @user.remove_vote_comment(@comment)
+      @user.downvote_comment(@comment)
     else
-      if @user.upvote(@comment).present? || @user.downvote(@comment).present?
-        @user.remove_vote(@comment)
-        @user.downvote(@comment)
-      else
-        @user.downvote(@comment)
-      end
+      @user.downvote_comment(@comment)
     end
 
     redirect_to design_path(@comment.design)

@@ -5,6 +5,10 @@ class CommentPolicy < ApplicationPolicy
     end
   end
 
+  def edit?
+    record.user == user
+  end
+
   def create?
     true
   end
@@ -24,4 +28,24 @@ class CommentPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  # def upvote_comment?
+  #   true
+  # end
+
+  # def upvoted_comment?
+  #   true
+  # end
+
+  # def remove_vote_comment
+  #   true
+  # end
+
+  # def downvote_comment
+  #   true
+  # end
+
+  # def downvoted_comment?
+  #   true
+  # end
 end
