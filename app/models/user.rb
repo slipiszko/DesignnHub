@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
-  has_many :portfolio
+  has_many :portfolios
   has_many :designs, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes
