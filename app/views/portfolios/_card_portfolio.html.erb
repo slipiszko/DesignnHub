@@ -27,7 +27,7 @@
           <% else %>
             <p>Last portfolio:</p>
             <%= cl_image_tag(portfolios.last.user.photo, class: "avatar-medium") %>
-            <% if portfolio.last.description.present? %>
+            <% if portfolios.last.description.present? %>
               <p><%= portfolios.last.description.truncate(100) %></p>
              <% else %>
             <% end %>

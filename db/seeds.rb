@@ -660,14 +660,12 @@ puts "Finished!"
 puts "Generating Portfolio's"
 
 Portfolio.create!(
-  user_id: users[1].id,
-  design_id: users[1].designs.first.id,
+  user: users[0],
   description: "Hey guys, just updated my portfolio what do you think I'm missing?"
 )
 
 Portfolio.create!(
-  user_id: users[0].id,
-  design_id: users[0].designs.first.id,
+  user: users[1],
   description: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
 )
 
