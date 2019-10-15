@@ -1,3 +1,7 @@
+<%= link_to portfolios_path do %>
+  <%= render 'portfolios/card_portfolio', portfolios: @portfolios %>
+<% end %>
+
 <% question_tags.each do |tag| %>
   <%= link_to questions_path(query: tag.name), remote: true do  %>
     <%= render 'card_question_tag', tag: tag %>

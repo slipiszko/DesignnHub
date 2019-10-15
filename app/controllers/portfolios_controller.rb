@@ -1,7 +1,8 @@
 class PortfoliosController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @portfolios = Portfolio.all
-    authorize @portfolios
+    @portfolios = policy_scope(Portfolio).order(created_at: :desc)
   end
 
   def show

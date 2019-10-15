@@ -1,0 +1,5 @@
+<%= @portfolios.each do |portfolio| %>
+  <%= portfolio.user.designs.each do |design| %>
+    <%=  cl_image_tag(design.photo, width: 600, height: 800) %>
+  <% end %>
+<% end %>
