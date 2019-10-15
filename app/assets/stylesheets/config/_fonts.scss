@@ -1,19 +1,22 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,800,500");
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap');
-// Define fonts for body and headers
-$body-font: "Raleway", "Open Sans", "sans-serif";
-$headers-font: "Roboto", "sans-serif";
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,800,500");
+// @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap');
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+// Define fonts for body and headers
+$body-font: "Gibson-Regular";
+$headers-font: "Gibson-Regular";
+
+@font-face {
+  font-family: "Gibson-Regular";
+  src: font-url('fonts/Gibson-Regular.ttf') format('truetype');
+  // src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+  //      font-url('FontFile.woff') format('woff'),
+  //      font-url('FontFile.ttf') format('truetype')
+}
+
+$my-font: "Gibson-Regular";
+
 .thin-font {
   font-weight: 300;
 }
+
