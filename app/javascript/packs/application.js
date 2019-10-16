@@ -14,6 +14,10 @@ import '../components/design_show';
 
 initSelect2();
 
+$(function(){
+    $('.carousel').carousel();
+});
+
 Array.prototype.forEach.call(questionTags, function addClickListener(card) {
   card.addEventListener('click', function() {
   });
@@ -22,5 +26,4 @@ Array.prototype.forEach.call(questionTags, function addClickListener(card) {
 updateButton.addEventListener("click", function() {
 });
 
-$('.carousel').carousel()
 
