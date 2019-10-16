@@ -1,4 +1,30 @@
-.portfolio-container {
-  width: 80%;
-  margin: auto;
+@media (min-width: 1000px) {
+  .portfolio-container {
+  width: 50%;
+  margin: 60px auto;
+  }
+
+  .portfolio-slideshow {
+    margin: 42px 0;
+    height: 100%;
+  }
+
+   .carousel-item {
+    height: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .portfolio-container {
+  width: 60%;
+  margin: 60px auto;
+  }
+
+  .portfolio-slideshow {
+    height: 100%;
+  }
+
+  .carousel-item {
+    height: 100%;
+  }
 }
