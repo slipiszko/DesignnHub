@@ -1,4 +1,14 @@
-@media (min-width: 1000px) {
+.portfolio-main-container {
+  right: 0;
+  position: sticky;
+}
+
+.portfolios-all {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1100px) {
   .portfolio-container {
   width: 50%;
   margin: 60px auto;
@@ -14,7 +24,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .portfolio-container {
   width: 60%;
   margin: 60px auto;
