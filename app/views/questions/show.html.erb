@@ -1,0 +1,25 @@
+<div class="question-show d-flex">
+  <div class="question-container">
+    <div class="question">
+      <%= @question.content %>
+    </div>
+    <div class="answers">
+
+    </div>
+  </div>
+  <div class="related-questions">
+      <% if @related_questions.count <= 10 %>
+        <% @related_questions.each do |question| %>
+          <%= link_to question.content.truncate(240), question_path(question), target: :_blank %>
+          <br>
+          <br>
+        <% end %>
+      <% else %>
+        <% @related_questions.sample(10) do |question| %>
+          <%= link_to question.content.truncate(240), question_path(question), target: :_blank %>
+          <br>
+          <br>
+        <% end %>
+      <% end %>
+  </div>
+</div>
