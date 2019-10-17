@@ -27,10 +27,9 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     authorize @question
     if @question.save
-      flash[:notice] = "Your question has been posted"
-      redirect_to profile_path(current_user)
+      redirect_to :back
     else
-      render :new
+      render 'new'
     end
   end
 

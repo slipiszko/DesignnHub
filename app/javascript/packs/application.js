@@ -1,5 +1,7 @@
-var questionTags = document.querySelectorAll(".question-tag-container");
-var updateButton = document.querySelector('#update-comment');
+var questionTags = document.querySelectorAll('.question-tag-container');
+var updateBtn = document.querySelector('#update-comment');
+var portfolioBtn = document.querySelector('#upload-portfolio');
+var questionBtn = document.querySelector('#ask-question');
 
 import "bootstrap";
 import {markImgWhenClick} from '../components/design_show';
@@ -23,7 +25,13 @@ Array.prototype.forEach.call(questionTags, function addClickListener(card) {
   });
 });
 
-updateButton.addEventListener("click", function() {
+updateBtn.addEventListener("click", function() {
+});
+
+questionBtn.addEventListener("click", function() {
+});
+
+portfolioBtn.addEventListener("click", function() {
 });
 
 

@@ -1,0 +1,11 @@
+var portfolioModal = document.querySelector('.portfolio-form');
+var questionModal  = document.querySelector('.portfolio-form');
+var portfolioBtn   = document.querySelector('#upload-portfolio');
+
+if (portfolioBtn === null) {
+  questionModal.innerHTML  = "<%= escape_javascript(render partial:'partials/new_question', locals: { question: @question }) %>";
+} else {
+  portfolioModal.innerHTML = "<%= escape_javascript(render partial:'partials/new_portfolio', locals: { portfolio: @portfolio }) %>";
+}
+
+
