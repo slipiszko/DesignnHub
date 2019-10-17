@@ -1,10 +1,11 @@
 // Import Google fonts
 // @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,800,500");
-// @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap');
+// @import url('data:application/octet-stream;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdSb2JvdG8nOwogIGZvbnQtc3R5bGU6IG5vcm1hbDsKICBmb250LXdlaWdodDogMTAwOwogIGZvbnQtZGlzcGxheTogc3dhcDsKICBzcmM6IGxvY2FsKCdSb2JvdG8gVGhpbicpLCBsb2NhbCgnUm9ib3RvLVRoaW4nKSwgdXJsKGh0dHBzOi8vZm9udHMuZ3N0YXRpYy5jb20vcy9yb2JvdG8vdjIwL0tGT2tDbnFFdTkyRnIxTW1nVnhJSXpjLnR0ZikgZm9ybWF0KCd0cnVldHlwZScpOwp9CkBmb250LWZhY2UgewogIGZvbnQtZmFtaWx5OiAnUm9ib3RvJzsKICBmb250LXN0eWxlOiBub3JtYWw7CiAgZm9udC13ZWlnaHQ6IDMwMDsKICBmb250LWRpc3BsYXk6IHN3YXA7CiAgc3JjOiBsb2NhbCgnUm9ib3RvIExpZ2h0JyksIGxvY2FsKCdSb2JvdG8tTGlnaHQnKSwgdXJsKGh0dHBzOi8vZm9udHMuZ3N0YXRpYy5jb20vcy9yb2JvdG8vdjIwL0tGT2xDbnFFdTkyRnIxTW1TVTVmQkJjOS50dGYpIGZvcm1hdCgndHJ1ZXR5cGUnKTsKfQpAZm9udC1mYWNlIHsKICBmb250LWZhbWlseTogJ1JvYm90byc7CiAgZm9udC1zdHlsZTogbm9ybWFsOwogIGZvbnQtd2VpZ2h0OiA0MDA7CiAgZm9udC1kaXNwbGF5OiBzd2FwOwogIHNyYzogbG9jYWwoJ1JvYm90bycpLCBsb2NhbCgnUm9ib3RvLVJlZ3VsYXInKSwgdXJsKGh0dHBzOi8vZm9udHMuZ3N0YXRpYy5jb20vcy9yb2JvdG8vdjIwL0tGT21DbnFFdTkyRnIxTXU0bXhQLnR0ZikgZm9ybWF0KCd0cnVldHlwZScpOwp9CkBmb250LWZhY2UgewogIGZvbnQtZmFtaWx5OiAnUm9ib3RvJzsKICBmb250LXN0eWxlOiBub3JtYWw7CiAgZm9udC13ZWlnaHQ6IDUwMDsKICBmb250LWRpc3BsYXk6IHN3YXA7CiAgc3JjOiBsb2NhbCgnUm9ib3RvIE1lZGl1bScpLCBsb2NhbCgnUm9ib3RvLU1lZGl1bScpLCB1cmwoaHR0cHM6Ly9mb250cy5nc3RhdGljLmNvbS9zL3JvYm90by92MjAvS0ZPbENucUV1OTJGcjFNbUVVOWZCQmM5LnR0ZikgZm9ybWF0KCd0cnVldHlwZScpOwp9Cg==');
 
 // Define fonts for body and headers
 $body-font: "Gibson-Regular";
-$headers-font: "Gibson-Regular";
+$headers-font: "Gibson-Semi-Bold";
+$sub-headers-font: "Gibson-Medium-webfont";
 
 @font-face {
   font-family: "Gibson-Regular";
@@ -14,7 +15,17 @@ $headers-font: "Gibson-Regular";
   //      font-url('FontFile.ttf') format('truetype')
 }
 
-$my-font: "Gibson-Regular";
+@font-face {
+  font-family: "Gibson-Semi-Bold";
+  src: font-url('fonts/Gibson-Semi-Bold.ttf') format('truetype');
+  src: font-url('fonts/Gibson-Medium-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Gibson-Medium-webfont";
+  src: font-url('fonts/Gibson-Medium-webfont.ttf') format('truetype');
+  src: font-url('fonts/Gibson-Semi-Bold.ttf') format('truetype');
+}
 
 .thin-font {
   font-weight: 300;
