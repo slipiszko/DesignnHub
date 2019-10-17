@@ -1,4 +1,5 @@
 var questionTags = document.querySelectorAll(".question-tag-container");
+var updateButton = document.querySelector('#update-comment');
 
 import "bootstrap";
 import {markImgWhenClick} from '../components/design_show';
@@ -13,8 +14,16 @@ import '../components/design_show';
 
 initSelect2();
 
+$(function(){
+    $('.carousel').carousel();
+});
+
 Array.prototype.forEach.call(questionTags, function addClickListener(card) {
   card.addEventListener('click', function() {
   });
 });
+
+updateButton.addEventListener("click", function() {
+});
+
 
