@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_action :set_job_post
   before_action :set_job_experience
   before_action :set_question
+  before_action :set_portfolio
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -27,6 +28,10 @@ class ApplicationController < ActionController::Base
 
   def set_question
     @new_question = Question.new
+  end
+
+  def set_portfolio
+    @portfolio = Portfolio.new
   end
 
   def default_url_options
