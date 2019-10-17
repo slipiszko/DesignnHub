@@ -1,5 +1,3 @@
-require "pry-byebug"
-
 class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -17,6 +15,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     authorize @question
     @user = @question.user
+    @answer = Answer.new
     query = @question.question_tag_ids
     @related_questions = policy_scope(Question).joins(:question_tags).where(question_tags: { id: query })
   end

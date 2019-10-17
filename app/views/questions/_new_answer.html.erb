@@ -1,0 +1,6 @@
+<%= simple_form_for [@question, @answer] , html: { class: 'new-answer-form' }, method: :post do |form| %>
+    <%= form.input :content, label: false, placeholder: @comments.nil? || @comments.empty? ? "Be the first to answer..." : "Leave your answer here...", wrapper_html: { class: 'new-comment-form-input' } %>
+    <%= form.button :button, class:'new-answer-form-submit' do %>
+      <span class="fas fa-angle-right"></span>
+    <% end %>
+  <% end %>

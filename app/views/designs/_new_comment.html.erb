@@ -1,6 +1,6 @@
 <div id='js-comment-form'>
   <%= simple_form_for [@design, @comment] , html: { class: 'new-comment-form' }, method: :post do |form| %>
-    <%= form.input :content, label: false, placeholder: @comments.nil? || @comments.empty? ? "Be the first to leave a comment..." : "Leave your Comment here...", wrapper_html: { class: 'new-comment-form-input' } %>
+    <%= form.input :content, label: false, placeholder: @comments.nil? || @comments.empty? ? "Be the first to leave a comment..." : "Leave your comment here...", wrapper_html: { class: 'new-comment-form-input' } %>
   <div class="location">
     <%= form.input :x, :input_html => { :class => "js-comment-x" }%>
     <%= form.input :y, :input_html => { :class => "js-comment-y" }%>

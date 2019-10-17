@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :portfolios
 
-  resources :questions
-
-  resources :answers
+  resources :questions do
+    resources :answers
+  end
 
   resources :job_posts do
     resources :job_applications, only: [:new, :create]
