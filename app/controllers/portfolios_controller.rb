@@ -16,8 +16,13 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    @portfolio.user = current_user
     authorize @portfolio
-    @portfolio.save
+    if @portfolio.save
+      redirect_to :back
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -35,6 +40,6 @@ class PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:description, :design_id)
+    params.require(:portfolio).permit(:description)
   end
 end
