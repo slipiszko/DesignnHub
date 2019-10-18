@@ -1,7 +1,7 @@
 <div class="answer">
   <div class="answer-user">
-    <% if current_user.photo.present? %>
-    <%= cl_image_tag(current_user.photo, class: "avatar-medium") %>
+    <% if answer.user.photo.present? %>
+    <%= cl_image_tag(answer.user.photo, class: "avatar-medium") %>
     <% else %>
     <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
     <% end %>
