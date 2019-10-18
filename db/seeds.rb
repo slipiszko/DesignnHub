@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Destroying Database..."
 
+Answer.destroy_all
 Portfolio.destroy_all
 QuestionQuestionTag.destroy_all
 QuestionTag.destroy_all
@@ -133,37 +134,70 @@ raw_question_tags.each do |tag|
   )
 end
 
-Question.create!(
+questions = []
+
+questions << Question.create!(
   content: "What free software would you recommned for graphic design?",
   user: users.sample,
   question_tag_ids: created_question_tags[-1].id
 )
 
-Question.create!(
+questions << Question.create!(
   content: "I've been recommend Affinity through a friend, anyone have any experince? Is it worth the $80?",
   user: users.sample,
   photo: open('app/assets/images/question_test_1.jpg'),
   question_tag_ids: created_question_tags[-1].id
 )
 
-Question.create!(
+questions << Question.create!(
   content: "When invoicing international clients, do you typically invoice them in AUD for your own convenience, or in their currency? Secondly, do you prefer invoicing via Paypal over bank transfers? Has anyone found a better means of payment transfer?",
   user: users.sample,
   question_tag_ids: created_question_tags[1].id
 )
 
-Question.create!(
+questions << Question.create!(
   content: "Does anyone have a favourite desktop tool for Instagram post management?",
   user: users.sample,
   question_tag_ids: created_question_tags[1].id
 )
 
-Question.create!(
+questions << Question.create!(
   content: "Hi Design Kids! Out of interest, which websites do you look at for creative jobs?",
   user: users.sample,
   photo: open('app/assets/images/question_test_2.jpg'),
   question_tag_ids: created_question_tags[1].id
 )
+
+puts "Finished"
+
+puts "Generating Answers..."
+
+questions.each do |question|
+  Answer.create!(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    question: question,
+    user: users.sample
+  )
+
+  Answer.create!(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque aliquid maiores sequi ratione accusantium vitae magni tenetur doloribus architecto velit maxime molestias minima, veritatis perspiciatis libero dolore nesciunt enim asperiores.",
+    question: question,
+    user: users.sample
+  )
+
+  Answer.create!(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque aliquid maiores sequi ratione accusantium vitae magni tenetur doloribus architecto velit maxime molestias minima.",
+    question: question,
+    user: users.sample,
+    photo: open('app/assets/images/design_test_9.jpeg')
+  )
+
+  Answer.create!(
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque aliquid maiores sequi ratione accusantium vitae magni tenetur doloribus architecto velit maxime molestias minima, veritatis perspiciatis libero dolore nesciunt enim asperiores?",
+    question: question,
+    user: users.sample
+  )
+end
 
 puts "Finished"
 
@@ -204,6 +238,20 @@ users.each do |user|
     user: user
   )
 end
+
+puts "Generating Portfolios"
+
+Portfolio.create!(
+  user: users[0],
+  description: "Hey guys, just updated my portfolio what do you think I'm missing?"
+)
+
+Portfolio.create!(
+  user: users[1],
+  description: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
+)
+
+puts "Finished!"
 
 puts "Generating Designs..."
 
@@ -654,20 +702,6 @@ designs.uniq.each do |design|
     )
   end
 end
-
-puts "Finished!"
-
-puts "Generating Portfolio's"
-
-Portfolio.create!(
-  user: users[0],
-  description: "Hey guys, just updated my portfolio what do you think I'm missing?"
-)
-
-Portfolio.create!(
-  user: users[1],
-  description: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
-)
 
 puts "Finished!"
 
