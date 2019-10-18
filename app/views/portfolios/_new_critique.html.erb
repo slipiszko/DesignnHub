@@ -1,0 +1,8 @@
+<div id='critique-form'>
+  <%= simple_form_for [@portfolio, @critique] , html: { class: 'new-critique-form' }, method: :post do |form| %>
+    <%= form.input :content, label: false, placeholder: @critiques.nil? || @critiques.empty? ? "Be the first to leave a critique..." : "Leave your critique here...", wrapper_html: { class: 'new-critique-form-input' } %>
+    <%= form.button :button, class:'new-critique-form-submit' do %>
+      <span class="fas fa-angle-right"></span>
+    <% end %>
+  <% end %>
+</div>

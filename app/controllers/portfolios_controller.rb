@@ -8,6 +8,8 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
+    @critiques = @portfolio.critiques
+    @critique = Critique.new
   end
 
   def new

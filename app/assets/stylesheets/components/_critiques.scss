@@ -1,0 +1,106 @@
+.critique-container {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 75px);
+  width: 300px;
+}
+
+.critique-card {
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.critique-box {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.critique-content{
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.critiques {
+  margin: 20px;
+  height: 72vh;
+}
+
+.critique-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.critique-meta-link{
+  margin: 0 10px;
+}
+
+.new-critique-form {
+  display: flex;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #E7EAEE;
+  padding: 10px 18px;
+  align-items: center;
+  position: relative;
+}
+
+.new-critique-form-input {
+  flex: 1;
+  margin: 0;
+}
+
+.new-critique-form-input textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px;
+  height: 65px;
+}
+
+.new-critique-form-submit {
+  color: white;
+  width: 40px;
+  border-radius: 50%;
+  background: $orange;
+  position: absolute;
+  top: 18px;
+  right: 29px;
+}
+
+.popup-critique-form {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 400px;
+  margin-left: 10px;
+  z-index: 998;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+
+  .new-critique-form {
+    border-radius: 10px;
+    padding: 0;
+
+    .new-critique-form-submit {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .hide-pins & {
+    display: none;
+  }
+}

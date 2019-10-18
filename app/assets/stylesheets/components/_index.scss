@@ -1,6 +1,7 @@
 // Import your components CSS files here.
 @import "alert";
 @import "answer";
+@import "author";
 @import "avatar";
 @import "banner";
 @import "bar_category";
@@ -11,20 +12,20 @@
 @import "card_job";
 @import "_card_question";
 @import "_card_question_tag";
+@import "critiques";
 @import "design_photo_pinner";
 @import "footer";
 @import "form";
-@import "modal";
-@import "navbar";
-@import "portfolio";
 @import "show_design";
 @import "show_job";
 @import "show_question";
 @import "show_user";
 @import "sidebar";
 @import "timeline";
-@import "author";
+@import "modal";
+@import "navbar";
 @import "new_answer_form";
 @import "new-comment-form";
-@import "comment-wrapper";
 @import "popup-comment-form";
+@import "portfolio";
+@import "wrappers";
