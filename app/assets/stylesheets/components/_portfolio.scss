@@ -16,6 +16,13 @@
 .portfolio-container {
   width: 60%;
   margin: 60px auto;
+  padding: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+
+  &:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
 }
 
 .portfolio-slideshow {
@@ -28,7 +35,7 @@
 }
 
 .portfolio-info {
-  width: 60%;
+  width: 96%;
   margin: -32px auto;
   display: flex;
   flex-direction: column;
