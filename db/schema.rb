@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_233338) do
+ActiveRecord::Schema.define(version: 2019_10_18_044354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2019_10_17_233338) do
     t.float "y"
     t.index ["design_id"], name: "index_comments_on_design_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "critiques", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "portfolio_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_critiques_on_portfolio_id"
+    t.index ["user_id"], name: "index_critiques_on_user_id"
   end
 
   create_table "design_design_tags", force: :cascade do |t|
@@ -167,6 +177,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_233338) do
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "designs"
   add_foreign_key "comments", "users"
+  add_foreign_key "critiques", "portfolios"
+  add_foreign_key "critiques", "users"
   add_foreign_key "design_design_tags", "design_tags"
   add_foreign_key "design_design_tags", "designs"
   add_foreign_key "designs", "users"

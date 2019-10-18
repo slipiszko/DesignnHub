@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :portfolios
+  resources :portfolios do
+    resources :critiques
+  end
 
   resources :questions do
     resources :answers
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :designs do
-    resources :comments, only: [:new, :create, :edit, :update]
+    resources :comments
   end
 
   resources :profiles, only: [:index, :show]

@@ -1,9 +1,8 @@
 <div class="d-flex">
   <%= render 'questions/question_sidebar' %>
   <div class="portfolios-all">
-  <% @portfolios.each do |portfolio| %>
     <div class="portfolio-main-container">
-      <%= @portfolios.each do |portfolio| %>
+      <% @portfolios.each do |portfolio| %>
         <%= link_to portfolio_path(portfolio) do %>
           <div class="portfolio-container">
             <div class="portfolio-slideshow mt-0">
