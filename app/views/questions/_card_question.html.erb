@@ -1,17 +1,14 @@
+<%= link_to question_path(question), target: :_blank do %>
   <div class="question-container">
     <div class="question-header">
-      <%= link_to profile_path(question.user) do  %>
-        <% if question.user.photo.present? %>
-          <%= cl_image_tag(question.user.photo, class: "avatar-medium", gravity: "faces") %>
-        <% else %>
-          <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
-        <% end %>
+      <% if question.user.photo.present? %>
+        <%= cl_image_tag(question.user.photo, class: "avatar-medium", gravity: "faces") %>
+      <% else %>
+        <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
       <% end %>
       <div class="question-header-info">
         <div class="header-info-text">
-          <%= link_to profile_path(question.user) do  %>
-            <h6><%= question.user.first_name %> <%= question.user.last_name %></h6>
-          <% end %>
+          <h6><%= question.user.first_name %> <%= question.user.last_name %></h6>
           <p><%= time_ago_in_words(question.created_at).capitalize %> ago</p>
         </div>
         <i class="fas fa-share"></i>
@@ -39,3 +36,4 @@
       </div>
     </div>
   </div>
+<% end %>

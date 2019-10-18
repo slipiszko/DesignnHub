@@ -1,6 +1,27 @@
+require "pry-byebug"
+
 class AnswersController < ApplicationController
-  before_action :set_answer_user,    only: [:upvote, :downvote]
+  before_action :set_answer_user,    only: [:create, :upvote, :downvote]
   before_action :set_current_answer, only: [:upvote, :downvote]
+  before_action :set_current_question, only: [:create]
+
+  def new
+    @answer = Answer.new
+  end
+
+  def create
+    @answer = Answer.new(answer_params)
+    @answer.question = @question
+    @answer.user = @user
+    authorize @answer
+    if @answer.valid?
+      @answer.save
+      redirect_to question_path(@question)
+    else
+    binding.pry
+      render 'new'
+    end
+  end
 
   def upvote
     authorize @answer
@@ -40,11 +61,15 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:content, :photo)
   end
 
-  def set_answer_user
-    @user = current_user
+  def set_current_question
+    @question = Question.find(params[:question_id])
   end
 
   def set_current_answer
     @answer = Answer.find(params[:id])
+  end
+
+  def set_answer_user
+    @user = current_user
   end
 end

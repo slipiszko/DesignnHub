@@ -4,6 +4,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :question_question_tags
   has_many :question_tags, through: :question_question_tags
+  has_many :answers, dependent: :destroy
 
   accepts_nested_attributes_for :question_tags
 
