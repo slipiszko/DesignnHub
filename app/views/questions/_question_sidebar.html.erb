@@ -11,40 +11,18 @@
     <ul class="list-unstyled">
       <li>
         <div class="sidebar-header">
-          <h2>Profession</h2>
+          <h2>Topics</h2>
           <span class="icon ion-ios-add"></span>
         </div>
         <div class="sidebar-content">
-          <%= link_to "Graphic Designer", job_posts_path(query: 'graphic designer') %>
+          <%= link_to "Portfolios", portfolios_path, id: "portfolio-sidebar-top" %>
+          <%= link_to "Graphic Designer", job_posts_path(query: 'graphic designer'), id: "portfolio-sidebar-bottom" %>
           <%= link_to "UI/UX Designer", job_posts_path(query: 'UI/UX designer') %>
           <%= link_to "Photographer", job_posts_path(query: 'photographer') %>
           <%= link_to "Illustrator", job_posts_path(query: 'illustrator') %>
           <%= link_to "Video Editor", job_posts_path(query: 'video Editor') %>
           <%= link_to "Digital Producer", job_posts_path(query: 'digital producer') %>
           <%= link_to "Product Designer", job_posts_path(query: 'product designer') %>
-        </div>
-      </li>
-      <li>
-        <div class="sidebar-header">
-          <h2>Location</h2>
-          <span class="icon ion-ios-add"></span>
-        </div>
-        <div class="sidebar-content">
-          <%= link_to "Remote", job_posts_path(query: 'remote') %>
-          <%= link_to "Local", job_posts_path(query: 'local') %>
-        </div>
-      </li>
-      <li>
-        <div class="sidebar-header">
-          <h2>Job Type</h2>
-          <span class="icon ion-ios-add"></span>
-        </div>
-        <div class="sidebar-content">
-          <%= link_to "Full Time", job_posts_path(query: 'full time') %>
-          <%= link_to "Part Time", job_posts_path(query: 'part time') %>
-          <%= link_to "Freelance", job_posts_path(query: 'freelance') %>
-          <%= link_to "Collaboration", job_posts_path(query: 'collaboration') %>
-          <%= link_to "Internship", job_posts_path(query: 'internship') %>
         </div>
       </li>
     </ul>

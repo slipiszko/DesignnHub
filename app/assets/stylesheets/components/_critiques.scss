@@ -1,3 +1,54 @@
+.critique-container {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 75px);
+  width: 300px;
+}
+
+.critique-card {
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.critique-box {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.critique-content{
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.critiques {
+  margin: 20px;
+  height: 72vh;
+}
+
+.critique-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.critique-meta-link{
+  margin: 0 10px;
+}
+
 .new-critique-form {
   display: flex;
   border-bottom-left-radius: 4px;

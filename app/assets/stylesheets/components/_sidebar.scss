@@ -64,3 +64,12 @@ ul {
 .accordion li.open .sidebar-content {
   max-height: 700px;
 }
+
+#portfolio-sidebar-top {
+  padding-bottom: 12px;
+  border-bottom: 1px solid $orange;
+}
+
+#portfolio-sidebar-bottom {
+  padding-top: 12px;
+}
