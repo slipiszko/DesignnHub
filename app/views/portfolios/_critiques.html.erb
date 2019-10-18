@@ -1,0 +1,24 @@
+<% if @critiques.nil? || @critiques.empty? %>
+  <div>
+    <%='No critiques'%>
+  </div>
+<% else %>
+  <% @critiques.each.with_index do |critique, index| %>
+    <div class= "critique-box">
+      <div class="critique-content" id="critique-<%= critique.id %>">
+        <%= critique.content %>
+      </div>
+      <div class="critique-meta">
+        <%= link_to profile_path(critique.user), class: "masonry-content" do %>
+          <%= render partial:'partials/author', locals: { user: critique.user, created_at: critique.created_at } %>
+        <% end %>
+        <div class="critique-meta-link" >
+          <% if policy(critique).edit? %>
+            <%= link_to 'Edit', edit_portfolio_critique_path(critique.portfolio, critique), remote: true %>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

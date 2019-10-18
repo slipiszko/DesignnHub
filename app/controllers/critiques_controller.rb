@@ -11,6 +11,11 @@ class CritiquesController < ApplicationController
     @critique.user = @user
     @critique.portfolio = @portfolio
     authorize @critique
+    if @critique.save
+      redirect_to portfolio_path(@portfolio)
+    else
+      render 'new'
+    end
   end
 
   private
@@ -24,6 +29,6 @@ class CritiquesController < ApplicationController
   end
 
   def set_critique_portfolio
-    @portfolio = Portfolio.find(params[:design_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
   end
 end

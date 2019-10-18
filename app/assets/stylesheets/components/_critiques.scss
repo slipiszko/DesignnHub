@@ -1,0 +1,55 @@
+.new-critique-form {
+  display: flex;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #E7EAEE;
+  padding: 10px 18px;
+  align-items: center;
+  position: relative;
+}
+
+.new-critique-form-input {
+  flex: 1;
+  margin: 0;
+}
+
+.new-critique-form-input textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px;
+  height: 65px;
+}
+
+.new-critique-form-submit {
+  color: white;
+  width: 40px;
+  border-radius: 50%;
+  background: $orange;
+  position: absolute;
+  top: 18px;
+  right: 29px;
+}
+
+.popup-critique-form {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 400px;
+  margin-left: 10px;
+  z-index: 998;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+
+  .new-critique-form {
+    border-radius: 10px;
+    padding: 0;
+
+    .new-critique-form-submit {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .hide-pins & {
+    display: none;
+  }
+}
