@@ -15,6 +15,7 @@ class AnswersController < ApplicationController
     @answer.user = @user
     authorize @answer
     if @answer.valid?
+      @answer.save
       redirect_to question_path(@question)
     else
     binding.pry

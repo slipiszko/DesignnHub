@@ -1,0 +1,18 @@
+<div class="answer">
+  <div class="answer-user">
+    <% if current_user.photo.present? %>
+    <%= cl_image_tag(current_user.photo, class: "avatar-medium") %>
+    <% else %>
+    <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
+    <% end %>
+    <div class="user-details">
+      <%= link_to profile_path(answer.user) do %>
+        <%= answer.user.first_name %> <%= answer.user.last_name %>
+      <% end %>
+      <p class="mb-0">Answered <%= answer.created_at.strftime("%B %e, %Y") %></p>
+    </div>
+  </div>
+  <div class="answer-content">
+    <%= answer.content %>
+  </div>
+</div>

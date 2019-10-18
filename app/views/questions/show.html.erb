@@ -10,20 +10,25 @@
         <p class="number-of-answers"><%= @question.answers.count %> Answers</p>
       <% end %>
     </div>
-    <div class="answers">
+    <div class="answer-container">
       <%= render 'new_answer' %>
+      <div class="answers">
+        <% @question.answers.each do |answer| %>
+          <%= render partial:'partials/answers', locals: { answer: answer } %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="related-questions">
       <h6>Related Questions</h6>
-      <% if @related_questions.count <= 10 %>
+      <% if @related_questions.count <= 6 %>
         <% @related_questions.each do |question| %>
           <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
           <br>
           <br>
         <% end %>
       <% else %>
-        <% @related_questions.sample(10) do |question| %>
+        <% @related_questions.sample(6) do |question| %>
           <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
           <br>
           <br>
