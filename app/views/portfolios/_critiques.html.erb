@@ -3,8 +3,8 @@
     <%='No critiques'%>
   </div>
 <% else %>
-  <% @critiques.each.with_index do |critique, index| %>
-    <div class= "critique-box">
+  <div class= "critique-box">
+    <% @critiques.each.with_index do |critique, index| %>
       <div class="critique-content" id="critique-<%= critique.id %>">
         <%= critique.content %>
       </div>
@@ -17,8 +17,7 @@
             <%= link_to 'Edit', edit_portfolio_critique_path(critique.portfolio, critique), remote: true %>
           <% end %>
         </div>
-        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
