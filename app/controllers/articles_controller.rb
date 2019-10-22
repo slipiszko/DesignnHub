@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    authorize @article
   end
 
   def create
