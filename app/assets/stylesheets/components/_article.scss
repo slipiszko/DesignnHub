@@ -1,0 +1,41 @@
+.articles {
+  width: 80%;
+  clear: both;
+  margin: 16px auto;
+}
+
+.article-container {
+  display: flex;
+  margin: 16px 0;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.article-image {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.article-info {
+  h1 {
+    border-bottom: 2px solid $orange;
+    padding-bottom: 8px;
+  }
+
+  p {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .articles {
+    width: 60%;
+    clear: both;
+    margin: 16px auto;
+  }
+
+  .article-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
