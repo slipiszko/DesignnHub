@@ -61,6 +61,7 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:photo, :title, :description, :category, design_tags_attributes: [:id, :name])
+    params[:design][:design_tags] ||= []
+    params.require(:design).permit(:photo, :title, :description, :category, design_tags: [])
   end
 end

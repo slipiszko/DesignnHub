@@ -2,6 +2,8 @@ require 'faker'
 
 puts "Destroying Database..."
 
+Article.destroy_all
+Critique.destroy_all
 Answer.destroy_all
 Portfolio.destroy_all
 QuestionQuestionTag.destroy_all
@@ -105,6 +107,44 @@ users << User.create!(
     photo: open('app/assets/images/profilepic_7.jpeg')
   )
 
+users.each do |user|
+  JobExperience.create!(
+    title: "Freelance Brand Designer",
+    description: "Spent 6 months working with the City of Casey, rebranding their community to match the recent makeover they've had.",
+    location: "City of Casey",
+    start_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M"),
+    user: user
+  )
+
+  JobExperience.create!(
+    title: "Brand Designer",
+    description: "Worked for 3 years as a brand designer for Kern Studios, under the guidance of my mentor Danielle Azzopardi.",
+    location: "Kern Studios",
+    start_date: DateTime.strptime("11/27/2016 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
+    user: user
+  )
+
+  JobExperience.create!(
+    title: "Graphic Design Intern",
+    description: "Completed a 3 month internship at MYOB as part of degree, where I worked as an associate designer and assisted on various projects from rebranding to UX/UI.",
+    location: "MYOB",
+    start_date: DateTime.strptime("11/02/2015 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M"),
+    user: user
+  )
+
+  JobExperience.create!(
+    title: "Freelance Graphic Designer",
+    description: "Worked on various projects from band covers to cafe murals. Got most of my work from either friends or through word of mouth from past clients.",
+    location: "Remote",
+    start_date: DateTime.strptime("05/18/2013 17:00", "%m/%d/%Y %H:%M"),
+    end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M"),
+    user: user
+  )
+end
+
 puts "Finished!"
 
 puts "Generating Questions..."
@@ -201,54 +241,66 @@ end
 
 puts "Finished"
 
-users.each do |user|
-  JobExperience.create!(
-    title: "Freelance Brand Designer",
-    description: "Spent 6 months working with the City of Casey, rebranding their community to match the recent makeover they've had.",
-    location: "City of Casey",
-    start_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("09/21/2019 17:00", "%m/%d/%Y %H:%M"),
-    user: user
-  )
-
-  JobExperience.create!(
-    title: "Brand Designer",
-    description: "Worked for 3 years as a brand designer for Kern Studios, under the guidance of my mentor Danielle Azzopardi.",
-    location: "Kern Studios",
-    start_date: DateTime.strptime("11/27/2016 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("03/17/2019 17:00", "%m/%d/%Y %H:%M"),
-    user: user
-  )
-
-  JobExperience.create!(
-    title: "Graphic Design Intern",
-    description: "Completed a 3 month internship at MYOB as part of degree, where I worked as an associate designer and assisted on various projects from rebranding to UX/UI.",
-    location: "MYOB",
-    start_date: DateTime.strptime("11/02/2015 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("01/17/2016 17:00", "%m/%d/%Y %H:%M"),
-    user: user
-  )
-
-  JobExperience.create!(
-    title: "Freelance Graphic Designer",
-    description: "Worked on various projects from band covers to cafe murals. Got most of my work from either friends or through word of mouth from past clients.",
-    location: "Remote",
-    start_date: DateTime.strptime("05/18/2013 17:00", "%m/%d/%Y %H:%M"),
-    end_date: DateTime.strptime("01/07/2015 17:00", "%m/%d/%Y %H:%M"),
-    user: user
-  )
-end
 
 puts "Generating Portfolios"
 
-Portfolio.create!(
+portfolios = []
+
+portfolios << Portfolio.create!(
   user: users[0],
   description: "Hey guys, just updated my portfolio what do you think I'm missing?"
 )
 
-Portfolio.create!(
+portfolios << Portfolio.create!(
   user: users[1],
   description: "Just about to apply for design associate postion at a wedding photography agency. Would you say my portfolio is diverse enough?"
+)
+
+puts "Finished!"
+
+puts "Generating Critiques..."
+
+content = [
+  "I love the colors but the background-color could be a bit brighter.",
+  "The fontsize is great but the fontfamily is not perfect for this one. You should try bananasana insted.",
+  "Amazing design!! I Love the way you pop up the old grandma style with an cowboy touch.",
+  "Have you ever thought about using pastelle colors insted of a computer editing programm? I think you design could use a little natural touch.",
+  "In case of originality I would give you 10 out of 10 😍 But what did you do to your Paintbrush? It looks like you could need a new one. The quality of your Painting will be so much better!",
+  "I think the spacing between the two words could be a little bit bigger and the left corner looks a bit squeezed",
+  "By changing it into negative you make it look was more exciting",
+  "Maybe you could make the birds in the front pop out a little more??",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, molestiae temporibus voluptatibus natus nesciunt est, laboriosam eaque totam accusantium quibusdam ab alias cupiditate? Nostrum numquam sit cupiditate tempora deleniti, illum."
+]
+
+portfolios.uniq.each do |portfolio|
+  content.each do |critique|
+    Critique.create!(
+      content: critique,
+      portfolio: portfolio,
+      user: users.sample
+    )
+  end
+end
+
+puts "Finished!"
+
+puts "Generating Articles..."
+
+Article.create!(
+  title: "How to get out of a creative block!",
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto.",
+  photo: open('app/assets/images/design_test_27.jpeg')
+)
+
+Article.create!(
+  title: "Knowing your worth as a designer!!",
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto."
+)
+
+Article.create!(
+  title: "Standing out in an ever crowed world",
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto.",
+  photo: open('app/assets/images/design_test_13.jpeg')
 )
 
 puts "Finished!"
