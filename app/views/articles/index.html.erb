@@ -1,0 +1,13 @@
+<div class="articles">
+  <% @articles.each do |article| %>
+    <div class="article-container">
+      <div class="article-image">
+        <%= cl_image_tag article.photo, width: 400, height: 300 %>
+      </div>
+      <div class="article-info">
+        <h1><%= article.title %></h1>
+        <p><%= article.content %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

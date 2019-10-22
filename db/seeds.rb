@@ -289,18 +289,19 @@ puts "Generating Articles..."
 Article.create!(
   title: "How to get out of a creative block!",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto.",
-  photo: open('app/assets/images/design_test_27.jpeg')
+  photo: open('app/assets/images/article_1.jpg')
 )
 
 Article.create!(
   title: "Knowing your worth as a designer!!",
-  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto."
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto.",
+  photo: open('app/assets/images/article_2.jpg')
 )
 
 Article.create!(
-  title: "Standing out in an ever crowed world",
+  title: "Standing out in an ever crowded world",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia expedita deleniti itaque illum, distinctio hic accusantium nobis, accusamus fugit modi. Possimus facere repellat maiores dignissimos error laborum delectus esse tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi obcaecati hic veniam libero officia magni, tenetur ex dolorem praesentium aliquam asperiores atque ratione voluptatum, quasi distinctio neque ab, veritatis iusto.",
-  photo: open('app/assets/images/design_test_13.jpeg')
+  photo: open('app/assets/images/article_3.jpg')
 )
 
 puts "Finished!"
