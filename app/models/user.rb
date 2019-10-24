@@ -5,10 +5,11 @@ class User < ApplicationRecord
   has_many :portfolios, dependent: :destroy
   has_many :designs, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many :job_posts, dependent: :destroy
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
   has_many :job_experiences, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -18,6 +19,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :bio, length: { maximum: 200 }
 
   def upvote_comment(comment)
     votes.create(upvotes: 1, comment: comment)

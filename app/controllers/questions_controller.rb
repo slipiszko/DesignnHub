@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -12,7 +13,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
     authorize @question
     @user = @question.user
     @answer = Answer.new
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     authorize @question
     if @question.save
-      redirect_to :back
+      redirect_to profile_path(current_user)
     else
       render 'new'
     end
@@ -44,9 +44,19 @@ class QuestionsController < ApplicationController
     authorize @question
   end
 
+  def destroy
+    authorize @question
+    @question.destroy
+    redirect_to profile_path(current_user)
+  end
+
   private
 
   def question_params
     params.require(:question).permit(:content, :photo, question_tags_attributes: [:id, :name])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 end

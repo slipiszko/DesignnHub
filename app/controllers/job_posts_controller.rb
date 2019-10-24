@@ -29,9 +29,13 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.new(job_post_params)
     @job_post.user = current_user
     authorize @job_post
-    @job_post.save
-    flash[:notice] = "Your job post has been added"
-    redirect_to job_posts_path
+    if @job_post.valid?
+      @job_post.save
+      flash[:notice] = "Your job post has been added"
+      redirect_to profile_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def edit

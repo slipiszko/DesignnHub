@@ -1,0 +1,3 @@
+var selectedCritique = document.querySelector('#critique-<%= @critique.id %>');
+
+selectedCritique.innerHTML = '<%= escape_javascript(render "edit_critique_form", locals: { portfolio: @critique.portfolio, comment: @comment }) %>'

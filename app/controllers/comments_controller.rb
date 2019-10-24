@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_comment_user,    only: [:new, :create, :edit, :update, :upvote, :downvote]
-  before_action :set_comment_design,  only: [:new, :create, :edit, :update]
-  before_action :set_current_comment, only: [:edit, :update, :upvote, :downvote]
+  before_action :set_comment_user, only: [:new, :create, :edit, :update, :upvote, :downvote]
+  before_action :find_comment_design, only: [:new, :create, :edit, :update]
+  before_action :find_current_comment, only: [:edit, :update, :upvote, :downvote]
 
   def new
     @comment = Comment.new
@@ -73,7 +73,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :x, :y)
   end
 
-  def set_current_comment
+  def find_current_comment
     @comment = Comment.find(params[:id])
   end
 
@@ -81,7 +81,7 @@ class CommentsController < ApplicationController
     @user = current_user
   end
 
-  def set_comment_design
+  def find_comment_design
     @design = Design.find(params[:design_id])
   end
 end
