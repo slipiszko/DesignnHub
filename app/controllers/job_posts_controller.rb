@@ -39,16 +39,19 @@ class JobPostsController < ApplicationController
   end
 
   def edit
+    authorize @job_post
   end
 
   def update
     authorize @job_post
     @job_post.update(job_post_params)
+    redirect_to profile_path(current_user)
   end
 
   def destroy
     authorize @job_post
     @job_post.destroy
+    redirect_to profile_path(current_user)
   end
 
   private

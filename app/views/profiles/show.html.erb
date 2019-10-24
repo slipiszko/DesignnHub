@@ -55,7 +55,7 @@
         <div class="experiences">
           <ul class="timeline">
             <% if @user.job_experiences.present? %>
-              <% @user.job_experiences.each do |experience| %>
+              <% @user.job_experiences.order(start_date: :desc).each do |experience| %>
                 <li class="timeline-event">
                   <label class="timeline-event-icon"></label>
                   <div class="timeline-event-copy">
