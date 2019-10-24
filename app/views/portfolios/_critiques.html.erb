@@ -3,7 +3,7 @@
     <%='No critiques'%>
   </div>
 <% else %>
-  <% @critiques.each.with_index do |critique, index| %>
+  <% @critiques.each do |critique| %>
     <div class="critique-card">
       <div class="critique-box">
         <div class="critique-content" id="critique-<%= critique.id %>">
@@ -14,8 +14,17 @@
             <%= render partial:'partials/author', locals: { user: critique.user, created_at: critique.created_at } %>
           <% end %>
           <div class="critique-meta-link" >
-            <% if policy(critique).edit? %>
-              <%= link_to 'Edit', edit_portfolio_critique_path(critique.portfolio, critique), remote: true %>
+            <% if policy(critique).update? && policy(critique).destroy? %>
+            <div class="dropdown">
+              <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><%= link_to 'Edit', edit_portfolio_critique_path(critique.portfolio, critique), remote: true, class: "dropdown-item" %></li>
+                <li role="presentation"><%= link_to 'Delete', portfolio_critique_path(critique), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+            <% else %>
             <% end %>
           </div>
         </div>

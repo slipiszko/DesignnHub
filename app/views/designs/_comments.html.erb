@@ -18,8 +18,17 @@
             <%= render partial:'partials/author', locals: { user: comment.user, created_at: comment.created_at } %>
           <% end %>
           <div class="comment-meta-link" >
-            <% if policy(comment).edit? %>
-              <%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true %>
+            <% if policy(comment).update? && policy(comment).destroy? %>
+            <div class="dropdown">
+              <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><%= link_to 'Edit', edit_design_comment_path(comment.design, comment), remote: true, class: "dropdown-item" %></li>
+                <li role="presentation"><%= link_to 'Delete', design_comment_path(comment), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+            <% else %>
             <% end %>
             <button onclick="showPin(<%=comment.id%>)" hidden="hidden">Show Pin</button>
           </div>

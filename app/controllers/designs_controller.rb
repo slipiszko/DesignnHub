@@ -43,13 +43,16 @@ class DesignsController < ApplicationController
   end
 
   def edit
+    authorize @design
   end
 
   def update
+    authorize @design
     @design.update(design_params)
   end
 
   def destroy
+    authorize @design
     @design.destroy
     redirect_to profile_path(current_user)
   end

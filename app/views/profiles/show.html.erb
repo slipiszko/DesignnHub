@@ -1,105 +1,200 @@
 <%= render 'job_experiences/modal_add_job_experience', job_post: @new_job_experience %>
 
-<div class="py-5 mx-3">
-  <div class="row">
-    <div class="col avatar-container">
-      <% if @user.photo.present? %>
-        <%= cl_image_tag(@user.photo, crop: "scale", class: "avatar-square") %>
-      <% else %>
-        <%= image_tag (asset_path('avatar-default.png')), class: "avatar-square" %>
-      <% end %>
-    </div>
-
-    <div class="col bio-container">
-      <div class="bio-name">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <% if @user == current_user %>
-          <%= link_to edit_user_registration_path do %>
-            <span id="edit-icon"><i class="fas fa-pencil-alt"></i></span>
-          <% end %>
+<div class="profile-container">
+  <div class="py-5 mx-3">
+    <div class="row">
+      <div class="col avatar-container">
+        <% if @user.photo.present? %>
+          <%= cl_image_tag(@user.photo, crop: "scale", class: "avatar-square") %>
+        <% else %>
+          <%= image_tag (asset_path('avatar-default.png')), class: "avatar-square" %>
         <% end %>
       </div>
-      <% if @user.job.present? %>
-        <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
-      <% end %>
-      <% if @user.city.present? %>
-        <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
-      <% end %>
-      <p><%= @user.bio %></p>
-      <br>
-      <% if @user == current_user %>
-      <% else %>
-        <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
-      <% end %>
-      <!-- <div class="user-social-link">
-        <a href="#"><i class="icon ion-md-globe"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-basketball-ball"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-      </div> -->
-    </div>
 
-    <div class="col experience-container">
-      <div class="experience-bar">
-        <h6 class="item-title">Experiences
-          <% if @user == @current_user %>
-            <a href="#" class="fas fa-plus" data-toggle="modal" data-target="#jobExperienceModal"></a>
-          <% else %>
-            <i class="fas fa-caret-down"></i>
-          <% end %>
-        </h6>
-      </div>
-
-      <div class="experiences">
-        <ul class="timeline">
-          <% if @user.job_experiences.present? %>
-            <% @user.job_experiences.each do |experience| %>
-              <li class="timeline-event">
-                <label class="timeline-event-icon"></label>
-                <div class="timeline-event-copy">
-                  <p class="timeline-event-thumbnail"><%= experience.start_date.strftime("%B, %Y") %> - <%= experience.end_date.strftime("%B, %Y") %></p>
-                  <h4 id="experience-title"><%= experience.title %></h4>
-                  <p id="experience-title"><%= experience.location %></p>
-                  <p><%= experience.description %></p>
-                </div>
-              </li>
+      <div class="col bio-container">
+        <div class="bio-name">
+          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          <% if @user == current_user %>
+            <%= link_to edit_user_registration_path do %>
+              <span id="edit-icon"><i class="fas fa-pencil-alt"></i></span>
             <% end %>
-          <% else %>
           <% end %>
-        </ul>
+        </div>
+        <% if @user.job.present? %>
+          <p><i class="fas fa-pencil-ruler"></i><%= @user.job %></p>
+        <% end %>
+        <% if @user.city.present? %>
+          <p><i class="fas fa-map-marker-alt"></i><%= @user.city %></p>
+        <% end %>
+        <p><%= @user.bio %></p>
+        <br>
+        <% if @user == current_user %>
+        <% else %>
+          <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
+        <% end %>
+        <!-- <div class="user-social-link">
+          <a href="#"><i class="icon ion-md-globe"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-basketball-ball"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div> -->
+      </div>
+
+      <div class="col experience-container">
+        <div class="experience-bar">
+          <h6 class="item-title">Experiences
+            <% if @user == @current_user %>
+              <a href="#" class="fas fa-plus" data-toggle="modal" data-target="#jobExperienceModal"></a>
+            <% else %>
+              <i class="fas fa-caret-down"></i>
+            <% end %>
+          </h6>
+        </div>
+
+        <div class="experiences">
+          <ul class="timeline">
+            <% if @user.job_experiences.present? %>
+              <% @user.job_experiences.order(start_date: :desc).each do |experience| %>
+                <li class="timeline-event">
+                  <label class="timeline-event-icon"></label>
+                  <div class="timeline-event-copy">
+                    <p class="timeline-event-thumbnail"><%= experience.start_date.strftime("%B, %Y") %> - <%= experience.end_date.strftime("%B, %Y") %></p>
+                    <h4 id="experience-title"><%= experience.title %></h4>
+                    <p id="experience-title"><%= experience.location %></p>
+                    <p><%= experience.description %></p>
+                  </div>
+                </li>
+              <% end %>
+            <% else %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-<br>
+  <br>
 
-  <div class="py-4">
-    <h6 class="item-title">My Designs
-      <% if @user == current_user %>
-        <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#designModal"></a>
-      <% else %>
-        <i class="fas fa-caret-right"></i>
-      <% end %>
-    </h6>
-    </div>
-    <div class="row">
-    <% @user.designs.each do |design| %>
-      <div class="col-4 mb-5">
-        <div class="card">
-          <%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
-          <div class="card-body">
-            <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %>
-              <% if policy(design).destroy? %>
-                <%= link_to design_path(design), method: :delete, data: {confirm: "Are you sure to delete?"}  do %>
-                  <span><i class="far fa-trash-alt"></i></span>
+    <div class="py-4">
+      <h6 class="item-title">My Designs
+        <% if @user == current_user %>
+          <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#designModal"></a>
+        <% else %>
+          <i class="fas fa-caret-right"></i>
+        <% end %>
+      </h6>
+      </div>
+      <div class="row">
+      <% @user.designs.each do |design| %>
+        <div class="col-lg-4 col-sm-6 mb-5">
+          <div class="card">
+            <%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
+            <div class="card-body">
+              <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %>
+                <% if policy(design).update? && policy(design).destroy? %>
+                <div class="dropdown">
+                  <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><%= link_to 'Edit', edit_design_path(design), class: "dropdown-item" %></li>
+                    <li role="presentation"><%= link_to 'Delete', design_path(design), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  </ul>
+                <% else %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>
+      <% end %>
       </div>
+    </div>
+
+    <% if @user == current_user %>
+    <div class="pt-4">
+      <h4 id="private">Private:</h4>
+      <div class="private-info">
+        <div class="py-4">
+          <h6 class="item-title">My Questions
+            <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#questionModal"></a>
+          </h6>
+          </div>
+          <% if @user.questions.present? %>
+            <div class="row">
+            <% @user.questions.each do |question| %>
+              <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card">
+                  <% if question.photo.present? %>
+                  <%= link_to cl_image_tag(question.photo, class: 'design-pic'), question_path(question.id), width: 600, height: 400, crop: "pad" %>
+                  <% else %>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="card-text"><%= link_to question.content.truncate(80), question_path(question.id) %>
+                      <% if policy(question).update? && policy(question).destroy? %>
+                      <div class="dropdown">
+                        <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li role="presentation"><%= link_to 'Edit', edit_question_path(question), class: "dropdown-item" %></li>
+                          <li role="presentation"><%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                        </ul>
+                      </div>
+                      <% else %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+
+        <div class="py-4">
+          <h6 class="item-title">My Job Posts
+            <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#jobPostModal"></a>
+          </h6>
+          </div>
+          <% if @user.job_posts.present? %>
+            <div class="row">
+            <% @user.job_posts.each do |job_post| %>
+              <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card">
+                  <% if job_post.photo.present? %>
+                  <%= link_to cl_image_tag(job_post.photo, class: 'design-pic'), job_post_path(job_post.id), width: 600, height: 400, crop: "pad" %>
+                  <% else %>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="card-text"><%= link_to job_post.title.truncate(80), job_post_path(job_post.id) %>
+                      <% if policy(job_post).update? && policy(job_post).destroy? %>
+                      <div class="dropdown">
+                        <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li role="presentation"><%= link_to 'Edit', edit_job_post_path(job_post), class: "dropdown-item" %></li>
+                          <li role="presentation"><%= link_to 'Delete', job_post_path(job_post), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                        </ul>
+                      </div>
+                      <% else %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% else %>
     <% end %>
+
+    </div>
   </div>
 </div>
-

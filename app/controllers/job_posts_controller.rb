@@ -29,22 +29,29 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.new(job_post_params)
     @job_post.user = current_user
     authorize @job_post
-    @job_post.save
-    flash[:notice] = "Your job post has been added"
-    redirect_to job_posts_path
+    if @job_post.valid?
+      @job_post.save
+      flash[:notice] = "Your job post has been added"
+      redirect_to profile_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def edit
+    authorize @job_post
   end
 
   def update
     authorize @job_post
     @job_post.update(job_post_params)
+    redirect_to profile_path(current_user)
   end
 
   def destroy
     authorize @job_post
     @job_post.destroy
+    redirect_to profile_path(current_user)
   end
 
   private
