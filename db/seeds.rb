@@ -25,7 +25,7 @@ users << User.create!(
     email: "kim@user.com",
     password: "123456",
     job: "Graphic Design Student",
-    bio: "Kim has a huge passion for German Techno music lover and create new design. She was the winner for Academy Award for her exquisite graphic designing. For her, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, She has been designing and developing complex and compelling experiences for various brands. Her main influences come from graphic novels, techno culture, and a mild touch of constructivism.",
+    bio: "Kim has a huge passion for German Techno music lover and create new design. She was the winner for Academy Award for her exquisite graphic designing.",
     city: "Berlin",
     photo: open('app/assets/images/profilepic_kim.jpg')
   )
@@ -36,7 +36,7 @@ users << User.create!(
     email: "user@user.com",
     password: "123456",
     job: "Freelance Photographer",
-    bio: "Jun is a landscape photographer based in Kuala Lumpur, Malaysia. Jun's pursuit of landscape images have taken her around the world almost continuously for well over a decade now. The visual drama and artistry of her photographs are born of a keen eye for the many moods of Nature and a life-long passion for the wilderness.",
+    bio: "Jun is a landscape photographer based in Kuala Lumpur, Malaysia. Jun's pursuit of landscape images have taken her around the world.",
     city: "Kuala Lumpur",
     photo: open('app/assets/images/profilepic_1.jpg')
   )
@@ -58,7 +58,7 @@ users << User.create!(
     email: "user3@user.com",
     password: "123456",
     job: "Illustrator",
-    bio: "Gael is a Illustrator at Naughty Dog in Los Angeles, California. She graduated with a BS and MS in Graphic Design from West Virginia University with a minor in music. During school, she worked at local design companies and taught undergraduate classes.",
+    bio: "Gael is a Illustrator at Naughty Dog in Los Angeles, California. She graduated with a BS and MS in Graphic Design from West Virginia University with a minor in music.",
     city: "Los Angeles",
     photo: open('app/assets/images/profilepic_3.png')
   )
@@ -91,7 +91,7 @@ users << User.create!(
     email: "user6@user.com",
     password: "123456",
     job: "UI Designer",
-    bio: "My name is Caio Beckham, a UI Designer strongly focus on Minimalist design. For me, design is an exercise in solving problems and finding solutions to deliver memorable experiences. For the past several years, I have been designing and developing complex and compelling experiences for various brands. I obtained my Bachelors of Fine Arts while studying Graphic Design in college. My main influences come from graphic novels, pop culture, and a mild touch of constructivism.",
+    bio: "My name is Caio Beckham, a UI Designer strongly focus on Minimalist design. For me, design is an exercise in solving problems and finding solutions to deliver memorable experiences.",
     city: "Rio",
     photo: open('app/assets/images/profilepic_6.jpeg')
   )

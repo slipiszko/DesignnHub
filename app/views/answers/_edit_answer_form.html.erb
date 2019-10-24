@@ -1,0 +1,4 @@
+<%= simple_form_for [@question, @answer], method: :patch, remote: true do |form| %>
+  <%= form.input :content, label: false %>
+  <%= form.submit "UPDATE", id: 'update-answer' %>
+<% end %>

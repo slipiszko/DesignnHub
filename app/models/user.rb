@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :bio, length: { maximum: 200 }
+  validates :bio, length: { maximum: 300 }
 
   def upvote_comment(comment)
     votes.create(upvotes: 1, comment: comment)

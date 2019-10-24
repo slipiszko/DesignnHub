@@ -3,7 +3,7 @@
     <%='No critiques'%>
   </div>
 <% else %>
-  <% @critiques.each.with_index do |critique, index| %>
+  <% @critiques.each do |critique| %>
     <div class="critique-card">
       <div class="critique-box">
         <div class="critique-content" id="critique-<%= critique.id %>">

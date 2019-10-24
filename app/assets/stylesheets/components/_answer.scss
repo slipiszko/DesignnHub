@@ -5,6 +5,12 @@
 .answer-user {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.answer-user-info {
+  display: flex;
+  align-items: center;
 }
 
 .user-details {
