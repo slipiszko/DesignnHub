@@ -3,10 +3,10 @@ class Design < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :design_design_tags, inverse_of: :design
+  has_many :design_design_tags
   has_many :design_tags, through: :design_design_tags
 
-  accepts_nested_attributes_for :design_tags
+  accepts_nested_attributes_for :design_design_tags
 
   validates :photo, presence: true
   validates :title, presence: true

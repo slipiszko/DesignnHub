@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :designs do
     resources :comments
+    resources :design_design_tags, only: [:new, :create]
   end
 
   resources :profiles, only: [:index, :show]
