@@ -27,6 +27,19 @@ class User < ApplicationRecord
   has_many :job_experiences, dependent: :destroy
   has_many :questions, dependent: :destroy
 
+  def follow(user_id)
+    following_relationships.create(following_id: user_id)
+  end
+
+  def unfollow(user_id)
+    following_relationships.find_by(following_id: user_id).destroy
+  end
+
+  def is_following?(user_id)
+    relationship = Follow.find_by(follower_id: id, following_id: user_id)
+    return true if relationship
+  end
+
   def upvote_comment(comment)
     votes.create(upvotes: 1, comment: comment)
   end

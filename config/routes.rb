@@ -29,6 +29,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  resources :users, only: [:index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
+
   resources :job_experiences, only: [:new, :create, :edit, :update, :destroy]
 
   # as :user do
