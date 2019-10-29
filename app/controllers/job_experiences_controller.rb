@@ -1,5 +1,7 @@
 class JobExperiencesController < ApplicationController
-  before_action :find_current_user, only: [:new, :create]
+  before_action :set_current_user, only: [:new, :create]
+  before_action :find_job_experince, only: [:edit, :update, :destroy]
+
   def new
     @job_experience = JobExperience.new
   end
@@ -13,23 +15,32 @@ class JobExperiencesController < ApplicationController
   end
 
   def edit
+    authorize @job_experience
   end
 
   def update
     authorize @job_experience
+    @job_experience.update(job_experience_params)
+    redirect_to profile_path(current_user)
   end
 
   def destroy
     authorize @job_experience
+    @job_experience.destroy
+    redirect_to profile_path(current_user)
   end
 
   private
 
-  def find_current_user
+  def job_experience_params
+    params.require(:job_experience).permit(:title, :description, :location, :start_date, :end_date)
+  end
+
+  def set_current_user
     @user = current_user
   end
 
-  def job_experience_params
-    params.require(:job_experience).permit(:title, :description, :location, :start_date, :end_date)
+  def find_job_experince
+    @job_experience = JobExperience.find(params[:id])
   end
 end

@@ -1,9 +1,7 @@
-require "pry-byebug"
-
 class AnswersController < ApplicationController
-  before_action :set_answer_user,    only: [:create, :upvote, :downvote]
-  before_action :set_current_answer, only: [:upvote, :downvote]
-  before_action :set_current_question, only: [:create]
+  before_action :set_answer_user, only: [:create, :upvote, :downvote]
+  before_action :find_current_answer, only: [:edit, :update, :destroy, :upvote, :downvote]
+  before_action :find_current_question, only: [:create, :edit, :update, :destroy]
 
   def new
     @answer = Answer.new
@@ -18,9 +16,34 @@ class AnswersController < ApplicationController
       @answer.save
       redirect_to question_path(@question)
     else
-    binding.pry
       render 'new'
     end
+  end
+
+  def edit
+    authorize @answer
+  end
+
+  def update
+    authorize @answer
+    if @answer.valid?
+      respond_to do |format|
+        if @answer.update_attributes(answer_params)
+          format.html { redirect_to question_path(@answer.question) }
+          format.json { head :no_content }
+          format.js {}
+        else
+          format.html { render action: "update" }
+          format.json {}
+        end
+      end
+    end
+  end
+
+  def destroy
+    authorize @answer
+    @answer.destroy
+    redirect_to question_path(@question)
   end
 
   def upvote
@@ -61,11 +84,11 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:content, :photo)
   end
 
-  def set_current_question
+  def find_current_question
     @question = Question.find(params[:question_id])
   end
 
-  def set_current_answer
+  def find_current_answer
     @answer = Answer.find(params[:id])
   end
 

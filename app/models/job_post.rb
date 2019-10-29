@@ -4,7 +4,7 @@ class JobPost < ApplicationRecord
   belongs_to :user
   has_many :job_applications, dependent: :destroy
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 140 }
   validates :content, presence: true
   validates :profession, presence: true
   validates :location, presence: true

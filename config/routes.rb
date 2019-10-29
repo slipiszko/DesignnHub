@@ -22,9 +22,17 @@ Rails.application.routes.draw do
 
   resources :designs do
     resources :comments
+    resources :design_design_tags, only: [:new, :create]
   end
 
-  resources :profiles, only: [:index, :show]
+  resources :profiles, only: [:index, :show] do
+    resources :users, only: [:index] do
+      member do
+        post :follow
+        post :unfollow
+      end
+    end
+  end
 
   devise_for :users, controllers: { registrations: 'registrations' }
 

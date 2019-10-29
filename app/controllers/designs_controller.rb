@@ -33,6 +33,7 @@ class DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
     @design.user = current_user
+    @design.design_design_tags.build
     authorize @design
     if @design.save
       flash[:notice] = "Your design has been added"
@@ -43,13 +44,16 @@ class DesignsController < ApplicationController
   end
 
   def edit
+    authorize @design
   end
 
   def update
+    authorize @design
     @design.update(design_params)
   end
 
   def destroy
+    authorize @design
     @design.destroy
     redirect_to profile_path(current_user)
   end
@@ -61,7 +65,6 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params[:design][:design_tags] ||= []
-    params.require(:design).permit(:photo, :title, :description, :category, design_tags: [])
+    params.require(:design).permit(:photo, :title, :description, :category, design_design_tags_attributes: [:id, :name])
   end
 end

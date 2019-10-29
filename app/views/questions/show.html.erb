@@ -13,9 +13,7 @@
     <div class="answer-container">
       <%= render 'new_answer' %>
       <div class="answers">
-        <% @question.answers.each do |answer| %>
-          <%= render partial:'partials/answers', locals: { answer: answer } %>
-        <% end %>
+        <%= render partial:'partials/answers', locals: { answers: @question.answers } %>
       </div>
     </div>
   </div>

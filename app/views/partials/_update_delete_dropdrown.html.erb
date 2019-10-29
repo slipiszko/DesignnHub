@@ -1,0 +1,9 @@
+<div class="dropdown">
+  <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-ellipsis-v"></i>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+    <li role="presentation"><%= link_to 'Edit', insert_path, class: "dropdown-item" %></li>
+    <li role="presentation"><%= link_to 'Delete', insert_path, class: "dropdown-item", method: :delete %></li>
+  </ul>
+</div>

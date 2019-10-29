@@ -1,15 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
-  has_many :critiques, dependent: :destroy
-  has_many :portfolios, dependent: :destroy
-  has_many :designs, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :votes
-  has_many :job_posts, dependent: :destroy
-  has_many :job_applications
-  has_many :job_experiences, dependent: :destroy
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,6 +9,36 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :bio, length: { maximum: 300 }
+
+  has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
+  has_many :followers, through: :follower_relationships, source: :follower
+
+  has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
+  has_many :following, through: :following_relationships, source: :followin
+
+  has_many :critiques, dependent: :destroy
+  has_many :portfolios, dependent: :destroy
+  has_many :designs, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  has_many :job_posts, dependent: :destroy
+  has_many :job_applications, dependent: :destroy
+  has_many :job_experiences, dependent: :destroy
+  has_many :questions, dependent: :destroy
+
+  def follow(user_id)
+    following_relationships.create(following_id: user_id)
+  end
+
+  def unfollow(user_id)
+    following_relationships.find_by(following_id: user_id).destroy
+  end
+
+  def is_following?(user_id)
+    relationship = Follow.find_by(follower_id: id, following_id: user_id)
+    return true if relationship
+  end
 
   def upvote_comment(comment)
     votes.create(upvotes: 1, comment: comment)

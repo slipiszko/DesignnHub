@@ -1,18 +1,36 @@
-<div class="answer">
-  <div class="answer-user">
-    <% if answer.user.photo.present? %>
-    <%= cl_image_tag(answer.user.photo, class: "avatar-medium") %>
-    <% else %>
-    <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
-    <% end %>
-    <div class="user-details">
-      <%= link_to profile_path(answer.user) do %>
-        <%= answer.user.first_name %> <%= answer.user.last_name %>
+<% answers.each do |answer| %>
+  <div class="answer">
+    <div class="answer-user">
+      <div class="answer-user-info">
+      <% if answer.user.photo.present? %>
+      <%= cl_image_tag(answer.user.photo, class: "avatar-medium") %>
+      <% else %>
+      <%= image_tag (asset_path('avatar-default.png')), class: "avatar-medium" %>
       <% end %>
-      <p class="mb-0">Answered <%= answer.created_at.strftime("%B %e, %Y") %></p>
+      <div class="user-details">
+        <%= link_to profile_path(answer.user) do %>
+          <%= answer.user.first_name %> <%= answer.user.last_name %>
+        <% end %>
+        <p class="mb-0">Answered <%= answer.created_at.strftime("%B %e, %Y") %></p>
+      </div>
+      </div>
+      <div class="answer-dropdown">
+        <% if policy(answer).update? && policy(answer).destroy? %>
+          <div class="dropdown">
+            <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><%= link_to 'Edit', edit_question_answer_path(answer.question, answer), remote: true, class: "dropdown-item" %></li>
+              <li role="presentation"><%= link_to 'Delete', question_answer_path(answer), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        <% else %>
+        <% end %>
+      </div>
+    </div>
+    <div class="answer-content" id="answer-<%= answer.id %>">
+      <%= answer.content %>
     </div>
   </div>
-  <div class="answer-content">
-    <%= answer.content %>
-  </div>
-</div>
+<% end %>

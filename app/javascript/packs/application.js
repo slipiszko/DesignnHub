@@ -2,6 +2,7 @@ var questionTags = document.querySelectorAll('.question-tag-container');
 var updateBtn = document.querySelector('#update-comment');
 var portfolioBtn = document.querySelector('#upload-portfolio');
 var questionBtn = document.querySelector('#ask-question');
+var followBtn = document.querySelector(".follow-button");
 
 import "bootstrap";
 import {markImgWhenClick} from '../components/design_show';
@@ -34,4 +35,5 @@ questionBtn.addEventListener("click", function() {
 portfolioBtn.addEventListener("click", function() {
 });
 
-
+followBtn.addEventListener("click", function() {
+});
