@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @portfolio = Portfolio.new
     authorize @question
   end
 
@@ -29,10 +30,13 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     authorize @question
-    if @question.save
-      redirect_to :back
-    else
-      render 'new'
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to profile_path(current_user), notice: 'Question was successfully posted.' }
+        format.js
+      else
+        format.html { render action: "new" }
+      end
     end
   end
 
