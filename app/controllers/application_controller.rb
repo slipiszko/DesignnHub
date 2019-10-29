@@ -5,33 +5,33 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit
 
-  before_action :set_design
-  before_action :set_job_post
-  before_action :set_job_experience
-  before_action :set_question
-  before_action :set_portfolio
+  before_action :set_new_design
+  before_action :set_new_job_post
+  before_action :set_new_job_experience
+  before_action :set_new_question
+  before_action :set_new_portfolio
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
-  def set_design
+  def set_new_design
     @new_design = Design.new
   end
 
-  def set_job_post
+  def set_new_job_post
     @new_job_post = JobPost.new
   end
 
-  def set_job_experience
+  def set_new_job_experience
     @new_job_experience = JobExperience.new
   end
 
-  def set_question
+  def set_new_question
     @new_question = Question.new
   end
 
-  def set_portfolio
-    @portfolio = Portfolio.new
+  def set_new_portfolio
+    @new_portfolio = Portfolio.new
   end
 
   def default_url_options

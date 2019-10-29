@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @portfolio = Portfolio.new
     authorize @question
   end
 
