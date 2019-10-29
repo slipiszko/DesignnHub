@@ -1,0 +1,20 @@
+// var followBtn = document.querySelector(".follow-button");
+// var unfollowBtn = document.querySelector(".unfollow-button");
+// var followers = document.querySelector("#followers");
+
+function renderUser(userHTML) {
+  const user = document.querySelector("[data-user='<%= @user.id %>']");
+  user.outerHTML = userHTML;
+}
+
+// if (followBtn === null) {
+//   followers.innerHTML = "<%= j render partial:'users/follow', locals: { user: @user } %>";
+// } else {
+//   followers.innerHTML = "<%= j render partial:'users/unfollow', locals: { user: @user } %>";
+// }
+
+renderUser('<%= j render @user %>');
+
+// followers = "<%= escape_javascript(render partial:'user', locals: { user: @user }) %>";
+
+// unfollowBtn = '<%= j render @user %>';

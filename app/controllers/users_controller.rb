@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def follow
     if current_user.follow(@user.id)
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to profile_path(@user) }
         format.js
       end
     end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def unfollow
     if current_user.unfollow(@user.id)
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to profile_path(@user) }
         format.js { render action: :follow }
       end
     end
