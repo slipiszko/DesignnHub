@@ -1,6 +1,8 @@
 <%= render 'designs/modal_add_design', design: @new_design %>
 <%= render 'job_posts/modal_add_job_post', job_post: @new_job_post %>
 <%= render 'questions/modal_add_question', question: @new_question %>
+<%= render 'portfolios/modal_add_portfolio', portfolio: @new_portfolio %>
+
 
 <div class="navbar navbar-expand-md navbar-light navbar-lewagon <%= homepage? ? "navbar-transparent fixed-top" : "sticky" %>">
   <%= link_to root_path, class: "navbar-brand" do %>
@@ -41,7 +43,12 @@
             <% end %>
             <% if policy(Question).create? %>
               <a href="#" class="dropdown-item" data-toggle="modal" data-target="#questionModal">
-              Start Discussion
+              Ask Question
+              </a>
+            <% end %>
+            <% if policy(Portfolio).create? %>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#portfolioModal">
+              Post Portfolio
               </a>
             <% end %>
             <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>

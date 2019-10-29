@@ -30,13 +30,10 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     authorize @question
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to profile_path(current_user), notice: 'Question was successfully posted.' }
-        format.js
-      else
-        format.html { render action: "new" }
-      end
+    if @question.save
+      redirect_to profile_path(current_user)
+    else
+      render 'new'
     end
   end
 

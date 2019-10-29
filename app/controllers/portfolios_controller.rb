@@ -21,7 +21,7 @@ class PortfoliosController < ApplicationController
     @portfolio.user = current_user
     authorize @portfolio
     if @portfolio.save
-      redirect_to :back
+      redirect_to profile_path(current_user)
     else
       render 'new'
     end
