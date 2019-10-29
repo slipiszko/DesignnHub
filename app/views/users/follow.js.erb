@@ -1,0 +1,3 @@
+var followers = document.querySelector("[data-user='<%= @user.id %>']");
+
+followers.outerHTML = '<%= j render @user %>';

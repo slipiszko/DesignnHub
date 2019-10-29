@@ -30,7 +30,10 @@
         <br>
         <% if @user == current_user %>
         <% else %>
+        <div class="d-flex">
           <a href="mailto:<%= @user.email %>" target="_blank" rel="noopener noreferrer" class="btn-home">EMAIL</a>
+          <%= render 'users/user', locals: { user: @user } %>
+        </div>
         <% end %>
         <!-- <div class="user-social-link">
           <a href="#"><i class="icon ion-md-globe"></i></a>
@@ -84,32 +87,14 @@
         <% end %>
       </h6>
       </div>
-      <div class="row">
-      <% @user.designs.each do |design| %>
-        <div class="col-lg-4 col-sm-6 mb-5">
-          <div class="card">
-            <%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 400, crop: "pad" %>
-            <div class="card-body">
-              <div class="card-text"><%= link_to design.title.truncate(30), design_path(design.id) %>
-                <% if policy(design).update? && policy(design).destroy? %>
-                <div class="dropdown">
-                  <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v"></i>
-                  </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><%= link_to 'Edit', edit_design_path(design), class: "dropdown-item" %></li>
-                    <li role="presentation"><%= link_to 'Delete', design_path(design), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                  </ul>
-                <% else %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
 
+      <% if @user == current_user %>
+        <%= render 'current_user_designs', users: @users %>
+      <% else %>
+        <%= render 'other_user_designs', users: @users %>
+      <% end %>
+
+    <!-- Do not touch this code! -->
     <% if @user == current_user %>
     <div class="pt-4">
       <h4 id="private">Private:</h4>
