@@ -6,21 +6,15 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if current_user.follow(@user.id)
-      respond_to do |format|
-        format.html { redirect_to profile_path(@user) }
-        format.js
-      end
-    end
+    authorize @user
+    current_user.follow(@user.id)
+    redirect_to profile_path(@user)
   end
 
   def unfollow
-    if current_user.unfollow(@user.id)
-      respond_to do |format|
-        format.html { redirect_to profile_path(@user) }
-        format.js { render action: :follow }
-      end
-    end
+    authorize @user
+    current_user.unfollow(@user.id)
+    redirect_to profile_path(@user)
   end
 
   private

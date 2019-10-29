@@ -3,7 +3,6 @@ var updateBtn = document.querySelector('#update-comment');
 var portfolioBtn = document.querySelector('#upload-portfolio');
 var questionBtn = document.querySelector('#ask-question');
 var followBtn = document.querySelector(".follow-button");
-var unfollowBtn = document.querySelector(".unfollow-button");
 
 import "bootstrap";
 import {markImgWhenClick} from '../components/design_show';
@@ -38,9 +37,3 @@ portfolioBtn.addEventListener("click", function() {
 
 followBtn.addEventListener("click", function() {
 });
-
-unfollowBtn.addEventListener("click", function() {
-});
-
-
-

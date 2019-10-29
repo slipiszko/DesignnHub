@@ -1,8 +1,10 @@
 <div data-user=<%= @user.id %>>
-  <% if current_user.is_following?(@user.id) %>
-    <%= link_to "Unfollow", unfollow_user_path(@user.id), class: "btn btn-home unfollow-button ml-2", method: :post, remote: true %>
-  <% else %>
-    <%= link_to "Follow", follow_user_path(@user.id), class: "btn btn-home follow-button ml-2", method: :post, remote: true %>
+  <% if policy(@user).follow? && policy(@user).unfollow? %>
+    <% if current_user.is_following?(@user.id) %>
+      <%= link_to "Unfollow", unfollow_profile_user_path(@user.id), class: "btn btn-home follow-button ml-2", method: :post %>
+    <% else %>
+      <%= link_to "Follow", follow_profile_user_path(@user.id), class: "btn btn-home follow-button ml-2", method: :post %>
+    <% end %>
   <% end %>
 </div>
 
