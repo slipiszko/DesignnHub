@@ -1,3 +1,9 @@
 <div class="article-show-container">
-
+  <% if @article.title == "Standing out in an ever crowded world" %>
+    <%= render "standing_out_in_an_ever_crowded_world" %>
+  <% elsif @article.title == "Knowing your worth as a designer!!" %>
+    <%= render "knowing_your_worth_as_a_designer" %>
+  <% else %>
+    <%= render "how_to_get_out_of_a_creative_block" %>
+  <% end %>
 </div>
