@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class DesignsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_design, only: [:show, :edit, :update, :destroy]
@@ -33,7 +35,7 @@ class DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
     @design.user = current_user
-    @design.design_design_tags.build
+    @design.design_design_tags = params["design_design_tag"]
     authorize @design
     if @design.save
       flash[:notice] = "Your design has been added"
