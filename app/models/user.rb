@@ -41,11 +41,11 @@ class User < ApplicationRecord
   end
 
   def upvote_comment(comment)
-    votes.create(upvotes: 1, comment: comment)
+    votes.create(upvote: 1, comment: comment)
   end
 
   def upvoted_comment?(comment)
-    votes.exists?(upvotes: 1, comment: comment)
+    votes.exists?(upvote: 1, comment: comment)
   end
 
   def remove_vote_comment(comment)
@@ -57,11 +57,11 @@ class User < ApplicationRecord
   end
 
   def downvote_comment(comment)
-    votes.create(downvotes: 1, comment: comment)
+    votes.create(downvote: 1, comment: comment)
   end
 
   def downvoted_comment?(comment)
-    votes.exists?(downvotes: 1, comment: comment)
+    votes.exists?(downvote: 1, comment: comment)
   end
 
   def upvote_answer(answer)
