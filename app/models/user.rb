@@ -49,11 +49,7 @@ class User < ApplicationRecord
   end
 
   def remove_vote_comment(comment)
-    # if comment_upvotes.zero? && comment_downvotes.zero?
-    #   return
-    # else
-      votes.find_by(comment: comment).destroy
-    # end
+    votes.find_by(comment: comment).destroy
   end
 
   def downvote_comment(comment)
@@ -73,11 +69,7 @@ class User < ApplicationRecord
   end
 
   def remove_vote_answer(answer)
-    if answer.upvotes.zero? && answer.downvotes.zero?
-      return
-    else
-      votes.find_by(answer: answer).destroy
-    end
+    votes.find_by(answer: answer).destroy
   end
 
   def downvote_answer(answer)
