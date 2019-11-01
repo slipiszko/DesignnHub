@@ -15,6 +15,13 @@ Rails.application.routes.draw do
     resources :job_applications, only: [:new, :create]
   end
 
+  resources :answers, only: [:show] do
+    member do
+      post :upvote
+      post :downvote
+    end
+  end
+
   resources :comments, only: [:show] do
     member do
       post :upvote

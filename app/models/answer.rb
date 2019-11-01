@@ -8,10 +8,10 @@ class Answer < ApplicationRecord
   validates :downvotes, presence: true
 
   def answer_upvotes
-    votes.sum(:upvotes)
+    votes.sum(:answer_upvote)
   end
 
   def answer_downvotes
-    votes.sum(:downvotes)
+    votes.sum(:answer_downvote)
   end
 end

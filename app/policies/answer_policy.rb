@@ -9,6 +9,14 @@ class AnswerPolicy < ApplicationPolicy
     true
   end
 
+  def upvote?
+    true
+  end
+
+  def downvote?
+    true
+  end
+
   def update?
     record.user == user
   end
