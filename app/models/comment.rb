@@ -8,10 +8,10 @@ class Comment < ApplicationRecord
   validates :downvotes, presence: true
 
   def comment_upvotes
-    votes.sum(:upvote)
+    votes.sum(:comment_upvote)
   end
 
   def comment_downvotes
-    votes.sum(:downvote)
+    votes.sum(:comment_downvote)
   end
 end

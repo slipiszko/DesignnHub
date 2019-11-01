@@ -51,7 +51,7 @@ class AnswersController < ApplicationController
     if @user.upvoted_answer?(@answer)
       return
     else
-      if @user.downvote_answer(@answer).present? || @user.upvote_answer(@answer).present?
+      if @user.downvoted_answer?(@answer)
         @user.remove_vote_answer(@answer)
         @user.upvote_answer(@answer)
       else
@@ -59,7 +59,7 @@ class AnswersController < ApplicationController
       end
     end
 
-    redirect_to design_path(@answer.design)
+    redirect_to question_path(@answer.question)
   end
 
   def downvote
@@ -67,7 +67,7 @@ class AnswersController < ApplicationController
     if @user.downvoted_answer?(@answer)
       return
     else
-      if @user.upvote_answer(@answer).present? || @user.downvote_answer(@answer).present?
+      if @user.upvoted_answer?(@answer)
         @user.remove_vote_answer(@answer)
         @user.downvote_answer(@answer)
       else
@@ -75,7 +75,7 @@ class AnswersController < ApplicationController
       end
     end
 
-    redirect_to design_path(@answer.design)
+    redirect_to question_path(@answer.question)
   end
 
   private

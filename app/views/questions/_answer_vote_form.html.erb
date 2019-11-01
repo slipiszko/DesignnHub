@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+    <% if current_user.upvoted_answer?(answer) == true %>
+        <%= answer.answer_upvotes %>
+        <p>▲</p>
+        <%= link_to "▼", downvote_answer_path(answer), method: :post %>
+        <%= answer.answer_downvotes %>
+      <% elsif current_user.downvoted_answer?(answer) == true %>
+        <%= answer.answer_upvotes %>
+        <%= link_to "▲", upvote_answer_path(answer), method: :post %>
+        <p>▼</p>
+        <%= answer.answer_downvotes %>
+      <% else %>
+        <%= answer.answer_upvotes %>
+        <%= link_to "▲", upvote_answer_path(answer), method: :post %>
+        <%= link_to "▼", downvote_answer_path(answer), method: :post %>
+        <%= answer.answer_downvotes %>
+    <% end %>
+<% else %>
+      <%= answer.answer_upvotes %>
+      <%= link_to "▲", new_user_registration_path %>
+      <%= link_to "▼", new_user_registration_path %>
+      <%= answer.answer_downvotes %>
+<% end %>
