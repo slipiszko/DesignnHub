@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:show] do
-    post :upvote, on: :member
-    post :downvote, on: :member
+    member do
+      post :upvote
+      post :downvote
+    end
   end
 
   resources :designs do

@@ -41,13 +41,13 @@ class CommentsController < ApplicationController
 
   def upvote
     authorize @comment
-    if @user.downvoted?(@comment)
-      @user.remove_vote(@comment)
-    elsif @user.upvoted?(@comment)
-      @user.remove_vote(@comment)
-      @user.downvote(@comment)
+    if @user.upvoted_comment?(@comment)
+      return
+    elsif @user.downvote_comment(@comment).present? || @user.upvote_comment(@comment).present?
+      @user.remove_vote_comment(@comment)
+      @user.upvote_comment(@comment)
     else
-      @user.downvote(@comment)
+      @user.upvote_comment(@comment)
     end
 
     redirect_to design_path(@comment.design)
@@ -55,13 +55,13 @@ class CommentsController < ApplicationController
 
   def downvote
     authorize @comment
-    if @user.upvoted?(@comment)
-      @user.remove_vote(@comment)
-    elsif @user.downvoted?(@comment)
-      @user.remove_vote(@comment)
-      @user.upvote(@comment)
+    if @user.downvoted_comment?(@comment)
+      return
+    elsif @user.upvote_comment(@comment).present? || @user.downvote_comment(@comment).present?
+      @user.remove_vote_comment(@comment)
+      @user.downvote_comment(@comment)
     else
-      @user.upvote(@comment)
+      @user.downvote_comment(@comment)
     end
 
     redirect_to design_path(@comment.design)

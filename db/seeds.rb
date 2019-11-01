@@ -10,6 +10,7 @@ QuestionQuestionTag.destroy_all
 QuestionTag.destroy_all
 Question.destroy_all
 JobPost.destroy_all
+DesignDesignTag.destroy_all
 DesignTag.destroy_all
 Comment.destroy_all
 User.destroy_all
