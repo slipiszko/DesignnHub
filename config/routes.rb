@@ -5,14 +5,21 @@ Rails.application.routes.draw do
 
   resources :portfolios do
     resources :critiques do
-      resources :responses
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
     end
   end
 
   resources :questions do
-    resources :answers do
-      resources :responses
+    resources :answers, except: [:show] do
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
     end
+  end
+
+  resources :designs do
+    resources :comments, except: [:show] do
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
+    end
+    resources :design_design_tags, only: [:new, :create]
   end
 
   resources :job_posts do
@@ -31,13 +38,6 @@ Rails.application.routes.draw do
       post :upvote
       post :downvote
     end
-  end
-
-  resources :designs do
-    resources :comments do
-      resources :responses
-    end
-    resources :design_design_tags, only: [:new, :create]
   end
 
   resources :profiles, only: [:index, :show] do
