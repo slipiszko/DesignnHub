@@ -36,4 +36,7 @@
   <div>
     <%= render 'answer_vote_form', answer: answer %>
   </div>
+  <div id="answer<%= answer.id %>-response">
+    <%= link_to 'Reply', new_question_answer_response_path(answer.question, answer), remote: true  %>
+  </div>
 <% end %>

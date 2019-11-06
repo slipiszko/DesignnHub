@@ -1,5 +1,5 @@
 class ResponsesController < ApplicationController
-  before_action :find_response
+  before_action :find_response, only: [:edit, :update, :destroy]
   before_action :find_current_answer, only: [:new, :create, :edit, :update]
   before_action :find_current_comment, only: [:new, :create, :edit, :update]
   before_action :find_current_critiqiue, only: [:new, :create, :edit, :update]
@@ -13,7 +13,26 @@ class ResponsesController < ApplicationController
 
   def create
     @response = Response.new(response_params)
+    @response.user = current_user
+
+    if @answer.present?
+      @response.answer = @answer
+    elsif @comment.present?
+      @response.comment = @comment
+    else
+      @response.critique = @critique
+    end
+
     authorize @response
+    @response.save
+
+    if @design.present?
+      redirect_to design_path(@design)
+    elsif @portfolio.present?
+      redirect_to portfolio_path(@portfolio)
+    else
+      redirect_to question_path(@question)
+    end
   end
 
   def edit
@@ -39,26 +58,44 @@ class ResponsesController < ApplicationController
   end
 
   def find_current_answer
-    @answer = Answer.find(params[:answer_id])
+    if params[:answer_id].present?
+      @answer = Answer.find(params[:answer_id])
+    else
+    end
   end
 
   def find_current_comment
-    @comment = Comment.find(params[:comment_id])
+    if params[:comment_id].present?
+      @comment = Comment.find(params[:comment_id])
+    else
+    end
   end
 
   def find_current_critiqiue
-    @critiqiue = Critiqiue.find(params[:critique_id])
+    if params[:critique_id].present?
+      @critiqiue = Critiqiue.find(params[:critique_id])
+    else
+    end
   end
 
   def find_current_design
-    @design = Design.find(params[:design_id])
+    if params[:design_id].present?
+      @design = Design.find(params[:design_id])
+    else
+    end
   end
 
   def find_current_portfolio
-    @portfolio = Portfolio.find(params[:portfolio_id])
+    if params[:portfolio_id]
+      @portfolio = Portfolio.find(params[:portfolio_id])
+    else
+    end
   end
 
   def find_current_question
-    @question = Question.find(params[:question_id])
+    if params[:question_id].present?
+      @question = Question.find(params[:question_id])
+    else
+    end
   end
 end

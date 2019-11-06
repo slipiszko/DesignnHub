@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class DesignsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_design, only: [:show, :edit, :update, :destroy]
