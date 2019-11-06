@@ -2,7 +2,7 @@ class ResponsesController < ApplicationController
   before_action :find_response, only: [:edit, :update, :destroy]
   before_action :find_current_answer, only: [:new, :create, :edit, :update]
   before_action :find_current_comment, only: [:new, :create, :edit, :update]
-  before_action :find_current_critiqiue, only: [:new, :create, :edit, :update]
+  before_action :find_current_critique, only: [:new, :create, :edit, :update]
   before_action :find_current_design, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_current_portfolio, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_current_question, only: [:new, :create, :edit, :update, :destroy]
@@ -71,9 +71,9 @@ class ResponsesController < ApplicationController
     end
   end
 
-  def find_current_critiqiue
+  def find_current_critique
     if params[:critique_id].present?
-      @critiqiue = Critiqiue.find(params[:critique_id])
+      @critique = Critique.find(params[:critique_id])
     else
     end
   end

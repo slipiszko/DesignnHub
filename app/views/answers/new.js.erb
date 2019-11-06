@@ -1,3 +1,0 @@
-var responseAnswer = document.querySelector('#answer<%= answer.id %>-response');
-
-responseAnswer.innerHTML = '<%= escape_javascript(render "partials/response_form", locals: { media: answer.question, content: answer, response: Response.new } %>'
