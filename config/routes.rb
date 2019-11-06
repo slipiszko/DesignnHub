@@ -4,11 +4,15 @@ Rails.application.routes.draw do
   resources :articles
 
   resources :portfolios do
-    resources :critiques
+    resources :critiques do
+      resources :responses
+    end
   end
 
   resources :questions do
-    resources :answers
+    resources :answers do
+      resources :responses
+    end
   end
 
   resources :job_posts do
@@ -30,7 +34,9 @@ Rails.application.routes.draw do
   end
 
   resources :designs do
-    resources :comments
+    resources :comments do
+      resources :responses
+    end
     resources :design_design_tags, only: [:new, :create]
   end
 

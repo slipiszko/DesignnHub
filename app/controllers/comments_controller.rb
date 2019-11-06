@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment_user, only: [:new, :create, :edit, :update, :upvote, :downvote]
   before_action :find_comment_design, only: [:new, :create, :edit, :update]
-  before_action :find_current_comment, only: [:edit, :update, :upvote, :downvote]
+  before_action :find_current_comment, only: [:edit, :update, :destroy, :upvote, :downvote]
 
   def new
     @comment = Comment.new
@@ -65,6 +65,12 @@ class CommentsController < ApplicationController
     end
 
     redirect_to design_path(@comment.design)
+  end
+
+  def destroy
+    authorize @comment
+    @comment.destroy
+    redirect_to design_path(@design)
   end
 
   private
