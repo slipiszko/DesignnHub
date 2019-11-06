@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :job_applications, dependent: :destroy
   has_many :job_experiences, dependent: :destroy
   has_many :questions, dependent: :destroy
+  has_many :responses, dependent: :destroy
 
   def follow(user_id)
     following_relationships.create(following_id: user_id)
