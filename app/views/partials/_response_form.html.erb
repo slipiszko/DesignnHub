@@ -1,0 +1,4 @@
+<%= simple_form_for [media, content, response] , method: :post do |form| %>
+  <%= form.input :content, label: false, placeholder: "Reply" %>
+  <%= form.submit "Reply" %>
+<% end %>
