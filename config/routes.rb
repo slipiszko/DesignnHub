@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :comments, only: [:destroy]
+
   resources :portfolios do
     resources :critiques do
       resources :responses, only: [:new, :create, :edit, :update, :destroy]
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :designs do
-    resources :comments, except: [:show] do
+    resources :comments, except: [:show, :destroy] do
       resources :responses, only: [:new, :create, :edit, :update, :destroy]
     end
     resources :design_design_tags, only: [:new, :create]

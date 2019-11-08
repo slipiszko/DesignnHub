@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
   def destroy
     authorize @comment
     @comment.destroy
-    redirect_to design_path(@design)
+    redirect_to design_path(@comment.design)
   end
 
   private
