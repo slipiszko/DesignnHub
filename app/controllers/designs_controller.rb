@@ -26,13 +26,21 @@ class DesignsController < ApplicationController
 
   def new
     @design = Design.new
+    authorize @design
     @user = current_user
   end
 
   def create
     @design = Design.new(design_params)
     @design.user = current_user
-    @design.design_design_tags = params["design_design_tag"]
+    if params["design"]["design_design_tag"].present?
+      @design.design_tags = DesignTag.where(id: params["design"]["design_design_tag"]["name"])
+    else
+      design_tags = params["design"]["design_tag_ids"].reject(&:empty?)
+      design_tags.each do |tag|
+        @design.design_tags << DesignTag.where(id: tag)
+      end
+    end
     authorize @design
     if @design.save
       flash[:notice] = "Your design has been added"
@@ -64,6 +72,6 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:photo, :title, :description, :category, design_deign_tags_attributes: [:id, :name])
+    params.require(:design).permit(:photo, :title, :description, :category)
   end
 end

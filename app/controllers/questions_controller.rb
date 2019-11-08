@@ -22,13 +22,21 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @portfolio = Portfolio.new
     authorize @question
+    @portfolio = Portfolio.new
   end
 
   def create
     @question = Question.new(question_params)
     @question.user = current_user
+    if params["question"]["question_question_tags"].present?
+      @question.question_tags = QuestionTag.where(id: params["question"]["question_question_tags"]["name"])
+    else
+      question_tags = params["question"]["question_tag_ids"].reject(&:empty?)
+      question_tags.each do |tag|
+        @question.question_tags << QuestionTag.where(id: tag)
+      end
+    end
     authorize @question
     if @question.save
       redirect_to profile_path(current_user)
@@ -54,7 +62,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content, :photo, question_tags_attributes: [:id, :name])
+    params.require(:question).permit(:content, :photo)
   end
 
   def find_question

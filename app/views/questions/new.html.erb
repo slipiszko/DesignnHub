@@ -1,11 +1,9 @@
- <div class="container py-5">
+<div class="container py-5">
   <h1 class="thin-heading">ASK QUESTION</h1>
   <div class="title-underline mb-4"></div>
   <%= simple_form_for @question, method: :post do |form| %>
     <%= form.input :content %>
-    <%= form.simple_fields_for :question_question_tags do |tag| %>
-      <%= tag.input :name, collection: QuestionTag.all, label: "Tags", input_html: { class: 'select2' } %>
-    <% end %>
+    <%= form.association :question_tags, input_html: { class: 'select2' } %>
     <%= form.input :photo, label: 'Image' %>
     <%= form.input :photo_cache, as: :hidden %>
     <br>
