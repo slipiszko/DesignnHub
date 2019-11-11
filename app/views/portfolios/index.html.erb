@@ -1,6 +1,9 @@
 <div class="d-flex">
   <%= render 'questions/question_sidebar' %>
   <div class="portfolios-all">
+    <a data-toggle="modal" data-target="#portfolioModal">
+        <%= image_tag (asset_path('orange-circle.png')), class: "add-btn" %>
+      </a>
     <div id="mystery-div">
       <div class="portfolio-main-container">
         <% @portfolios.each do |portfolio| %>

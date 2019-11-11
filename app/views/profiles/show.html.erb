@@ -98,46 +98,47 @@
     <% if @user == current_user %>
     <div class="pt-4">
       <h4 id="private">Private:</h4>
-      <div class="private-info">
-        <div class="py-4">
-          <h6 class="item-title">My Questions
-            <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#questionModal"></a>
-          </h6>
-          </div>
-          <% if @user.questions.present? %>
-            <div class="row">
-            <% @user.questions.each do |question| %>
-              <div class="col-lg-4 col-sm-6 mb-5">
-                <div class="card">
-                  <% if question.photo.present? %>
-                  <%= link_to cl_image_tag(question.photo, class: 'design-pic'), question_path(question.id), width: 600, height: 400, crop: "pad" %>
-                  <% else %>
-                  <% end %>
-                  <div class="card-body">
-                    <div class="card-text"><%= link_to question.content.truncate(80), question_path(question.id) %>
-                      <% if policy(question).update? && policy(question).destroy? %>
-                      <div class="dropdown">
-                        <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                          <li role="presentation"><%= link_to 'Edit', edit_question_path(question), class: "dropdown-item" %></li>
-                          <li role="presentation"><%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                        </ul>
+      <div id="private-line-breaker">
+        <div class="private-info">
+          <div class="py-4">
+            <h6 class="item-title">My Questions
+              <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#questionModal"></a>
+            </h6>
+            </div>
+            <% if @user.questions.present? %>
+              <div class="row">
+              <% @user.questions.each do |question| %>
+                <div class="col-lg-4 col-sm-6 mb-5">
+                  <div class="card">
+                    <% if question.photo.present? %>
+                    <%= link_to cl_image_tag(question.photo, class: 'design-pic'), question_path(question.id), width: 600, height: 400, crop: "pad" %>
+                    <% else %>
+                    <% end %>
+                    <div class="card-body">
+                      <div class="card-text"><%= link_to question.content.truncate(80), question_path(question.id) %>
+                        <% if policy(question).update? && policy(question).destroy? %>
+                        <div class="dropdown">
+                          <button class="btn btn-default" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><%= link_to 'Edit', edit_question_path(question), class: "dropdown-item" %></li>
+                            <li role="presentation"><%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                          </ul>
+                        </div>
+                        <% else %>
+                        <% end %>
                       </div>
-                      <% else %>
-                      <% end %>
                     </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
+            </div>
+            <% else %>
             <% end %>
           </div>
-          <% else %>
-          <% end %>
         </div>
       </div>
-
         <div class="py-4">
           <h6 class="item-title">My Job Posts
             <a href="#" class="fas fa-plus" id="plus-icon-down" data-toggle="modal" data-target="#jobPostModal"></a>

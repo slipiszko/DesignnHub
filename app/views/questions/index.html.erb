@@ -1,6 +1,9 @@
 <div class="d-flex">
   <%= render 'question_sidebar' %>
-    <div class="question-index">
-      <%= render partial:'partials/question_tag_index', locals: { question_tags: @question_tags, portfolios: @portfolios } %>
-    </div>
+  <a data-toggle="modal" data-target="#questionModal">
+    <%= image_tag (asset_path('orange-circle.png')), class: "add-btn" %>
+  </a>
+  <div class="question-index">
+    <%= render partial:'partials/question_tag_index', locals: { question_tags: @question_tags, portfolios: @portfolios } %>
+  </div>
 </div>
