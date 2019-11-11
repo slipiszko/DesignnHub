@@ -30,6 +30,9 @@
   </div>
 </div>
 
+<a data-toggle="modal" data-target="#designModal">
+  <%= image_tag (asset_path('orange-circle.png')), class: "add-btn" %>
+</a>
 <div class="card-container">
 <% if @designs.empty? %>
   <h5>No results found.</h5>
