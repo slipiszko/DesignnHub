@@ -3,10 +3,10 @@
     <%='No comments'%>
   </div>
 <% else %>
-  <% @comments.each.with_index do |comment, index| %>
+  <% @comments.reverse.each_with_index do |comment, index| %>
     <div class="comment-card" onmouseover="showPin(<%=comment.id%>)" onmouseleave="showAllPins()">
       <div class="comment-card-number">
-        <%= index + 1 %>
+        <%= @comments.count - index %>
       </div>
 
       <div class= "comment-box">
