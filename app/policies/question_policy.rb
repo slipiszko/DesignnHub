@@ -3,6 +3,10 @@ class QuestionPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def resolve_show
+      scope.all
+    end
   end
 
   def show?

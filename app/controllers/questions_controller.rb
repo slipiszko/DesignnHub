@@ -16,8 +16,14 @@ class QuestionsController < ApplicationController
     authorize @question
     @user = @question.user
     @answer = Answer.new
+    @questions = policy_scope(Question).order(created_at: :desc)
     query = @question.question_tag_ids
-    @related_questions = policy_scope(Question).joins(:question_tags).where(question_tags: { id: query })
+    all_related_questions = policy_scope(Question).joins(:question_tags).where(question_tags: { id: query })
+    if all_related_questions.count == 1
+      @related_questions = []
+    else
+      @related_questions = all_related_questions.delete_if { |x| x == @question }
+    end
   end
 
   def new
