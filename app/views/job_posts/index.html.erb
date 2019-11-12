@@ -2,8 +2,8 @@
   <%= render 'job_post_sidebar' %>
   <div class="masonry-wrapper">
     <a data-toggle="modal" data-target="#jobPostModal">
-        <%= image_tag (asset_path('orange-circle.png')), class: "add-btn" %>
-      </a>
+      <%= image_tag (asset_path('orange-circle.png')), class: "add-btn" %>
+    </a>
     <div class="masonry">
     <% @job_posts.each do |job_post| %>
       <%= render 'card_job', job_post: job_post %>
