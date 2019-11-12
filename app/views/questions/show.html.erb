@@ -18,19 +18,6 @@
     </div>
   </div>
   <div class="related-questions">
-      <h6>Related Questions</h6>
-      <% if @related_questions.count <= 6 %>
-        <% @related_questions.each do |question| %>
-          <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
-          <br>
-          <br>
-        <% end %>
-      <% else %>
-        <% @related_questions.sample(6) do |question| %>
-          <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
-          <br>
-          <br>
-        <% end %>
-      <% end %>
+    <%= render partial:'related_questions', locals: { related_questions: @related_questions, questions: @questions } %>
   </div>
 </div>
