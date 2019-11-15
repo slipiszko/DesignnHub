@@ -1,6 +1,6 @@
   <div class="question-tag-container col-12">
     <div class="question-tag-left-block">
-      <p>Portfolios</p>
+      <h4>Portfolios</h4>
     </div>
     <div class="question-tag-right-block">
       <div class="question-tag-right-block-top">
@@ -23,14 +23,16 @@
       </div>
       <div class="question-tag-right-block-bottom">
         <div class="question-tag-last-topic">
+          <p>Last portfolio:</p>
           <% if portfolios.count == 0 %>
           <% else %>
-            <p>Last portfolio:</p>
-            <%= cl_image_tag(portfolios.last.user.photo, class: "avatar-medium") %>
-            <% if portfolios.last.description.present? %>
-              <p><%= portfolios.last.description.truncate(100) %></p>
-             <% else %>
-            <% end %>
+            <div class="question-tag-topic-user">
+              <%= cl_image_tag(portfolios.last.user.photo, class: "avatar-medium") %>
+              <% if portfolios.last.description.present? %>
+                <p><%= portfolios.last.description.truncate(100) %></p>
+               <% else %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

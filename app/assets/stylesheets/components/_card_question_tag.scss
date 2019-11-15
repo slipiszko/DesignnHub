@@ -14,4 +14,46 @@
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   margin: 12px auto;
+  padding: 12px;
+
+  p {
+    margin-bottom: 0.7rem;
+    color: black;
+  }
+}
+
+.question-tag-left-block {
+  width: 30%;
+}
+
+.question-tag-right-block {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-tag-right-block-top {
+  display: flex;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-tag-topic {
+  margin-right: 40px;
+  margin-left: 12px;
+}
+
+.question-tag-topic-user {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 16px;
+  }
+}
+
+.question-tag-last-topic {
+  margin-left: 12px;
 }

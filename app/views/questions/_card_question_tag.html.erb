@@ -1,6 +1,6 @@
   <div class="question-tag-container col-12">
     <div class="question-tag-left-block">
-      <%= tag.name %>
+      <h4><%= tag.name %></h4>
     </div>
     <div class="question-tag-right-block">
       <div class="question-tag-right-block-top">
@@ -23,11 +23,13 @@
       </div>
       <div class="question-tag-right-block-bottom">
         <div class="question-tag-last-topic">
+          <p>Last topic:</p>
           <% if tag.questions.count == 0 %>
           <% else %>
-            <p>Last topic:</p>
-            <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
-            <p><%= tag.questions.last.content.truncate(100) %></p>
+            <div class="question-tag-topic-user">
+              <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
+              <p><%= tag.questions.last.content.truncate(100) %></p>
+            </div>
           <% end %>
         </div>
       </div>
