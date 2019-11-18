@@ -28,10 +28,10 @@
 
     <div class="question-anwser">
       <div class="answer-box">
-        <% if current_user == nil %>
-          <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
-        <% else %>
+        <% if current_user.photo.present? %>
           <%= cl_image_tag(current_user.photo, class: "avatar-small", gravity: "faces") %>
+        <% else %>
+          <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
         <% end %>
       </div>
     </div>

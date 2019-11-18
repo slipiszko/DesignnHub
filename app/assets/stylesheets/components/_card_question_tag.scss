@@ -3,6 +3,12 @@
   padding: 0 30px;
 }
 
+.question-tag-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
 @media (min-width: 992px) {
   .question-index {
     padding: 0 80px;
@@ -24,6 +30,9 @@
 
 .question-tag-left-block {
   width: 30%;
+  display: flex;
+  padding-right: 12px;
+  justify-content: center;
 }
 
 .question-tag-right-block {
@@ -56,4 +65,8 @@
 
 .question-tag-last-topic {
   margin-left: 12px;
+}
+
+#question-topic-p-tag {
+  margin-bottom: 0;
 }
