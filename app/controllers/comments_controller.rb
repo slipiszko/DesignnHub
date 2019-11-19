@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment_user, only: [:new, :create, :edit, :update, :upvote, :downvote]
   before_action :find_comment_design, only: [:new, :create, :edit, :update]
-  before_action :find_current_comment, only: [:edit, :update, :upvote, :downvote]
+  before_action :find_current_comment, only: [:edit, :update, :destroy, :upvote, :downvote]
 
   def new
     @comment = Comment.new
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     authorize @comment
     if @user.upvoted_comment?(@comment)
       return
-    elsif @user.downvote_comment(@comment).present? || @user.upvote_comment(@comment).present?
+    elsif @user.downvoted_comment?(@comment)
       @user.remove_vote_comment(@comment)
       @user.upvote_comment(@comment)
     else
@@ -57,13 +57,19 @@ class CommentsController < ApplicationController
     authorize @comment
     if @user.downvoted_comment?(@comment)
       return
-    elsif @user.upvote_comment(@comment).present? || @user.downvote_comment(@comment).present?
+    elsif @user.upvoted_comment?(@comment)
       @user.remove_vote_comment(@comment)
       @user.downvote_comment(@comment)
     else
       @user.downvote_comment(@comment)
     end
 
+    redirect_to design_path(@comment.design)
+  end
+
+  def destroy
+    authorize @comment
+    @comment.destroy
     redirect_to design_path(@comment.design)
   end
 

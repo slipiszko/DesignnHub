@@ -16,18 +16,33 @@ class QuestionsController < ApplicationController
     authorize @question
     @user = @question.user
     @answer = Answer.new
+    @questions = policy_scope(Question).order(created_at: :desc)
     query = @question.question_tag_ids
-    @related_questions = policy_scope(Question).joins(:question_tags).where(question_tags: { id: query })
+    all_related_questions = policy_scope(Question).joins(:question_tags).where(question_tags: { id: query })
+    if all_related_questions.count == 1
+      @related_questions = []
+    else
+      @related_questions = all_related_questions.delete_if { |x| x == @question }
+    end
   end
 
   def new
     @question = Question.new
     authorize @question
+    @portfolio = Portfolio.new
   end
 
   def create
     @question = Question.new(question_params)
     @question.user = current_user
+    if params["question"]["question_question_tags"].present?
+      @question.question_tags = QuestionTag.where(id: params["question"]["question_question_tags"]["name"])
+    else
+      question_tags = params["question"]["question_tag_ids"].reject(&:empty?)
+      question_tags.each do |tag|
+        @question.question_tags << QuestionTag.where(id: tag)
+      end
+    end
     authorize @question
     if @question.save
       redirect_to profile_path(current_user)
@@ -53,7 +68,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content, :photo, question_tags_attributes: [:id, :name])
+    params.require(:question).permit(:content, :photo)
   end
 
   def find_question

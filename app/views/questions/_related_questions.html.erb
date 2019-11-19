@@ -1,0 +1,29 @@
+<h6>Related Questions</h6>
+<% if related_questions.nil? %>
+  <% questions.sample(6) do |question| %>
+      <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
+    <br>
+    <br>
+  <% end %>
+<% elsif related_questions == 1 %>
+    <%= link_to related_questions.content.truncate(200), question_path(related_questions), target: :_blank %>
+    <br>
+    <br>
+  <% questions.sample(5) do |question| %>
+    <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
+    <br>
+    <br>
+  <% end %>
+<% elsif related_questions.count <= 6 %>
+  <% related_questions.each do |question| %>
+    <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
+    <br>
+    <br>
+  <% end %>
+<% else %>
+  <% related_questions.sample(6) do |question| %>
+    <%= link_to question.content.truncate(200), question_path(question), target: :_blank %>
+    <br>
+    <br>
+  <% end %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_221817) do
+ActiveRecord::Schema.define(version: 2019_11_06_220103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_221817) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.text "description"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 2019_10_21_221817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_designs_on_user_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
+    t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -150,6 +160,20 @@ ActiveRecord::Schema.define(version: 2019_10_21_221817) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "answer_id"
+    t.bigint "comment_id"
+    t.bigint "critique_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_responses_on_answer_id"
+    t.index ["comment_id"], name: "index_responses_on_comment_id"
+    t.index ["critique_id"], name: "index_responses_on_critique_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -171,11 +195,13 @@ ActiveRecord::Schema.define(version: 2019_10_21_221817) do
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "comment_id"
-    t.integer "upvotes", default: 0
-    t.integer "downvotes", default: 0
+    t.integer "comment_upvote", default: 0
+    t.integer "comment_downvote", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "answer_id"
+    t.integer "answer_upvote", default: 0
+    t.integer "answer_downvote", default: 0
     t.index ["answer_id"], name: "index_votes_on_answer_id"
     t.index ["comment_id"], name: "index_votes_on_comment_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
@@ -198,6 +224,10 @@ ActiveRecord::Schema.define(version: 2019_10_21_221817) do
   add_foreign_key "question_question_tags", "question_tags"
   add_foreign_key "question_question_tags", "questions"
   add_foreign_key "questions", "users"
+  add_foreign_key "responses", "answers"
+  add_foreign_key "responses", "comments"
+  add_foreign_key "responses", "critiques"
+  add_foreign_key "responses", "users"
   add_foreign_key "votes", "answers"
   add_foreign_key "votes", "comments"
   add_foreign_key "votes", "users"

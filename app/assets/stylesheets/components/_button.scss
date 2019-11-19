@@ -1,3 +1,19 @@
+.add-btn {
+  height: 40px;
+  position: fixed;
+  top: 64px;
+  right: 18px;
+  z-index: 1;
+  transform: rotate(-90deg);
+  transition: all 0.5s ease-in-out 0s;
+
+  &:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+    transition: all 0.5s ease-in-out 0s;
+  }
+}
+
 .btn > a {
   text-decoration: none;
   letter-spacing: 3px;
@@ -84,7 +100,6 @@
   &:hover {
     background: $orange;
     color: white;
-
   }
 }
 

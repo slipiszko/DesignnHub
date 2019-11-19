@@ -1,6 +1,6 @@
 <%= link_to question_path(question), target: :_blank do %>
   <div class="question-container">
-    <div class="question-header">
+    <div class="question-header-user">
       <% if question.user.photo.present? %>
         <%= cl_image_tag(question.user.photo, class: "avatar-medium", gravity: "faces") %>
       <% else %>

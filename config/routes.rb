@@ -3,28 +3,53 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :comments, only: [:destroy]
+
   resources :portfolios do
-    resources :critiques
+    resources :critiques do
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
+    end
   end
 
   resources :questions do
-    resources :answers
+    resources :answers, except: [:show] do
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
+    end
+  end
+
+  resources :designs do
+    resources :comments, except: [:show, :destroy] do
+      resources :responses, only: [:new, :create, :edit, :update, :destroy]
+    end
+    resources :design_design_tags, only: [:new, :create]
   end
 
   resources :job_posts do
     resources :job_applications, only: [:new, :create]
   end
 
+  resources :answers, only: [:show] do
+    member do
+      post :upvote
+      post :downvote
+    end
+  end
+
   resources :comments, only: [:show] do
-    post :upvote, on: :member
-    post :downvote, on: :member
+    member do
+      post :upvote
+      post :downvote
+    end
   end
 
-  resources :designs do
-    resources :comments
+  resources :profiles, only: [:index, :show] do
+    resources :users, only: [:index] do
+      member do
+        post :follow
+        post :unfollow
+      end
+    end
   end
-
-  resources :profiles, only: [:index, :show]
 
   devise_for :users, controllers: { registrations: 'registrations' }
 

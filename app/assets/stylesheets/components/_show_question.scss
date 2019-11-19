@@ -17,15 +17,17 @@
 
 .question-show-container {
   margin: 0 60px 0 0;
+  width: 160vw;
 }
 
 @media (max-width: 1000px) {
   .question-show-container {
     margin: 0;
+    width: 160vw;
   }
 }
 
-.question-header {
+.question-header-user {
   display: flex;
 }
 
