@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="designModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content py-1 px-5">
       <div class="modal-header line-bottom">
         <h5 class="modal-title" id="exampleModalLabel">Add Design</h5>
@@ -9,18 +9,36 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for design, method: :post do |form| %>
-          <%= form.input :title %>
-          <%= form.input :description %>
-          <%= form.input :category, input_html: { class: 'select2' }, collection: ["Photography", "Graphic Design", "Illustraion","Logo", "Branding", "Typography", "UI/UX Design", "Paint", "Animation", "Product Design", "Web Design"] %>
-          <%= form.simple_fields_for :design_design_tag do |tag| %>
-              <%= tag.input :name, collection: DesignTag.all, label: "Tags", input_html: { class: 'select2' } %>
-          <% end %>
-          <%= form.input :photo, label: 'Design' %>
-          <%= form.input :photo_cache, as: :hidden %>
+        <%= simple_form_for design, html: { multipart: true }  do |f| %>
+
+        <% unless design.photo.blank? %>
+        <%= image_tag (design.photo.thumb.url), id: "previewImage" %>
+        <% end %>
+
+        <output id="list"></output>
+        <div id="drop_zone">Drag your design here*</div>
+        <br />
+
+        <%= f.input :photo, label: false, input_html: { class: "file-input", type: "file" }, wrapper: false, label_html: { class: "file-label" } %>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :title, label: "Title", input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :description, input_html: { class: "textarea"}, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+
+
       </div>
       <div class="modal-footer line-top">
-          <%= form.submit "ADD DESIGN", class: "btn btn-primary" %>
+        <div class="control">
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
         <% end %>
       </div>
     </div>

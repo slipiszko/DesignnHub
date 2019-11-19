@@ -1,15 +1,29 @@
-<h1>Update Profile</h1>
-<br>
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<br>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
-  <%= form.input :first_name %>
-  <%= form.input :last_name %>
-  <%= form.input :city %>
-  <%= form.input :bio %>
-  <%= form.input :photo, label: 'Profile Picture' %>
-  <%= form.input :photo_cache, as: :hidden %>
-  <%= form.submit %>
-<% end %>
+<div class="container">
+  <div class="row registration-container py-5">
+    <h2 class="registration-title">Update Profile</h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
 
-<%= link_to 'Back', profile_path(current_user) %>
+      <%= form.input :photo, label: 'Upload profile picture' %>
+      <%= form.input :photo_cache, as: :hidden, class: "btn mr-3 btn-primary"  %>
+
+      <div class="register-name">
+        <div class="first-name">
+          <%= form.input :first_name %>
+        </div>
+        <div class="last-name">
+          <%= form.input :last_name %>
+        </div>
+      </div>
+
+      <%= form.input :city %>
+      <%= form.input :job %>
+      <%= form.input :bio, label: 'Bio (300 character limit)' %>
+
+      <div class="form-actions">
+        <%= form.button :submit, "UPDATE", class: "btn mr-3 btn-primary", style: "padding: 6px 32px;" %>
+        <%= link_to 'BACK', profile_path(current_user) %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
