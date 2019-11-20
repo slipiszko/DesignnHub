@@ -1,9 +1,10 @@
 <%= link_to job_post_path(job_post), remote: true do %>
+<div class="testing">
   <div data-aos="fade-up" class="masonry-item jobCard">
     <div class="masonry-content">
       <h3 class="masonry-title text-center"><%= job_post.title %></h3>
       <% if job_post.photo.present? %>
-      <div class="text-center p-3">
+      <div class="job-image text-center p-3">
         <%= cl_image_tag(job_post.photo, class: "job-img", crop: "scale") %>
         </div>
         <% else %>
@@ -22,5 +23,6 @@
       </div>
     </div>
   </div>
+</div>
 <% end %>
 

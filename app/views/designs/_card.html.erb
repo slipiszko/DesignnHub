@@ -1,4 +1,5 @@
-<%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 600, height: 800, crop: "pad" %>
+<div style="height: 280px">
+<%= link_to cl_image_tag(design.photo, class: 'design-pic'), design_path(design.id), width: 400, height: 280, crop: "pad" %>
   <%= link_to profile_path(design.user) do %>
     <div class="infos">
       <div class="text-background">
@@ -17,4 +18,4 @@
       </div>
     </div>
   <% end %>
-
+</div>

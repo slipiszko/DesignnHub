@@ -1,3 +1,15 @@
+@media (max-width: 860px) {
+  .portfolio-index {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-container {
+    width: 80% !important;
+  }
+}
+
 .portfolio-main-container {
   right: 0;
   position: sticky;

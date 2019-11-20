@@ -67,3 +67,11 @@
     width: 580px;
   }
 }
+
+@media (max-width: 376px) {
+  #design-search-bar {
+    margin-left: 12px;
+    margin-right: 62px;
+    width: auto;
+  }
+}

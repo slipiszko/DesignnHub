@@ -1,6 +1,8 @@
   <div class="question-tag-container col-12">
     <div class="question-tag-left-block">
-      <%= tag.name %>
+      <div class="question-tag-title">
+        <h3><%= tag.name %></h3>
+      </div>
     </div>
     <div class="question-tag-right-block">
       <div class="question-tag-right-block-top">
@@ -17,17 +19,28 @@
           <% if tag.questions.count == 0 %>
             <p>No activity</p>
           <% else %>
-            <p><%= tag.questions.last.created_at %></p>
+            <% if tag.questions.last.created_at.today? %>
+              <p><%= tag.questions.last.created_at.strftime("Today, %H:%M") %></p>
+            <% else %>
+              <p><%= time_ago_in_words(tag.questions.last.created_at).capitalize %> ago</p>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="question-tag-right-block-bottom">
         <div class="question-tag-last-topic">
+          <p>Last topic:</p>
           <% if tag.questions.count == 0 %>
+            <p id="question-topic-p-tag">None</p>
           <% else %>
-            <p>Last topic:</p>
-            <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-medium") %>
-            <p><%= tag.questions.last.content.truncate(100) %></p>
+            <div class="question-tag-topic-user">
+              <% if tag.questions.last.user.photo.present? %>
+                <%= cl_image_tag(tag.questions.last.user.photo, class: "avatar-tag-index", gravity: "faces") %>
+              <% else %>
+                <%= image_tag (asset_path('avatar-default.png')), class: "avatar-tag-index" %>
+              <% end %>
+              <p id="question-topic-p-tag"><%= tag.questions.last.content.truncate(100) %></p>
+            </div>
           <% end %>
         </div>
       </div>
