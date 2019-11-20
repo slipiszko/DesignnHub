@@ -21,8 +21,9 @@ gem 'country_select'
 gem 'faker'
 
 gem 'cloudinary', '~> 1.9.1'
+gem 'mini_magick'
 
-gem "select2-rails"
+gem 'select2-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

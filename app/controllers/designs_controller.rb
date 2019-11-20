@@ -20,7 +20,7 @@ class DesignsController < ApplicationController
     authorize @design
     @design = Design.find(params[:id])
     @user = @design.user
-    @comments = @design.comments
+    @comments = @design.comments.order(created_at: :asc)
     @comment = Comment.new
   end
 

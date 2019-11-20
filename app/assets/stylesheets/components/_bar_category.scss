@@ -1,8 +1,22 @@
 .container-bar {
   justify-content: space-between;
   padding: 0 24px;
-  margin: 38px 12px 0px 12px;
+  margin: 24px 12px 0px 12px;
 }
+
+@media (max-width: 768px) {
+  .container-bar {
+    padding: 0 32px 0 24px;
+  }
+}
+
+@media (max-width: 376px) {
+  .container-bar {
+    padding: 0 18px 0 26px;
+    flex-direction: column;
+  }
+}
+
 
 .scroll-bar {
   display: flex;
