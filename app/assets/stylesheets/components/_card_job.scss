@@ -53,6 +53,10 @@
   color: $black;
 }
 
+.job-image {
+  padding: 14px 0 10px 0 !important;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .masonry-item {
@@ -67,14 +71,7 @@
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .masonry-item {
-    width: 31%;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
+// Larger devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .masonry-item {
     width: 31%;
