@@ -1,10 +1,9 @@
 .design-pic {
   width: 100%;
   height: auto;
-  object-fit: fill;
+  object-fit: cover;
   margin: 0px;
   padding: 0px;
-  opacity: 1;
 }
 
 .cards {
@@ -20,7 +19,7 @@
   position: absolute;
   text-align: center;
   cursor: pointer;
-  transition: all .5s ease;
+  transition: all .3s ease;
 
 }
 
@@ -30,17 +29,16 @@
 
 .title-link a {
   text-decoration: none;
-  margin-left: 14px;
-  margin-bottom: 12px;
+  font-family: $sub-headers-font;
   font-weight: 300;
-  color: white;
+  color: black;
 }
 
-.user-link {
+.user-link a {
   font-size: 12px;
-  font-weight: 600;
-  color: white;
-  margin-left: 8px;
+  font-family: $headers-font;
+  color: black;
+  margin-left: 10px;
 
   &:hover {
   text-decoration: none;
@@ -48,10 +46,9 @@
 }
 
 .text-background {
-  background: linear-gradient(to top, rgba(60, 60, 60, 0.7), transparent);
-  color: white;
-  font-size: 10px;
-  padding: 24px 24px 10px 20px;
+  background: white;
+  font-size: 12px;
+  padding: 10px 8px 8px 8px;
   text-align: left;
   z-index: 10;
   bottom: 0;

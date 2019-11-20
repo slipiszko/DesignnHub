@@ -12,9 +12,9 @@
           <div class="user-link">
             <%= design.user.first_name %>
             <%= design.user.last_name %>
+            <%= link_to design.title.truncate(30), design_path(design.id), class:"title-link" %>
           </div>
         </div>
-        <div class="title-link"><%= link_to design.title.truncate(30), design_path(design.id) %></div>
       </div>
     </div>
   <% end %>
