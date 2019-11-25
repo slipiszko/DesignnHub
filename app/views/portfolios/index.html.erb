@@ -34,21 +34,22 @@
                   </a>
                 </div>
               </div>
-              <div class="portfolio-info">
-                <div class="portfolio-user-info">
-                  <% if portfolio.user.photo.present? %>
-                    <%= cl_image_tag(portfolio.user.photo, class: "avatar-small mr-2", gravity: "faces") %>
-                  <% else %>
-                    <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
-                  <% end %>
-                  <%= portfolio.user.first_name %>
-                  <%= portfolio.user.last_name %>
+              <%= link_to portfolio_path(portfolio) do %>
+                <div class="portfolio-info">
+                  <div class="portfolio-user-info">
+                    <% if portfolio.user.photo.present? %>
+                      <%= cl_image_tag(portfolio.user.photo, class: "avatar-small mr-2", gravity: "faces") %>
+                    <% else %>
+                      <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small" %>
+                    <% end %>
+                    <%= portfolio.user.first_name %>
+                    <%= portfolio.user.last_name %>
+                  </div>
+                  <div id="portfolio-description">
+                    <%= portfolio.description %>
+                  </div>
                 </div>
-                <div id="portfolio-description">
-                  <%= portfolio.description %>
-                </div>
-              </div>
-              </div>
+              <% end %> 
             </div>
           <% end %>
         <% end %>
