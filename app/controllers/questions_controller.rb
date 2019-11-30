@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     if all_related_questions.count == 1
       @related_questions = []
     else
-      @related_questions = all_related_questions.delete_if { |x| x == @question }
+      @related_questions = all_related_questions.reject { |x| x == @question }
     end
   end
 
