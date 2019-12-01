@@ -1,6 +1,6 @@
 <%= link_to question_path(question), target: :_blank do %>
   <div class="question-container">
-    <div class="question-header-user">
+    <div class="question-header-user p-3">
       <% if question.user.photo.present? %>
         <%= cl_image_tag(question.user.photo, class: "avatar-medium", gravity: "faces") %>
       <% else %>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="question-content">
-      <p><%= question.content %></p>
+      <p class="p-3"><%= question.content %></p>
     </div>
 
     <% if question.photo.present? %>
@@ -27,7 +27,7 @@
     <% end %>
 
     <div class="question-anwser">
-      <div class="answer-box">
+      <div class="answer-box p-3">
         <% if current_user.photo.present? %>
           <%= cl_image_tag(current_user.photo, class: "avatar-small", gravity: "faces") %>
         <% else %>
