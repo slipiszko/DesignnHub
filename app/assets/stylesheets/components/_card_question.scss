@@ -45,5 +45,8 @@
 .question-photo {
   justify-content: center;
   display: flex;
+  img {
+    width: 100%;
+  }
 }
 
