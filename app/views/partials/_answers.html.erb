@@ -35,8 +35,8 @@
   </div>
   <div>
     <%= render 'answer_vote_form', answer: answer %>
+    <button class="reply-btn m-3">Reply</button>
   </div>
-  <button class="reply-btn">Reply</button>
   <div class="reply-show">
     <div class="respone-show" id="answer<%= answer.id %>-response-form">
       <%= render 'partials/response_form', media: answer.question, content: answer, response: Response.new %>
