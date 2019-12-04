@@ -15,6 +15,7 @@ import '../components/job_card';
 // import '../components/job_post_card';
 import '../components/design_photo_pinner';
 import '../components/design_show';
+import '../components/reply_show';
 
 initSelect2();
 
