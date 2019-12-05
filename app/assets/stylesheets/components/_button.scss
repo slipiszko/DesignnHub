@@ -132,6 +132,15 @@
   color: black;
 }
 
+.reply-btn {
+  border: solid 2px black;
+  font-size: small;
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
 
 
 
