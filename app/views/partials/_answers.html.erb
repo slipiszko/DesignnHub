@@ -35,7 +35,7 @@
   </div>
   <div>
     <%= render 'answer_vote_form', answer: answer %>
-    <button class="reply-btn m-3">Reply</button>
+    <button class="btn reply-btn m-3">Reply</button>
   </div>
   <div class="respone-show">
     <div class="respone-question-content" id="answer<%= answer.id %>-response-form">
@@ -44,7 +44,7 @@
   </div>  
   <div id="answer<%= answer.id %>-responses p-4">
     <% answer.responses.each do |response| %>
-      <div class="p-2">
+      <div class="respone-answer-content p-2">
         <div class="d-flex align-items-center">
           <% if response.user.photo.present? %>
             <%= cl_image_tag(response.user.photo, class: "avatar-small", gravity: "faces") %>
@@ -56,7 +56,7 @@
             <%= response.user.last_name %>
           </div>
         </div>
-        <div class="response-content">
+        <div class="py-2 pl-2 response-content">
           <%= response.content %>
         </div>
       </div>
