@@ -3,7 +3,7 @@
         $(".respone-show").slideToggle("fast");
     });
     
-    $(".respone-content").click(function() {
+    $(".respone-question-content").click(function() {
         $(".respone-show").open();
     });
 });

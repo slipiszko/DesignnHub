@@ -38,13 +38,13 @@
     <button class="reply-btn m-3">Reply</button>
   </div>
   <div class="respone-show">
-    <div class="respone-content" id="answer<%= answer.id %>-response-form">
+    <div class="respone-question-content" id="answer<%= answer.id %>-response-form">
       <%= render 'partials/response_form', media: answer.question, content: answer, response: Response.new %>
     </div>
   </div>  
   <div id="answer<%= answer.id %>-responses p-4">
     <% answer.responses.each do |response| %>
-      <div>
+      <div class="p-2">
         <div class="d-flex align-items-center">
           <% if response.user.photo.present? %>
             <%= cl_image_tag(response.user.photo, class: "avatar-small", gravity: "faces") %>
