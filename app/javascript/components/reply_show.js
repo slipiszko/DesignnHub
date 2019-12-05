@@ -1,10 +1,10 @@
   $(function() {
     $(".reply-btn").click(function() {
-        $(".reply-show").slideToggle("fast");
+        $(".respone-show").slideToggle("fast");
     });
     
-    $(".respone-show").click(function() {
-        $(".reply-show").open();
+    $(".respone-question-content").click(function() {
+        $(".respone-show").open();
     });
 });
 

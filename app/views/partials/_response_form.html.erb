@@ -1,7 +1,7 @@
 <%= simple_form_for [media, content, response] , method: :post do |form| %>
-  <%= form.input :content, label: false, placeholder: "Reply..." %>
+  <%= form.input :content, label: false, placeholder: "Add to the discussion..." %>
   <div class="text-right mb-3">
-  <%= form.button :button, "Cancel", type: :reset, class: "btn btn-none small" %>
-  <%= form.submit "Submit", class: "btn btn-primary small" %>
+  <%= form.button :button, "Cancel", type: :reset, class: "text-small btn btn-none" %>
+  <%= form.submit "Submit", class: "text-small btn btn-primary" %>
   </div>
 <% end %>
