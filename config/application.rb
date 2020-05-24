@@ -20,5 +20,12 @@ module DesignnHub
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    # Heroku is attempting to connect to the database as part of rake assets:precompile. 
+    # Because the config vars are not present in the environment, we use a 
+    # placeholder DATABASE_URL to satisfy Rails.
+    config.assets.initialize_on_precompile = false
+
+    config.serve_static_assets = true
   end
 end
