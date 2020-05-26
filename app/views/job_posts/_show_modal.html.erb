@@ -2,7 +2,7 @@
   <div class="modal-backdrop show"></div>
   <div class="modal d-block fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 900px;">
       <div class="modal-header">
         <h5 class="modal-title"><%= @job_post.title %></h5>
         <button type="button" class="js-job-post-modal-close close">
@@ -42,7 +42,7 @@
                       <% else %>
                         <%= image_tag (asset_path('avatar-default.png')), class: "avatar-small"  %>
                       <% end %>
-                      <div class="user-link">
+                      <div class="user-link mx-1">
                         <p><%= @job_post.user.first_name %> <%= @job_post.user.last_name %></p>
                       </div>
                     </div>
