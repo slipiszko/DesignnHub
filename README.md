@@ -4,7 +4,7 @@ A digital destination for all designers to connect and collaborate easily.
 
 The next vision for DesignnHub is to continue adding new features such as Q&A platform, community to allow users get connected in a meaningful way.
 
-A Rails app generated along with Javascript, Pundit and PostgreSQL. Created in Melbourne during [Le Wagon coding bootcamp](https://www.lewagon.com).
+A Rails app generated with Javascript, Pundit and PostgreSQL. Created in Melbourne during [Le Wagon coding bootcamp](https://www.lewagon.com).
 
 ### Prerequisites
 
